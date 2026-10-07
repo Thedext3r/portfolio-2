@@ -328,12 +328,18 @@ function tidy(){$$(".n,.pol,.tm").forEach(n=>{n.style.removeProperty("--tx");n.s
 $("#tidy").onclick=tidy;
 // writable notes
 const nt=$("#nt"),CL=["bl","g","p"];
-$("#pin").onclick=()=>{const v=nt.value.trim();if(!v){toast("Write something first");nt.focus();return}
-const d=document.createElement("div");d.className="n pinned fresh "+CL[Math.floor(Math.random()*3)];d.style.setProperty("--r",(Math.random()*6-3).toFixed(1)+"deg");
+function saveNotes(){ ls.set("notes",JSON.stringify([...$("#mine").querySelectorAll(".pinned .q")].map(x=>x.textContent))); }
+function addNote(v,isNew){
+const d=document.createElement("div");d.className="n pinned "+(isNew?"fresh ":"")+CL[Math.floor(Math.random()*3)];d.style.setProperty("--r",(Math.random()*6-3).toFixed(1)+"deg");
 const l=document.createElement("span");l.className="lab";l.textContent="a note from you";
 const p=document.createElement("p");p.className="q";p.textContent=v;
 const a=document.createElement("a");a.className="em";a.textContent="Email this to me";a.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Note from your portfolio")+"&body="+encodeURIComponent(v);
-d.append(l,p,a);$("#mine").append(d);nt.value="";sfx("drop");toast("Pinned! Press Email this to me to send it.")};
+const rm=document.createElement("button");rm.innerHTML="&times;";rm.style.cssText="position:absolute;top:5px;right:5px;background:none;border:none;font-size:20px;cursor:pointer;padding:5px;opacity:0.5;line-height:1;";rm.onclick=()=>{d.remove();saveNotes()};
+d.append(l,rm,p,a);$("#mine").append(d);
+}
+try{JSON.parse(ls.get("notes")||"[]").forEach(n=>addNote(n,false))}catch(e){}
+$("#pin").onclick=()=>{const v=nt.value.trim();if(!v){toast("Write something first");nt.focus();return}
+addNote(v,true);nt.value="";saveNotes();sfx("drop");toast("Pinned! Press Email this to me to send it.")};
 // peel
 document.addEventListener("click",e=>{const b=e.target.closest(".cn");if(!b)return;const n=b.closest(".pl");n.classList.toggle("peeled");b.setAttribute("aria-expanded",n.classList.contains("peeled"));sfx("swish")});
 // lamp: day and night
