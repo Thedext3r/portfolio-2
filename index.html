@@ -1,473 +1,2056 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sunil Ohdar · Digital Marketing</title>
-<meta name="description" content="Case studies shown as a research wall, introduced by a short trailer.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600&family=Special+Elite&display=swap" rel="stylesheet">
-<style>
-:root{--cork:#b98d5c;--dots:rgba(0,0,0,.13);--paper:#fffdf5;--ink:#1d1a16;--red:#d3262b;--y:#fff1a0;--bl:#c4e4ff;--g:#cdf3c2;--p:#ffd5e2;
---t:'Bebas Neue',Impact,sans-serif;--m:'Special Elite','Courier New',monospace;--h:'Caveat','Comic Sans MS',cursive;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--cork:#5a4330;--dots:rgba(0,0,0,.3)}}
-:root[data-theme="dark"]{--cork:#5a4330;--dots:rgba(0,0,0,.3)}
-*,*::before,*::after{box-sizing:border-box}
-html{height:100%;scroll-behavior:smooth}
-body{margin:0;background:var(--cork) radial-gradient(var(--dots) 1px,transparent 1.6px) 0 0/7px 7px;color:var(--ink);font:400 16px/1.5 var(--m)}
-button{font:inherit;color:inherit;cursor:pointer}a{color:inherit}
-:focus-visible{outline:3px solid #1747ff;outline-offset:3px}
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-/* trailer */
-#tr{position:fixed;inset:0;z-index:50;background:#050505;color:#f3efe6;display:grid;place-items:center;text-align:center;padding:30px;transition:opacity .7s;cursor:pointer}
-#tr.out{opacity:0;pointer-events:none}
-#tr::before{content:"";position:absolute;inset:0;opacity:.18;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
-#tr::after{content:"";position:absolute;inset:0;background:radial-gradient(transparent 45%,#000 120%)}
-#card{position:relative;z-index:2;max-width:900px}
-#card p{font:400 clamp(30px,6vw,64px)/1.1 var(--t);letter-spacing:.04em;margin:0}
-#card p.big{font-size:clamp(64px,15vw,170px);line-height:.95}
-#card small{display:block;font:400 clamp(16px,2.4vw,24px) var(--m);margin-top:16px;color:#d8d2c4}
-#card.in{animation:fi 1s ease-out both}
-@keyframes fi{from{opacity:0;letter-spacing:.2em;filter:blur(6px)}to{opacity:1;filter:none}}
-#skip{position:absolute;z-index:3;right:20px;bottom:calc(24px + env(safe-area-inset-bottom,0px));border:1px solid #f3efe6;background:none;color:#f3efe6;border-radius:99px;padding:10px 18px}
-#tap{position:absolute;z-index:3;left:20px;bottom:calc(30px + env(safe-area-inset-bottom,0px));font-size:14px;color:#9d978a}
-#bar{position:absolute;z-index:3;left:0;bottom:0;height:3px;background:var(--red);transition:width 2.3s linear}
-/* header note */
-header{padding:56px 0 30px}
-.hd{display:grid;grid-template-columns:1.3fr 1fr;gap:34px;align-items:start}
-.n{position:relative;background:var(--y);padding:22px 18px 18px;box-shadow:2px 6px 14px #0004;transform:rotate(var(--r,0deg));transition:transform .25s,box-shadow .25s,opacity .3s}
-.n::before{content:"";position:absolute;top:-8px;left:50%;width:15px;height:15px;margin-left:-7px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff7b7b,var(--red) 60%,#7a1013);box-shadow:1px 3px 3px #0006}
-.n:hover{transform:rotate(0) scale(1.03);box-shadow:4px 12px 22px #0005;z-index:4}
-.n.big{padding:30px 26px}
-.n h1{font:400 clamp(48px,8vw,92px)/.92 var(--t);margin:0 0 12px;letter-spacing:.01em}
-.n p{margin:0 0 12px}
-.lab{display:block;font-size:13px;color:#6a6258;margin-bottom:8px}
-.q{font:600 25px/1.15 var(--h)}
-.bl{background:var(--bl)}.g{background:var(--g)}.p{background:var(--p)}.pp{background:var(--paper)}
-.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.b{border:2px solid var(--ink);background:var(--paper);padding:9px 16px;text-decoration:none;display:inline-block;box-shadow:3px 3px 0 var(--ink);font-size:15px}
-.b:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
-.b.r{background:var(--red);color:#fff;border-color:var(--ink)}
-.status{display:inline-block;width:9px;height:9px;background:#1b9d52;border-radius:50%;margin-right:8px}
-h2.t{font:400 clamp(34px,5vw,56px)/1 var(--t);color:var(--paper);text-shadow:2px 3px 0 #0006;margin:0 0 6px;letter-spacing:.03em}
-/* clusters */
-.cl{position:relative;padding:34px 0 40px}
-.cl svg{position:absolute;inset:0;width:100%;height:100%;z-index:6;pointer-events:none;overflow:visible}
-.cl path{fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round;filter:drop-shadow(1px 3px 2px #0005);stroke-dashoffset:var(--len);stroke-dasharray:var(--len);transition:stroke-dashoffset 1s ease-in-out calc(.9s + var(--k)*.35s)}
-.cl.drawn path{stroke-dashoffset:0}
-.row{display:grid;grid-template-columns:1.15fr repeat(4,1fr);gap:26px;align-items:start;margin-top:22px}
-.row .n:nth-child(2){margin-top:26px}.row .n:nth-child(4){margin-top:38px}.row .n:nth-child(3){margin-top:6px}
-.pol{background:#fff;padding:12px 12px 10px;border:0;text-align:left;box-shadow:2px 6px 14px #0004;transform:rotate(var(--r,0deg));transition:transform .25s}
-.pol:hover{transform:rotate(0) scale(1.04)}
-.pol .ph{aspect-ratio:1/1;display:grid;place-items:center;color:#fff;font:400 40px var(--t);text-align:center;line-height:1}
-.pol b{display:block;font:600 27px/1 var(--h);margin-top:8px}
-.pol span{font-size:13px;color:#6a6258}
-.pol{position:relative}.pol::before{content:"";position:absolute;top:-8px;left:50%;width:15px;height:15px;margin-left:-7px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff7b7b,var(--red) 60%,#7a1013);box-shadow:1px 3px 3px #0006;z-index:2}
-.res{font:400 clamp(54px,6vw,76px)/.9 var(--t);display:block;color:var(--red)}
-.cl.follow .n:not(.lit),.cl.follow .pol:not(.lit){opacity:.4}
-.n.lit,.pol.lit{transform:rotate(0) scale(1.07);box-shadow:0 0 0 4px #fff,4px 14px 26px #0006;z-index:5}
-.fl{margin-top:22px}
-/* credits */
-#credits{background:#050505;color:#f3efe6;margin-top:50px;padding:90px 0 80px;text-align:center}
-#credits h2{font:400 clamp(40px,7vw,84px)/1 var(--t);margin:0 0 40px;letter-spacing:.05em}
-.cr{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px;max-width:760px;margin:0 auto 14px;font-size:17px}
-.cr b{font:400 24px var(--t);letter-spacing:.06em;text-align:right;color:#f3efe6}.cr span{text-align:left;color:#b9b2a3}
-.cr+h3{font:400 18px var(--m);color:#8a8478;margin:40px 0 8px}
-.cs{margin:50px 0 6px}.cs .b{background:#f3efe6;color:#050505;border-color:#f3efe6;box-shadow:none;margin:6px}
-.cs .b.r{background:var(--red);color:#fff;border-color:var(--red)}
-footer{padding:22px 0 calc(30px + env(safe-area-inset-bottom,0px));background:#050505;color:#8a8478;text-align:center;font-size:14px}
-dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;color:var(--ink)}
-dialog::backdrop{background:#000a}
-.cd{width:min(780px,94vw);margin:5vh auto;background:var(--paper);padding:32px;max-height:90vh;overflow:auto;box-shadow:0 20px 60px #000a}
-.cd h2{font:400 clamp(40px,7vw,64px)/1 var(--t);margin:0 0 4px}.cd h3{font:600 28px var(--h);margin:22px 0 2px}.cd p{margin:0}
-.st{display:flex;flex-wrap:wrap;gap:26px;margin:16px 0}.st b{font:400 52px/1 var(--t);color:var(--red);display:block}
-.ba{position:relative;aspect-ratio:16/9;overflow:hidden;border:2px solid var(--ink);margin-top:10px;user-select:none}
-.ba>div{position:absolute;inset:0;display:grid;place-items:center;font:400 30px var(--t);padding:16px;text-align:center}
-.ba .a{background:repeating-linear-gradient(45deg,#cfc9bd,#cfc9bd 12px,#ddd7cb 12px,#ddd7cb 24px)}
-.ba .d{background:var(--red);color:#fff;clip-path:inset(0 0 0 var(--s,50%))}
-.ba .hn{position:absolute;top:0;bottom:0;left:var(--s,50%);width:3px;background:#fff;pointer-events:none}
-.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
-.ba input:focus-visible+.hn{outline:3px solid #1747ff}
-.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--ink);color:var(--paper);padding:11px 20px;opacity:0;transition:.25s;z-index:70;pointer-events:none}
-.toast.on{opacity:1;transform:translate(-50%,0)}
-:root{--nz:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
-body{background-image:radial-gradient(var(--dots) 1px,transparent 1.6px),radial-gradient(rgba(255,255,255,.09) 2px,transparent 3px);background-size:7px 7px,13px 13px;background-position:0 0,4px 5px}
-body::before{content:"";position:fixed;inset:-12%;z-index:7;pointer-events:none;background:var(--nz);opacity:.13;animation:gr .9s steps(1) infinite;will-change:transform}
-@keyframes gr{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,3%)}}
-body::after{content:"";position:fixed;inset:0;z-index:8;pointer-events:none;background:radial-gradient(circle 560px at var(--lx,50%) var(--ly,30%),rgba(255,228,168,.22),transparent 70%),radial-gradient(ellipse at 50% 45%,transparent 45%,rgba(0,0,0,.22));animation:fk 7s infinite}
-@keyframes fk{0%,45%,100%{opacity:1}48%{opacity:.86}50%{opacity:1}52%{opacity:.93}}
-.n,.pp,.pol{background-image:linear-gradient(165deg,rgba(255,255,255,.4),transparent 45%,rgba(0,0,0,.07));box-shadow:0 1px 1px #0003,0 9px 12px -5px #0006,0 20px 26px -12px #0005}
-.n.g::before,.pol::before{display:none}
-.n.g::after,.pol::after{content:"";position:absolute;top:-13px;left:50%;width:78px;height:24px;margin-left:-39px;background:rgba(255,255,240,.5);border:1px solid rgba(255,255,255,.35);box-shadow:0 1px 3px #0003;transform:rotate(-4deg);z-index:2}
-.row>:nth-child(2){--j:1}.row>:nth-child(3){--j:2}.row>:nth-child(4){--j:3}.row>:nth-child(5){--j:4}
-.cl:not(.drawn) .row>*{opacity:0}
-.cl.drawn .row>*{animation:drop .75s cubic-bezier(.2,.9,.3,1.2) backwards;animation-delay:calc(var(--j,0)*.14s)}
-@keyframes drop{from{opacity:0;transform:translateY(-90px) rotate(calc(var(--r,0deg)*6)) scale(1.15)}55%{opacity:1}to{opacity:1;transform:translateY(0) rotate(var(--r,0deg)) scale(1)}}
-.hd .n{opacity:0}
-body.go .hd .n{opacity:1;animation:drop .9s cubic-bezier(.2,.9,.3,1.2) backwards}
-body.go .hd .n+.n{animation-delay:.3s}
-.slate{width:min(330px,100%);position:relative;z-index:3;transform:rotate(-1.5deg);filter:drop-shadow(2px 8px 8px #0006)}
-.sticks{height:26px;border:2px solid #111;background:repeating-linear-gradient(115deg,#111 0 22px,#f4f0e6 22px 44px);transform-origin:left bottom;transform:rotate(-24deg)}
-.cl.drawn .sticks{animation:clap .45s .1s ease-in both}
-@keyframes clap{from{transform:rotate(-24deg)}to{transform:rotate(0)}}
-.sb{background:#111;color:#f4f0e6;padding:10px 14px;border:2px solid #111;display:grid}
-.sb b{font:400 14px var(--m);color:#a29c8e}.sb span{font:400 36px/1 var(--t);letter-spacing:.04em}.sb em{font-size:13px;color:#a29c8e}
-.snd{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:60;background:#111;color:#f4f0e6;border:1.5px solid #f4f0e6;border-radius:99px;padding:8px 16px;font-size:14px;box-shadow:0 4px 12px #0007}
-.snd[aria-pressed=true]{background:var(--red);border-color:#fff}
-#card{width:100%;max-width:1100px}#card.in{animation:none}
-#fl{position:absolute;inset:0;background:#fff;opacity:0;z-index:2;pointer-events:none}#fl.on{animation:flash .45s ease-out}
-@keyframes flash{0%{opacity:.85}100%{opacity:0}}
-.stk{position:relative;height:clamp(80px,22vw,250px);display:grid;place-items:center}.stk.short{height:clamp(60px,15vw,170px)}
-.w{position:absolute;display:block;font:400 clamp(58px,16vw,210px)/.9 var(--t);letter-spacing:.02em;white-space:nowrap;animation:wd var(--du,.3s) var(--d) both}
-.stk.short .w{font-size:clamp(48px,12vw,150px)}.w.hold{animation:wh .5s var(--d) both}.w b{color:#ff3b3f;font-weight:400}
-@keyframes wd{0%{opacity:0;transform:scale(2.2);filter:blur(10px)}12%{opacity:1;transform:scale(1);filter:none}85%{opacity:1;transform:scale(1.04)}100%{opacity:0;transform:scale(1.08)}}
-@keyframes wh{0%{opacity:0;transform:scale(2.2);filter:blur(10px)}30%{opacity:1;transform:scale(1);filter:none}100%{opacity:1;transform:scale(1)}}
-.pst{display:grid;justify-items:center}.ln{overflow:hidden;line-height:.95}
-.ln span{display:block;font-family:var(--t);animation:rise .55s cubic-bezier(.2,.9,.2,1) var(--d) both}.rd{color:#ff3b3f}
-@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
-.nm{font:400 clamp(58px,15vw,170px)/.95 var(--t);letter-spacing:.03em}
-.nm i{display:inline-block;font-style:normal;animation:pop .35s var(--d) both}
-@keyframes pop{from{opacity:0;transform:scale(1.8)}to{opacity:1;transform:none}}
-.rl{font:400 clamp(16px,2.6vw,26px) var(--m);margin-top:14px;animation:trk 1.2s 1s ease-out both}
-@keyframes trk{from{opacity:0;letter-spacing:1.2em}to{opacity:1;letter-spacing:.35em}}
-.bar{display:block;height:4px;background:var(--red);margin:18px auto 0;animation:bar .8s .9s ease-out both}
-@keyframes bar{from{width:0}to{width:min(320px,60%)}}
-.sm{font:400 clamp(14px,2.2vw,22px) var(--m);letter-spacing:.3em;margin-bottom:6px;animation:wh .5s both}
-.spr{font:400 clamp(54px,14vw,170px)/.95 var(--t);background:linear-gradient(100deg,#f3efe6 40%,#ff5a5e 50%,#f3efe6 60%) 100% 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:spr 1.4s cubic-bezier(.2,.8,.2,1) both,sw 1.8s .2s ease-in-out both}
-@keyframes spr{from{letter-spacing:-.15em;transform:scale(1.5);opacity:0}to{letter-spacing:.06em;transform:scale(1);opacity:1}}
-@keyframes sw{from{background-position:100% 0}to{background-position:0 0}}
-@media(prefers-reduced-motion:reduce){.w{opacity:0}.w.hold{opacity:1}}
-header{padding:120px 0 30px}
-.toast{bottom:calc(22px + env(safe-area-inset-bottom,0px))}
-body::after{transition:opacity .6s}body.night::after{animation:none;opacity:0}
-.n,.pol{translate:var(--tx,0px) var(--ty,0px);cursor:grab;user-select:none;-webkit-user-select:none}
-.n.drag,.pol.drag{cursor:grabbing;z-index:9;transform:rotate(0) scale(1.05);box-shadow:0 2px 2px #0003,0 24px 34px -8px #0008;transition:none}
-body.tidy .n,body.tidy .pol{transition:translate .65s cubic-bezier(.2,.9,.3,1.12),transform .25s,box-shadow .25s,opacity .3s}
-.fresh{animation:drop .75s cubic-bezier(.2,.9,.3,1.2) backwards}
-.mine{display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start;padding:26px 0 10px}
-.n.blank{width:min(320px,100%)}.n.pinned{width:min(260px,100%);overflow-wrap:anywhere}
-.n textarea{user-select:text;-webkit-user-select:text;cursor:text}
-.blank textarea{display:block;width:100%;min-height:100px;border:0;background:transparent;font:600 24px/1.15 var(--h);resize:none;color:var(--ink);padding:0;margin-bottom:10px}
-.blank textarea:focus-visible{outline:none}.n .em{font-size:13px}
-.n.pl{padding:0;background:none;box-shadow:none;filter:drop-shadow(0 1px 1px #0003) drop-shadow(0 10px 9px #0005)}
-.n.pl:hover{box-shadow:none}.n.pl::before{z-index:4}
-.pl .fr{position:relative;z-index:1;padding:22px 18px 18px;background-image:linear-gradient(165deg,rgba(255,255,255,.4),transparent 45%,rgba(0,0,0,.07));clip-path:polygon(0 0,100% 0,100% 100%,100% 100%,0 100%);transition:clip-path .45s cubic-bezier(.2,.8,.2,1)}
-.bl .fr{background-color:var(--bl)}.g .fr{background-color:var(--g)}
-.cn:hover+.fr{clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%)}
-.pl.peeled .fr,.pl.peeled .cn:hover+.fr{clip-path:polygon(0 0,100% 0,100% 0,0 100%,0 100%)}
-.bk{position:absolute;inset:0;padding:12px 14px;background:#fffdf5 linear-gradient(135deg,transparent 44%,rgba(0,0,0,.2) 50%,transparent 64%);display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;text-align:right;font:600 19px/1.05 var(--h);color:#7a1013}
-.bk small{font:400 11px var(--m);color:#6a6258;margin-bottom:3px}
-.cn{position:absolute;right:0;bottom:0;width:34px;height:34px;border:0;background:none;padding:0;z-index:3;cursor:pointer}
-.cn::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#fff,#cfc9b8);clip-path:polygon(100% 24%,24% 100%,24% 24%);opacity:0;transition:opacity .2s}
-.cn:hover::after{opacity:1}.pl.peeled .cn::after{opacity:0}
-.under{display:flex;flex-wrap:wrap;gap:22px;align-items:center;margin-top:22px}.under .fl{margin-top:0}
-.ann{background:#fff;padding:8px;width:176px;transform:rotate(2deg);box-shadow:0 1px 1px #0003,0 9px 12px -5px #0006;font-size:7px;line-height:1.25;color:#333}
-.ann .mp{height:54px;background:linear-gradient(135deg,#dfe5ff,#fff);position:relative;margin-bottom:5px}
-.ann .mp::after{content:"";position:absolute;left:38%;top:28%;width:26px;height:16px;border:2px solid var(--red);border-radius:50%}
-.ann b{font-weight:400;display:block;font-size:11px;color:#6a6258;margin-top:4px}
-#night{position:fixed;inset:0;z-index:8;pointer-events:none;background:rgba(5,6,12,.88);opacity:0;transition:opacity .7s;--m1:radial-gradient(circle 300px at var(--lx,50%) var(--ly,30%),transparent 0,transparent 35%,#000 100%);--m2:radial-gradient(ellipse 62% 85% at var(--cx,50%) 0,transparent 0,transparent 30%,#000 100%);-webkit-mask-image:var(--m1),var(--m2);mask-image:var(--m1),var(--m2);-webkit-mask-composite:source-in;mask-composite:intersect}
-@supports not ((mask-composite:intersect) or (-webkit-mask-composite:source-in)){#night{background:rgba(5,6,12,.5)}}
-#lc{position:fixed;inset:0;z-index:8;pointer-events:none;opacity:0;transition:opacity .7s;background:radial-gradient(ellipse 62% 85% at var(--cx,50%) 0,rgba(255,214,140,.28),transparent 70%),radial-gradient(circle 280px at var(--lx,50%) var(--ly,30%),rgba(255,226,160,.16),transparent 70%)}
-body.night #night,body.night #lc{opacity:1}
-#lamp{position:absolute;top:0;left:50%;margin-left:-34px;z-index:5;background:none;border:0;padding:0;cursor:pointer}
-#lamp svg{display:block;transition:transform .2s}
-#lamp .bulb{fill:#9b8f66;transition:fill .5s}body.night #lamp .bulb{fill:#ffecb8;filter:drop-shadow(0 6px 10px #ffcf70)}
-body:not(.go) #lamp{display:none}
-@media(max-width:960px){.hd{grid-template-columns:1fr}.row{grid-template-columns:1fr 1fr}.row .n:nth-child(n){margin-top:0}}
-@media(max-width:560px){.row{grid-template-columns:1fr;gap:34px;padding:0 14px}.row>*:nth-child(even){margin-left:18%}.row>*:nth-child(odd){margin-right:18%}.cr{grid-template-columns:1fr}.cr b,.cr span{text-align:center}}
-@media(prefers-reduced-motion:reduce){*,*::before{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sunil Ohdar · Digital Marketing</title>
+  <meta name="description" content="Case studies shown as a research wall, introduced by a short trailer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600&family=Special+Elite&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --cork: #b98d5c;
+      --dots: rgba(0, 0, 0, .13);
+      --paper: #fffdf5;
+      --ink: #1d1a16;
+      --red: #d3262b;
+      --y: #fff1a0;
+      --bl: #c4e4ff;
+      --g: #cdf3c2;
+      --p: #ffd5e2;
+      --t: 'Bebas Neue', Impact, sans-serif;
+      --m: 'Special Elite', 'Courier New', monospace;
+      --h: 'Caveat', 'Comic Sans MS', cursive;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px)
+    }
 
-.smap{position:relative;padding:10px 0 4px}.smap svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:1}
-.smap path{fill:none;stroke:var(--red);stroke-width:2.5;opacity:.45;transition:opacity .25s,stroke-width .25s;filter:drop-shadow(1px 2px 1px #0005)}
-.smap.act path{opacity:.08}.smap.act path.on{opacity:1;stroke-width:4}
-.skr,.pjr{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:14px;justify-content:center}.pjr{margin-top:110px}
-.sn,.pn{border:0;padding:12px 18px;font:inherit;position:relative;box-shadow:0 1px 1px #0003,0 8px 10px -5px #0006;transition:transform .2s,opacity .25s,box-shadow .2s}
-.sn{background:var(--y);transform:rotate(-1deg)}.sn:nth-child(2n){background:var(--bl);transform:rotate(1.5deg)}.sn:nth-child(3n){background:var(--g);transform:rotate(-2deg)}
-.pn{background:#fff;font:600 24px var(--h);padding:10px 20px}
-.smap.act .sn:not(.lit),.smap.act .pn:not(.lit){opacity:.35}.sn.lit,.pn.lit{transform:scale(1.1) rotate(0);box-shadow:0 0 0 3px #fff,0 14px 22px -6px #0008}
-.tms{display:flex;flex-wrap:wrap;gap:36px;justify-content:center;padding:28px 0 10px}
-.tm{position:relative;margin:0;width:min(280px,100%);background:#fff;padding:16px 16px 12px;transform:rotate(var(--r,0deg));box-shadow:0 1px 1px #0003,0 9px 12px -5px #0006,0 20px 26px -12px #0005;transition:transform .25s;translate:var(--tx,0px) var(--ty,0px);cursor:grab;user-select:none;-webkit-user-select:none}
-.tm:hover{transform:rotate(0) scale(1.03)}.tm.drag{cursor:grabbing;z-index:9;transform:rotate(0) scale(1.05);transition:none}
-.tm::before{content:"";position:absolute;top:-12px;left:50%;width:78px;height:24px;margin-left:-39px;background:rgba(255,255,240,.55);border:1px solid rgba(255,255,255,.35);box-shadow:0 1px 3px #0003;transform:rotate(-4deg)}
-.tm .av{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;color:#fff;font:400 34px var(--t);margin-bottom:8px}
-.tm blockquote{margin:0 0 10px;font:600 25px/1.1 var(--h)}.tm figcaption{font-size:13px;color:#6a6258}
-.cf{display:grid;gap:14px;max-width:520px;margin:30px auto 0;text-align:left}
-.cf label{display:grid;gap:6px;font-size:15px;color:#cfc8b8}
-.cf input,.cf textarea{font:inherit;color:#f3efe6;background:#141414;border:1.5px solid #3a3a3a;padding:12px 14px;width:100%;border-radius:0}
-.cf [aria-invalid=true]{border-color:#ff5a5e}.er{color:#ff7478;font-size:13px;min-height:1.2em}
-.cf .b{justify-self:start}.okm{border:1.5px solid #3a3a3a;padding:24px;max-width:520px;margin:30px auto 0}
-#lamp{touch-action:none;cursor:grab}#lamp:active{cursor:grabbing}#lamp svg{transform-origin:34px 0}
-</style>
+    @media(prefers-color-scheme:dark) {
+      :root:not([data-theme="light"]) {
+        --cork: #5a4330;
+        --dots: rgba(0, 0, 0, .3)
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --cork: #5a4330;
+      --dots: rgba(0, 0, 0, .3)
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    html {
+      height: 100%;
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: var(--cork) radial-gradient(var(--dots) 1px, transparent 1.6px) 0 0/7px 7px;
+      color: var(--ink);
+      font: 400 16px/1.5 var(--m)
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      cursor: pointer
+    }
+
+    a {
+      color: inherit
+    }
+
+    :focus-visible {
+      outline: 3px solid #1747ff;
+      outline-offset: 3px
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    /* trailer */
+    #tr {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: #050505;
+      color: #f3efe6;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 30px;
+      transition: opacity .7s;
+      cursor: pointer
+    }
+
+    #tr.out {
+      opacity: 0;
+      pointer-events: none
+    }
+
+    #tr::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .18;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")
+    }
+
+    #tr::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(transparent 45%, #000 120%)
+    }
+
+    #card {
+      position: relative;
+      z-index: 2;
+      max-width: 900px
+    }
+
+    #card p {
+      font: 400 clamp(30px, 6vw, 64px)/1.1 var(--t);
+      letter-spacing: .04em;
+      margin: 0
+    }
+
+    #card p.big {
+      font-size: clamp(64px, 15vw, 170px);
+      line-height: .95
+    }
+
+    #card small {
+      display: block;
+      font: 400 clamp(16px, 2.4vw, 24px) var(--m);
+      margin-top: 16px;
+      color: #d8d2c4
+    }
+
+    #card.in {
+      animation: fi 1s ease-out both
+    }
+
+    @keyframes fi {
+      from {
+        opacity: 0;
+        letter-spacing: .2em;
+        filter: blur(6px)
+      }
+
+      to {
+        opacity: 1;
+        filter: none
+      }
+    }
+
+    #skip {
+      position: absolute;
+      z-index: 3;
+      right: 20px;
+      bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+      border: 1px solid #f3efe6;
+      background: none;
+      color: #f3efe6;
+      border-radius: 99px;
+      padding: 10px 18px
+    }
+
+    #tap {
+      position: absolute;
+      z-index: 3;
+      left: 20px;
+      bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+      font-size: 14px;
+      color: #9d978a
+    }
+
+    #bar {
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      background: var(--red);
+      transition: width 2.3s linear
+    }
+
+    /* header note */
+    header {
+      padding: 56px 0 30px
+    }
+
+    .hd {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 34px;
+      align-items: start
+    }
+
+    .n {
+      position: relative;
+      background: var(--y);
+      padding: 22px 18px 18px;
+      box-shadow: 2px 6px 14px #0004;
+      transform: rotate(var(--r, 0deg));
+      transition: transform .25s, box-shadow .25s, opacity .3s
+    }
+
+    .n::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      width: 15px;
+      height: 15px;
+      margin-left: -7px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ff7b7b, var(--red) 60%, #7a1013);
+      box-shadow: 1px 3px 3px #0006
+    }
+
+    .n:hover {
+      transform: rotate(0) scale(1.03);
+      box-shadow: 4px 12px 22px #0005;
+      z-index: 4
+    }
+
+    .n.big {
+      padding: 30px 26px
+    }
+
+    .n h1 {
+      font: 400 clamp(48px, 8vw, 92px)/.92 var(--t);
+      margin: 0 0 12px;
+      letter-spacing: .01em
+    }
+
+    .n p {
+      margin: 0 0 12px
+    }
+
+    .lab {
+      display: block;
+      font-size: 13px;
+      color: #6a6258;
+      margin-bottom: 8px
+    }
+
+    .q {
+      font: 600 25px/1.15 var(--h)
+    }
+
+    .bl {
+      background: var(--bl)
+    }
+
+    .g {
+      background: var(--g)
+    }
+
+    .p {
+      background: var(--p)
+    }
+
+    .pp {
+      background: var(--paper)
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px
+    }
+
+    .b {
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      padding: 9px 16px;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 3px 3px 0 var(--ink);
+      font-size: 15px
+    }
+
+    .b:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--ink)
+    }
+
+    .b.r {
+      background: var(--red);
+      color: #fff;
+      border-color: var(--ink)
+    }
+
+    .status {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      background: #1b9d52;
+      border-radius: 50%;
+      margin-right: 8px
+    }
+
+    h2.t {
+      font: 400 clamp(34px, 5vw, 56px)/1 var(--t);
+      color: var(--paper);
+      text-shadow: 2px 3px 0 #0006;
+      margin: 0 0 6px;
+      letter-spacing: .03em
+    }
+
+    /* clusters */
+    .cl {
+      position: relative;
+      padding: 34px 0 40px
+    }
+
+    .cl svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 6;
+      pointer-events: none;
+      overflow: visible
+    }
+
+    .cl path {
+      fill: none;
+      stroke: var(--red);
+      stroke-width: 3;
+      stroke-linecap: round;
+      filter: drop-shadow(1px 3px 2px #0005);
+      stroke-dashoffset: var(--len);
+      stroke-dasharray: var(--len);
+      transition: stroke-dashoffset 1s ease-in-out calc(.9s + var(--k)*.35s)
+    }
+
+    .cl.drawn path {
+      stroke-dashoffset: 0
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1.15fr repeat(4, 1fr);
+      gap: 26px;
+      align-items: start;
+      margin-top: 22px
+    }
+
+    .row .n:nth-child(2) {
+      margin-top: 26px
+    }
+
+    .row .n:nth-child(4) {
+      margin-top: 38px
+    }
+
+    .row .n:nth-child(3) {
+      margin-top: 6px
+    }
+
+    .pol {
+      background: #fff;
+      padding: 12px 12px 10px;
+      border: 0;
+      text-align: left;
+      box-shadow: 2px 6px 14px #0004;
+      transform: rotate(var(--r, 0deg));
+      transition: transform .25s
+    }
+
+    .pol:hover {
+      transform: rotate(0) scale(1.04)
+    }
+
+    .pol .ph {
+      aspect-ratio: 1/1;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font: 400 40px var(--t);
+      text-align: center;
+      line-height: 1
+    }
+
+    .pol b {
+      display: block;
+      font: 600 27px/1 var(--h);
+      margin-top: 8px
+    }
+
+    .pol span {
+      font-size: 13px;
+      color: #6a6258
+    }
+
+    .pol {
+      position: relative
+    }
+
+    .pol::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      width: 15px;
+      height: 15px;
+      margin-left: -7px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ff7b7b, var(--red) 60%, #7a1013);
+      box-shadow: 1px 3px 3px #0006;
+      z-index: 2
+    }
+
+    .res {
+      font: 400 clamp(54px, 6vw, 76px)/.9 var(--t);
+      display: block;
+      color: var(--red)
+    }
+
+    .cl.follow .n:not(.lit),
+    .cl.follow .pol:not(.lit) {
+      opacity: .4
+    }
+
+    .n.lit,
+    .pol.lit {
+      transform: rotate(0) scale(1.07);
+      box-shadow: 0 0 0 4px #fff, 4px 14px 26px #0006;
+      z-index: 5
+    }
+
+    .fl {
+      margin-top: 22px
+    }
+
+    /* credits */
+    #credits {
+      background: #050505;
+      color: #f3efe6;
+      margin-top: 50px;
+      padding: 90px 0 80px;
+      text-align: center
+    }
+
+    #credits h2 {
+      font: 400 clamp(40px, 7vw, 84px)/1 var(--t);
+      margin: 0 0 40px;
+      letter-spacing: .05em
+    }
+
+    .cr {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 26px;
+      max-width: 760px;
+      margin: 0 auto 14px;
+      font-size: 17px
+    }
+
+    .cr b {
+      font: 400 24px var(--t);
+      letter-spacing: .06em;
+      text-align: right;
+      color: #f3efe6
+    }
+
+    .cr span {
+      text-align: left;
+      color: #b9b2a3
+    }
+
+    .cr+h3 {
+      font: 400 18px var(--m);
+      color: #8a8478;
+      margin: 40px 0 8px
+    }
+
+    .cs {
+      margin: 50px 0 6px
+    }
+
+    .cs .b {
+      background: #f3efe6;
+      color: #050505;
+      border-color: #f3efe6;
+      box-shadow: none;
+      margin: 6px
+    }
+
+    .cs .b.r {
+      background: var(--red);
+      color: #fff;
+      border-color: var(--red)
+    }
+
+    footer {
+      padding: 22px 0 calc(30px + env(safe-area-inset-bottom, 0px));
+      background: #050505;
+      color: #8a8478;
+      text-align: center;
+      font-size: 14px
+    }
+
+    dialog {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      max-width: none;
+      max-height: none;
+      color: var(--ink)
+    }
+
+    dialog::backdrop {
+      background: #000a
+    }
+
+    .cd {
+      width: min(780px, 94vw);
+      margin: 5vh auto;
+      background: var(--paper);
+      padding: 32px;
+      max-height: 90vh;
+      overflow: auto;
+      box-shadow: 0 20px 60px #000a
+    }
+
+    .cd h2 {
+      font: 400 clamp(40px, 7vw, 64px)/1 var(--t);
+      margin: 0 0 4px
+    }
+
+    .cd h3 {
+      font: 600 28px var(--h);
+      margin: 22px 0 2px
+    }
+
+    .cd p {
+      margin: 0
+    }
+
+    .st {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 26px;
+      margin: 16px 0
+    }
+
+    .st b {
+      font: 400 52px/1 var(--t);
+      color: var(--red);
+      display: block
+    }
+
+    .ba {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border: 2px solid var(--ink);
+      margin-top: 10px;
+      user-select: none
+    }
+
+    .ba>div {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font: 400 30px var(--t);
+      padding: 16px;
+      text-align: center
+    }
+
+    .ba .a {
+      background: repeating-linear-gradient(45deg, #cfc9bd, #cfc9bd 12px, #ddd7cb 12px, #ddd7cb 24px)
+    }
+
+    .ba .d {
+      background: var(--red);
+      color: #fff;
+      clip-path: inset(0 0 0 var(--s, 50%))
+    }
+
+    .ba .hn {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--s, 50%);
+      width: 3px;
+      background: #fff;
+      pointer-events: none
+    }
+
+    .ba input {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      margin: 0
+    }
+
+    .ba input:focus-visible+.hn {
+      outline: 3px solid #1747ff
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+      transform: translate(-50%, 30px);
+      background: var(--ink);
+      color: var(--paper);
+      padding: 11px 20px;
+      opacity: 0;
+      transition: .25s;
+      z-index: 70;
+      pointer-events: none
+    }
+
+    .toast.on {
+      opacity: 1;
+      transform: translate(-50%, 0)
+    }
+
+    :root {
+      --nz: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")
+    }
+
+    body {
+      background-image: radial-gradient(var(--dots) 1px, transparent 1.6px), radial-gradient(rgba(255, 255, 255, .09) 2px, transparent 3px);
+      background-size: 7px 7px, 13px 13px;
+      background-position: 0 0, 4px 5px
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -12%;
+      z-index: 7;
+      pointer-events: none;
+      background: var(--nz);
+      opacity: .13;
+      animation: gr .9s steps(1) infinite;
+      will-change: transform
+    }
+
+    @keyframes gr {
+      0% {
+        transform: translate(0, 0)
+      }
+
+      20% {
+        transform: translate(-3%, 2%)
+      }
+
+      40% {
+        transform: translate(2%, -3%)
+      }
+
+      60% {
+        transform: translate(-2%, -2%)
+      }
+
+      80% {
+        transform: translate(3%, 3%)
+      }
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 8;
+      pointer-events: none;
+      background: radial-gradient(circle 560px at var(--lx, 50%) var(--ly, 30%), rgba(255, 228, 168, .22), transparent 70%), radial-gradient(ellipse at 50% 45%, transparent 45%, rgba(0, 0, 0, .22));
+      animation: fk 7s infinite
+    }
+
+    @keyframes fk {
+
+      0%,
+      45%,
+      100% {
+        opacity: 1
+      }
+
+      48% {
+        opacity: .86
+      }
+
+      50% {
+        opacity: 1
+      }
+
+      52% {
+        opacity: .93
+      }
+    }
+
+    .n,
+    .pp,
+    .pol {
+      background-image: linear-gradient(165deg, rgba(255, 255, 255, .4), transparent 45%, rgba(0, 0, 0, .07));
+      box-shadow: 0 1px 1px #0003, 0 9px 12px -5px #0006, 0 20px 26px -12px #0005
+    }
+
+    .n.g::before,
+    .pol::before {
+      display: none
+    }
+
+    .n.g::after,
+    .pol::after {
+      content: "";
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      width: 78px;
+      height: 24px;
+      margin-left: -39px;
+      background: rgba(255, 255, 240, .5);
+      border: 1px solid rgba(255, 255, 255, .35);
+      box-shadow: 0 1px 3px #0003;
+      transform: rotate(-4deg);
+      z-index: 2
+    }
+
+    .row>:nth-child(2) {
+      --j: 1
+    }
+
+    .row>:nth-child(3) {
+      --j: 2
+    }
+
+    .row>:nth-child(4) {
+      --j: 3
+    }
+
+    .row>:nth-child(5) {
+      --j: 4
+    }
+
+    .cl:not(.drawn) .row>* {
+      opacity: 0
+    }
+
+    .cl.drawn .row>* {
+      animation: drop .75s cubic-bezier(.2, .9, .3, 1.2) backwards;
+      animation-delay: calc(var(--j, 0)*.14s)
+    }
+
+    @keyframes drop {
+      from {
+        opacity: 0;
+        transform: translateY(-90px) rotate(calc(var(--r, 0deg)*6)) scale(1.15)
+      }
+
+      55% {
+        opacity: 1
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) rotate(var(--r, 0deg)) scale(1)
+      }
+    }
+
+    .hd .n {
+      opacity: 0
+    }
+
+    body.go .hd .n {
+      opacity: 1;
+      animation: drop .9s cubic-bezier(.2, .9, .3, 1.2) backwards
+    }
+
+    body.go .hd .n+.n {
+      animation-delay: .3s
+    }
+
+    .slate {
+      width: min(330px, 100%);
+      position: relative;
+      z-index: 3;
+      transform: rotate(-1.5deg);
+      filter: drop-shadow(2px 8px 8px #0006)
+    }
+
+    .sticks {
+      height: 26px;
+      border: 2px solid #111;
+      background: repeating-linear-gradient(115deg, #111 0 22px, #f4f0e6 22px 44px);
+      transform-origin: left bottom;
+      transform: rotate(-24deg)
+    }
+
+    .cl.drawn .sticks {
+      animation: clap .45s .1s ease-in both
+    }
+
+    @keyframes clap {
+      from {
+        transform: rotate(-24deg)
+      }
+
+      to {
+        transform: rotate(0)
+      }
+    }
+
+    .sb {
+      background: #111;
+      color: #f4f0e6;
+      padding: 10px 14px;
+      border: 2px solid #111;
+      display: grid
+    }
+
+    .sb b {
+      font: 400 14px var(--m);
+      color: #a29c8e
+    }
+
+    .sb span {
+      font: 400 36px/1 var(--t);
+      letter-spacing: .04em
+    }
+
+    .sb em {
+      font-size: 13px;
+      color: #a29c8e
+    }
+
+    .snd {
+      position: fixed;
+      top: calc(14px + env(safe-area-inset-top, 0px));
+      right: 14px;
+      z-index: 60;
+      background: #111;
+      color: #f4f0e6;
+      border: 1.5px solid #f4f0e6;
+      border-radius: 99px;
+      padding: 8px 16px;
+      font-size: 14px;
+      box-shadow: 0 4px 12px #0007
+    }
+
+    .snd[aria-pressed=true] {
+      background: var(--red);
+      border-color: #fff
+    }
+
+    #card {
+      width: 100%;
+      max-width: 1100px
+    }
+
+    #card.in {
+      animation: none
+    }
+
+    #fl {
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      opacity: 0;
+      z-index: 2;
+      pointer-events: none
+    }
+
+    #fl.on {
+      animation: flash .45s ease-out
+    }
+
+    @keyframes flash {
+      0% {
+        opacity: .85
+      }
+
+      100% {
+        opacity: 0
+      }
+    }
+
+    .stk {
+      position: relative;
+      height: clamp(80px, 22vw, 250px);
+      display: grid;
+      place-items: center
+    }
+
+    .stk.short {
+      height: clamp(60px, 15vw, 170px)
+    }
+
+    .w {
+      position: absolute;
+      display: block;
+      font: 400 clamp(58px, 16vw, 210px)/.9 var(--t);
+      letter-spacing: .02em;
+      white-space: nowrap;
+      animation: wd var(--du, .3s) var(--d) both
+    }
+
+    .stk.short .w {
+      font-size: clamp(48px, 12vw, 150px)
+    }
+
+    .w.hold {
+      animation: wh .5s var(--d) both
+    }
+
+    .w b {
+      color: #ff3b3f;
+      font-weight: 400
+    }
+
+    @keyframes wd {
+      0% {
+        opacity: 0;
+        transform: scale(2.2);
+        filter: blur(10px)
+      }
+
+      12% {
+        opacity: 1;
+        transform: scale(1);
+        filter: none
+      }
+
+      85% {
+        opacity: 1;
+        transform: scale(1.04)
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.08)
+      }
+    }
+
+    @keyframes wh {
+      0% {
+        opacity: 0;
+        transform: scale(2.2);
+        filter: blur(10px)
+      }
+
+      30% {
+        opacity: 1;
+        transform: scale(1);
+        filter: none
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+    }
+
+    .pst {
+      display: grid;
+      justify-items: center
+    }
+
+    .ln {
+      overflow: hidden;
+      line-height: .95
+    }
+
+    .ln span {
+      display: block;
+      font-family: var(--t);
+      animation: rise .55s cubic-bezier(.2, .9, .2, 1) var(--d) both
+    }
+
+    .rd {
+      color: #ff3b3f
+    }
+
+    @keyframes rise {
+      from {
+        transform: translateY(105%)
+      }
+
+      to {
+        transform: none
+      }
+    }
+
+    .nm {
+      font: 400 clamp(58px, 15vw, 170px)/.95 var(--t);
+      letter-spacing: .03em
+    }
+
+    .nm i {
+      display: inline-block;
+      font-style: normal;
+      animation: pop .35s var(--d) both
+    }
+
+    @keyframes pop {
+      from {
+        opacity: 0;
+        transform: scale(1.8)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .rl {
+      font: 400 clamp(16px, 2.6vw, 26px) var(--m);
+      margin-top: 14px;
+      animation: trk 1.2s 1s ease-out both
+    }
+
+    @keyframes trk {
+      from {
+        opacity: 0;
+        letter-spacing: 1.2em
+      }
+
+      to {
+        opacity: 1;
+        letter-spacing: .35em
+      }
+    }
+
+    .bar {
+      display: block;
+      height: 4px;
+      background: var(--red);
+      margin: 18px auto 0;
+      animation: bar .8s .9s ease-out both
+    }
+
+    @keyframes bar {
+      from {
+        width: 0
+      }
+
+      to {
+        width: min(320px, 60%)
+      }
+    }
+
+    .sm {
+      font: 400 clamp(14px, 2.2vw, 22px) var(--m);
+      letter-spacing: .3em;
+      margin-bottom: 6px;
+      animation: wh .5s both
+    }
+
+    .spr {
+      font: 400 clamp(54px, 14vw, 170px)/.95 var(--t);
+      background: linear-gradient(100deg, #f3efe6 40%, #ff5a5e 50%, #f3efe6 60%) 100% 0/250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: spr 1.4s cubic-bezier(.2, .8, .2, 1) both, sw 1.8s .2s ease-in-out both
+    }
+
+    @keyframes spr {
+      from {
+        letter-spacing: -.15em;
+        transform: scale(1.5);
+        opacity: 0
+      }
+
+      to {
+        letter-spacing: .06em;
+        transform: scale(1);
+        opacity: 1
+      }
+    }
+
+    @keyframes sw {
+      from {
+        background-position: 100% 0
+      }
+
+      to {
+        background-position: 0 0
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .w {
+        opacity: 0
+      }
+
+      .w.hold {
+        opacity: 1
+      }
+    }
+
+    header {
+      padding: 120px 0 30px
+    }
+
+    .toast {
+      bottom: calc(22px + env(safe-area-inset-bottom, 0px))
+    }
+
+    body::after {
+      transition: opacity .6s
+    }
+
+    body.night::after {
+      animation: none;
+      opacity: 0
+    }
+
+    .n,
+    .pol {
+      translate: var(--tx, 0px) var(--ty, 0px);
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none
+    }
+
+    .n.drag,
+    .pol.drag {
+      cursor: grabbing;
+      z-index: 9;
+      transform: rotate(0) scale(1.05);
+      box-shadow: 0 2px 2px #0003, 0 24px 34px -8px #0008;
+      transition: none
+    }
+
+    body.tidy .n,
+    body.tidy .pol {
+      transition: translate .65s cubic-bezier(.2, .9, .3, 1.12), transform .25s, box-shadow .25s, opacity .3s
+    }
+
+    .fresh {
+      animation: drop .75s cubic-bezier(.2, .9, .3, 1.2) backwards
+    }
+
+    .mine {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 34px;
+      align-items: flex-start;
+      padding: 26px 0 10px
+    }
+
+    .n.blank {
+      width: min(320px, 100%)
+    }
+
+    .n.pinned {
+      width: min(260px, 100%);
+      overflow-wrap: anywhere
+    }
+
+    .n textarea {
+      user-select: text;
+      -webkit-user-select: text;
+      cursor: text
+    }
+
+    .blank textarea {
+      display: block;
+      width: 100%;
+      min-height: 100px;
+      border: 0;
+      background: transparent;
+      font: 600 24px/1.15 var(--h);
+      resize: none;
+      color: var(--ink);
+      padding: 0;
+      margin-bottom: 10px
+    }
+
+    .blank textarea:focus-visible {
+      outline: none
+    }
+
+    .n .em {
+      font-size: 13px
+    }
+
+    .n.pl {
+      padding: 0;
+      background: none;
+      box-shadow: none;
+      filter: drop-shadow(0 1px 1px #0003) drop-shadow(0 10px 9px #0005)
+    }
+
+    .n.pl:hover {
+      box-shadow: none
+    }
+
+    .n.pl::before {
+      z-index: 4
+    }
+
+    .pl .fr {
+      position: relative;
+      z-index: 1;
+      padding: 22px 18px 18px;
+      background-image: linear-gradient(165deg, rgba(255, 255, 255, .4), transparent 45%, rgba(0, 0, 0, .07));
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%);
+      transition: clip-path .45s cubic-bezier(.2, .8, .2, 1)
+    }
+
+    .bl .fr {
+      background-color: var(--bl)
+    }
+
+    .g .fr {
+      background-color: var(--g)
+    }
+
+    .cn:hover+.fr {
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%)
+    }
+
+    .pl.peeled .fr,
+    .pl.peeled .cn:hover+.fr {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%, 0 100%)
+    }
+
+    .bk {
+      position: absolute;
+      inset: 0;
+      padding: 12px 14px;
+      background: #fffdf5 linear-gradient(135deg, transparent 44%, rgba(0, 0, 0, .2) 50%, transparent 64%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      text-align: right;
+      font: 600 19px/1.05 var(--h);
+      color: #7a1013
+    }
+
+    .bk small {
+      font: 400 11px var(--m);
+      color: #6a6258;
+      margin-bottom: 3px
+    }
+
+    .cn {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      background: none;
+      padding: 0;
+      z-index: 3;
+      cursor: pointer
+    }
+
+    .cn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #fff, #cfc9b8);
+      clip-path: polygon(100% 24%, 24% 100%, 24% 24%);
+      opacity: 0;
+      transition: opacity .2s
+    }
+
+    .cn:hover::after {
+      opacity: 1
+    }
+
+    .pl.peeled .cn::after {
+      opacity: 0
+    }
+
+    .under {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      align-items: center;
+      margin-top: 22px
+    }
+
+    .under .fl {
+      margin-top: 0
+    }
+
+    .ann {
+      background: #fff;
+      padding: 8px;
+      width: 176px;
+      transform: rotate(2deg);
+      box-shadow: 0 1px 1px #0003, 0 9px 12px -5px #0006;
+      font-size: 7px;
+      line-height: 1.25;
+      color: #333
+    }
+
+    .ann .mp {
+      height: 54px;
+      background: linear-gradient(135deg, #dfe5ff, #fff);
+      position: relative;
+      margin-bottom: 5px
+    }
+
+    .ann .mp::after {
+      content: "";
+      position: absolute;
+      left: 38%;
+      top: 28%;
+      width: 26px;
+      height: 16px;
+      border: 2px solid var(--red);
+      border-radius: 50%
+    }
+
+    .ann b {
+      font-weight: 400;
+      display: block;
+      font-size: 11px;
+      color: #6a6258;
+      margin-top: 4px
+    }
+
+    #night {
+      position: fixed;
+      inset: 0;
+      z-index: 8;
+      pointer-events: none;
+      background: rgba(5, 6, 12, .88);
+      opacity: 0;
+      transition: opacity .7s;
+      --m1: radial-gradient(circle 300px at var(--lx, 50%) var(--ly, 30%), transparent 0, transparent 35%, #000 100%);
+      --m2: radial-gradient(ellipse 62% 85% at var(--cx, 50%) 0, transparent 0, transparent 30%, #000 100%);
+      -webkit-mask-image: var(--m1), var(--m2);
+      mask-image: var(--m1), var(--m2);
+      -webkit-mask-composite: source-in;
+      mask-composite: intersect
+    }
+
+    @supports not ((mask-composite:intersect) or (-webkit-mask-composite:source-in)) {
+      #night {
+        background: rgba(5, 6, 12, .5)
+      }
+    }
+
+    #lc {
+      position: fixed;
+      inset: 0;
+      z-index: 8;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .7s;
+      background: radial-gradient(ellipse 62% 85% at var(--cx, 50%) 0, rgba(255, 214, 140, .28), transparent 70%), radial-gradient(circle 280px at var(--lx, 50%) var(--ly, 30%), rgba(255, 226, 160, .16), transparent 70%)
+    }
+
+    body.night #night,
+    body.night #lc {
+      opacity: 1
+    }
+
+    #lamp {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -34px;
+      z-index: 5;
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer
+    }
+
+    #lamp svg {
+      display: block;
+      transition: transform .2s
+    }
+
+    #lamp .bulb {
+      fill: #9b8f66;
+      transition: fill .5s
+    }
+
+    body.night #lamp .bulb {
+      fill: #ffecb8;
+      filter: drop-shadow(0 6px 10px #ffcf70)
+    }
+
+    body:not(.go) #lamp {
+      display: none
+    }
+
+    @media(max-width:960px) {
+      .hd {
+        grid-template-columns: 1fr
+      }
+
+      .row {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .row .n:nth-child(n) {
+        margin-top: 0
+      }
+    }
+
+    @media(max-width:560px) {
+      .row {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding: 0 14px
+      }
+
+      .row>*:nth-child(even) {
+        margin-left: 18%
+      }
+
+      .row>*:nth-child(odd) {
+        margin-right: 18%
+      }
+
+      .cr {
+        grid-template-columns: 1fr
+      }
+
+      .cr b,
+      .cr span {
+        text-align: center
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      *,
+      *::before {
+        transition: none !important;
+        animation: none !important
+      }
+
+      html {
+        scroll-behavior: auto
+      }
+    }
+
+    .smap {
+      position: relative;
+      padding: 10px 0 4px
+    }
+
+    .smap svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 1
+    }
+
+    .smap path {
+      fill: none;
+      stroke: var(--red);
+      stroke-width: 2.5;
+      opacity: .45;
+      transition: opacity .25s, stroke-width .25s;
+      filter: drop-shadow(1px 2px 1px #0005)
+    }
+
+    .smap.act path {
+      opacity: .08
+    }
+
+    .smap.act path.on {
+      opacity: 1;
+      stroke-width: 4
+    }
+
+    .skr,
+    .pjr {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center
+    }
+
+    .pjr {
+      margin-top: 110px
+    }
+
+    .sn,
+    .pn {
+      border: 0;
+      padding: 12px 18px;
+      font: inherit;
+      position: relative;
+      box-shadow: 0 1px 1px #0003, 0 8px 10px -5px #0006;
+      transition: transform .2s, opacity .25s, box-shadow .2s
+    }
+
+    .sn {
+      background: var(--y);
+      transform: rotate(-1deg)
+    }
+
+    .sn:nth-child(2n) {
+      background: var(--bl);
+      transform: rotate(1.5deg)
+    }
+
+    .sn:nth-child(3n) {
+      background: var(--g);
+      transform: rotate(-2deg)
+    }
+
+    .pn {
+      background: #fff;
+      font: 600 24px var(--h);
+      padding: 10px 20px
+    }
+
+    .smap.act .sn:not(.lit),
+    .smap.act .pn:not(.lit) {
+      opacity: .35
+    }
+
+    .sn.lit,
+    .pn.lit {
+      transform: scale(1.1) rotate(0);
+      box-shadow: 0 0 0 3px #fff, 0 14px 22px -6px #0008
+    }
+
+    .tms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px;
+      justify-content: center;
+      padding: 28px 0 10px
+    }
+
+    .tm {
+      position: relative;
+      margin: 0;
+      width: min(280px, 100%);
+      background: #fff;
+      padding: 16px 16px 12px;
+      transform: rotate(var(--r, 0deg));
+      box-shadow: 0 1px 1px #0003, 0 9px 12px -5px #0006, 0 20px 26px -12px #0005;
+      transition: transform .25s;
+      translate: var(--tx, 0px) var(--ty, 0px);
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none
+    }
+
+    .tm:hover {
+      transform: rotate(0) scale(1.03)
+    }
+
+    .tm.drag {
+      cursor: grabbing;
+      z-index: 9;
+      transform: rotate(0) scale(1.05);
+      transition: none
+    }
+
+    .tm::before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      width: 78px;
+      height: 24px;
+      margin-left: -39px;
+      background: rgba(255, 255, 240, .55);
+      border: 1px solid rgba(255, 255, 255, .35);
+      box-shadow: 0 1px 3px #0003;
+      transform: rotate(-4deg)
+    }
+
+    .tm .av {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font: 400 34px var(--t);
+      margin-bottom: 8px
+    }
+
+    .tm blockquote {
+      margin: 0 0 10px;
+      font: 600 25px/1.1 var(--h)
+    }
+
+    .tm figcaption {
+      font-size: 13px;
+      color: #6a6258
+    }
+
+    .cf {
+      display: grid;
+      gap: 14px;
+      max-width: 520px;
+      margin: 30px auto 0;
+      text-align: left
+    }
+
+    .cf label {
+      display: grid;
+      gap: 6px;
+      font-size: 15px;
+      color: #cfc8b8
+    }
+
+    .cf input,
+    .cf textarea {
+      font: inherit;
+      color: #f3efe6;
+      background: #141414;
+      border: 1.5px solid #3a3a3a;
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 0
+    }
+
+    .cf [aria-invalid=true] {
+      border-color: #ff5a5e
+    }
+
+    .er {
+      color: #ff7478;
+      font-size: 13px;
+      min-height: 1.2em
+    }
+
+    .cf .b {
+      justify-self: start
+    }
+
+    .okm {
+      border: 1.5px solid #3a3a3a;
+      padding: 24px;
+      max-width: 520px;
+      margin: 30px auto 0
+    }
+
+    #lamp {
+      touch-action: none;
+      cursor: grab
+    }
+
+    #lamp:active {
+      cursor: grabbing
+    }
+
+    #lamp svg {
+      transform-origin: 34px 0
+    }
+  </style>
 </head>
+
 <body>
-<div id="tr" role="dialog" aria-label="Intro trailer"><div id="fl"></div><div id="card" aria-live="polite"></div><span id="tap">Click to continue. Turn sound on for the score.</span><button id="skip">Skip to the work</button><i id="bar"></i></div>
+  <div id="tr" role="dialog" aria-label="Intro trailer">
+    <div id="fl"></div>
+    <div id="card" aria-live="polite"></div><span id="tap">Click to continue. Turn sound on for the score.</span><button
+      id="skip">Skip to the work</button><i id="bar"></i>
+  </div>
 
-<button id="lamp" aria-pressed="false" aria-label="Toggle the lamp (day or night mode)"><svg viewBox="0 0 68 112" width="68" height="112" aria-hidden="true"><line x1="34" y1="0" x2="34" y2="42" stroke="#222" stroke-width="3"/><path d="M8 88 L24 42 H44 L60 88Z" fill="#2b2f36"/><ellipse class="bulb" cx="34" cy="88" rx="26" ry="6"/><line x1="52" y1="84" x2="52" y2="100" stroke="#999" stroke-width="1.5"/><circle cx="52" cy="104" r="4" fill="#d3262b"/></svg></button>
-<header><div class="wrap hd">
-<div class="n big y" style="--r:-1deg">
-<span class="lab">case file</span>
-<h1>Sunil Ohdar</h1>
-<p>BBA student specializing in Digital Marketing. I apply marketing knowledge, creative skills, and strong observation abilities to drive brand growth and organizational efficiency.</p>
-<p><span class="status"></span>Open to full-time and freelance work</p>
-<div class="btns"><a class="b r" href="resume.pdf" target="_blank">Download resume</a><a class="b" href="#credits">Contact</a><button class="b" id="replay">Replay trailer</button><button class="b" id="tidy">Tidy up</button></div>
-</div>
-<div class="n pp" style="--r:2deg"><span class="lab">in a hurry?</span><p>Resume is the red button. Top three projects are right below. Pull any string to follow a project from user quote to result.</p></div>
-</div></header>
+  <button id="lamp" aria-pressed="false" aria-label="Toggle the lamp (day or night mode)"><svg viewBox="0 0 68 112"
+      width="68" height="112" aria-hidden="true">
+      <line x1="34" y1="0" x2="34" y2="42" stroke="#222" stroke-width="3" />
+      <path d="M8 88 L24 42 H44 L60 88Z" fill="#2b2f36" />
+      <ellipse class="bulb" cx="34" cy="88" rx="26" ry="6" />
+      <line x1="52" y1="84" x2="52" y2="100" stroke="#999" stroke-width="1.5" />
+      <circle cx="52" cy="104" r="4" fill="#d3262b" />
+    </svg></button>
+  <header>
+    <div class="wrap hd">
+      <div class="n big y" style="--r:-1deg">
+        <span class="lab">case file</span>
+        <h1>Sunil Ohdar</h1>
+        <p>BBA student specializing in Digital Marketing and UI/UX Design. I apply marketing strategies, creative design skills, and strong
+          user observation abilities to craft intuitive digital experiences and drive brand growth.</p>
+        <p><span class="status"></span>Open to full-time and freelance work</p>
+        <div class="btns"><a class="b r" href="resume.pdf" target="_blank">Download resume</a><a class="b"
+            href="#credits">Contact</a><button class="b" id="replay">Replay trailer</button><button class="b"
+            id="tidy">Tidy up</button></div>
+      </div>
+      <div class="n pp" style="--r:2deg"><span class="lab">in a hurry?</span>
+        <p>Resume is the red button. Top three projects are right below. Pull any string to follow a project from user
+          quote to result.</p>
+      </div>
+    </div>
+  </header>
 
-<main id="main" class="wrap"><h2 class="t">Now showing: the research wall</h2><div id="walls"></div></main>
+  <main id="main" class="wrap">
+    <h2 class="t">Now showing: the research wall</h2>
+    <div id="walls"></div>
+  </main>
 
-<section id="skillmap"><div class="wrap"><h2 class="t">Skills map</h2><p style="color:#fffdf5;margin:0 0 14px;text-shadow:1px 1px 0 #0006">Hover a skill to light up the projects that used it. Hover a project to see its skills. Tap a skill to lock it.</p><div class="smap" id="smap"></div></div></section>
-<section id="tst"><div class="wrap"><h2 class="t">What colleagues say</h2><div class="tms">
-<figure class="tm" style="--r:-2deg"><div class="av" style="background:linear-gradient(135deg,#2447ff,#6b3bff)">S</div><blockquote>Improved business visibility on Google Search and Maps significantly.</blockquote><figcaption>Local Shop Owner<br>GMB Optimization Project</figcaption></figure>
-<figure class="tm" style="--r:1.5deg"><div class="av" style="background:linear-gradient(135deg,#0f9d77,#1b6ca8)">L</div><blockquote>Created a complete Brand Book and strong customer engagement strategies.</blockquote><figcaption>Project Lead<br>LaunchEd Virtual Internship</figcaption></figure>
-<figure class="tm" style="--r:-1deg"><div class="av" style="background:linear-gradient(135deg,#ff7a1a,#d3262b)">G</div><blockquote>Provided valuable strategies to improve NGO management efficiency and workflow.</blockquote><figcaption>Coordinator<br>Guru Nanak NGO</figcaption></figure>
-</div></div></section>
-<section id="leave"><div class="wrap"><h2 class="t">Leave a note on the wall</h2>
-<div id="mine" class="mine"><div class="n blank" style="--r:-1.5deg"><span class="lab">your note (you can drag it too)</span><textarea id="nt" maxlength="140" placeholder="Say hi, ask a question, leave feedback..." aria-label="Your note"></textarea><div class="btns"><button class="b r" id="pin">Pin it to the wall</button></div></div></div></div></section>
-<section id="credits"><div class="wrap">
-<h2>End credits</h2>
-<div class="cr"><b>BBA Student</b><span>Sushant University, 2023 – 2026</span><b>Digital Marketing Intern</b><span>LaunchEd</span><b>Social Intern</b><span>Guru Nanak NGO</span></div>
-<h3>tools and methods</h3>
-<div class="cr"><b>Tools</b><span>Figma, Adobe Premiere Pro, Final Cut Pro, After Effects, Canva, Office Tools</span><b>Skills</b><span>UI/UX Design, Digital Marketing, GMB Optimization, Video Editing, Creative Media</span></div>
-<div class="cs"><a class="b r" href="resume.pdf" target="_blank">Download resume</a><a class="b" href="mailto:sunilohdar02@gmail.com">Email me</a><button class="b" id="copy">Copy email</button></div>
-<p style="color:#8a8478">Replies within 24 hours.</p>
-<form id="cf" class="cf" novalidate><label>Name<input id="cfn" autocomplete="name"><span class="er"></span></label><label>Email<input id="cfe" type="email" autocomplete="email"><span class="er"></span></label><label>Message<textarea id="cfm" rows="4"></textarea><span class="er"></span></label><button class="b r" type="submit" id="cs2">Send message</button></form>
-</div></section>
-<footer>© 2026 Sunil Ohdar</footer>
-<dialog id="cd" aria-label="Case study"><div class="cd" id="cb"></div></dialog>
-<div class="toast" id="t" role="status"></div>
-<button class="snd" id="snd" aria-pressed="false">Sound off</button>
-<div id="night" aria-hidden="true"></div><div id="lc" aria-hidden="true"></div>
+  <section id="skillmap">
+    <div class="wrap">
+      <h2 class="t">Skills map</h2>
+      <p style="color:#fffdf5;margin:0 0 14px;text-shadow:1px 1px 0 #0006">Hover a skill to light up the projects that
+        used it. Hover a project to see its skills. Tap a skill to lock it.</p>
+      <div class="smap" id="smap"></div>
+    </div>
+  </section>
+  <section id="tst">
+    <div class="wrap">
+      <h2 class="t">What colleagues say</h2>
+      <div class="tms">
+        <figure class="tm" style="--r:-2deg">
+          <div class="av" style="background:linear-gradient(135deg,#2447ff,#6b3bff)">S</div>
+          <blockquote>Improved business visibility on Google Search and Maps significantly.</blockquote>
+          <figcaption>Local Shop Owner<br>GMB Optimization Project</figcaption>
+        </figure>
+        <figure class="tm" style="--r:1.5deg">
+          <div class="av" style="background:linear-gradient(135deg,#0f9d77,#1b6ca8)">L</div>
+          <blockquote>Created a complete Brand Book and strong customer engagement strategies.</blockquote>
+          <figcaption>Project Lead<br>LaunchEd Virtual Internship</figcaption>
+        </figure>
+        <figure class="tm" style="--r:-1deg">
+          <div class="av" style="background:linear-gradient(135deg,#ff7a1a,#d3262b)">G</div>
+          <blockquote>Provided valuable strategies to improve NGO management efficiency and workflow.</blockquote>
+          <figcaption>Coordinator<br>Guru Nanak NGO</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <section id="leave">
+    <div class="wrap">
+      <h2 class="t">Leave a note on the wall</h2>
+      <div id="mine" class="mine">
+        <div class="n blank" style="--r:-1.5deg"><span class="lab">your note (you can drag it too)</span><textarea
+            id="nt" maxlength="140" placeholder="Say hi, ask a question, leave feedback..."
+            aria-label="Your note"></textarea>
+          <div class="btns"><button class="b r" id="pin">Pin it to the wall</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="credits">
+    <div class="wrap">
+      <h2>End credits</h2>
+      <div class="cr"><b>BBA Student</b><span>Sushant University, 2023 – 2026</span><b>Digital Marketing
+          Intern</b><span>LaunchEd</span><b>Social Intern</b><span>Guru Nanak NGO</span></div>
+      <h3>tools and methods</h3>
+      <div class="cr"><b>Tools</b><span>Figma, Adobe Premiere Pro, Final Cut Pro, After Effects, Canva, Office
+          Tools</span><b>Skills</b><span>UI/UX Design, Digital Marketing, GMB Optimization, Video Editing, Creative
+          Media</span></div>
+      <div class="cs"><a class="b r" href="resume.pdf" target="_blank">Download resume</a><a class="b"
+          href="mailto:sunilohdar02@gmail.com">Email me</a><button class="b" id="copy">Copy email</button></div>
+      <p style="color:#8a8478">Replies within 24 hours.</p>
+      <form id="cf" class="cf" novalidate><label>Name<input id="cfn" autocomplete="name"><span
+            class="er"></span></label><label>Email<input id="cfe" type="email" autocomplete="email"><span
+            class="er"></span></label><label>Message<textarea id="cfm" rows="4"></textarea><span
+            class="er"></span></label><button class="b r" type="submit" id="cs2">Send message</button></form>
+    </div>
+  </section>
+  <footer>© 2026 Sunil Ohdar</footer>
+  <dialog id="cd" aria-label="Case study">
+    <div class="cd" id="cb"></div>
+  </dialog>
+  <div class="toast" id="t" role="status"></div>
+  <button class="snd" id="snd" aria-pressed="false">Sound off</button>
+  <div id="night" aria-hidden="true"></div>
+  <div id="lc" aria-hidden="true"></div>
 
 
-<script>
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const ls={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
-const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-const EMAIL="sunilohdar02@gmail.com";
-const P=[
-{t:"Treebo Club UX",inProg:true,s:"UX Research & Audit",c:"linear-gradient(135deg,#DC3009,#F24822)",q:"How can we reduce booking abandonment on Treebo?",i:"Visual inconsistency, interaction bugs, and responsive breakage create friction for mobile and price-sensitive users.",d:"Conducted a UX audit, mapped out user journeys, created personas, and identified critical interaction bugs.",r:["+Usability","Insights"],
- pr:"Analyzed the booking experience spanning Discovery, Room Overview, and Booking to identify drop-off points.",st:[["UX","Audit"],["2","Personas"],["Booking","Flow"]],b:"Before: Confusing filters & bugs",a:"After: Actionable UX improvements",
- researchData: `<h3>Problem Statement & Hypothesis</h3><p>Treebo Club's booking experience shows visual inconsistency, interaction bugs, and responsive breakage that likely increase drop-off before checkout. <strong>Hypothesis:</strong> Simplifying the Discovery filter interaction, fixing state-based bugs, and improving room-amenity accessibility will reduce booking abandonment.</p><h3>User Personas</h3><ul style="margin:16px 0;padding-left:20px;line-height:1.6"><li><strong>Priya Malhotra (28) - Budget Weekend Traveler:</strong> Books on mobile, filters heavily by price/locality. Frustrated by slow filters and unclear sold-out states.</li><li><strong>Rohit Sharma (34) - Frequent Business Traveler:</strong> Needs to book quickly between meetings. Frustrated by non-actionable buttons and poor alignment.</li></ul><h3>Key Usability Issues Identified</h3><ul style="margin:16px 0;padding-left:20px;line-height:1.6"><li><strong>Filter Interaction:</strong> The filter left tab freezes while scrolling. Selecting locations hides offer containers unexpectedly.</li><li><strong>Responsive Breakage:</strong> Amenities container breaks out of layout on smaller screens.</li><li><strong>Confusing States:</strong> Sold-out cards create confusion; non-action buttons look clickable; buttons vanish when clicked.</li><li><strong>Visual Issues:</strong> Spacing problems, text transparency issues, and broken breadcrumbs.</li></ul>`,
- screens:[{img:"images/treebo-final-home.png",t:"Home Page (Final UI)",d:"Fully designed home page featuring clear navigation and striking visuals."},{img:"images/treebo-final-search.png",t:"Search Results (Final UI)",d:"Polished search interface with functional and bug-free filters."},{img:"images/treebo-final-details.png",t:"Hotel Details (Final UI)",d:"Comprehensive room details and amenities presented in a clean layout."}]},
-{t:"Borrow App",s:"Neighborhood Lending UI/UX",c:"linear-gradient(135deg,#00685F,#008378)",q:"How can we remove the awkwardness of asking neighbors for items?",i:"Trust issues and social friction prevent neighbors from lending items.",d:"Designed a structured, trust-scored item-lending app with RWA verification.",r:["+Trust","Scores"],
- pr:"I conducted user research, created wireframes, and validated a trust-scored lending flow.",st:[["5","Weeks"],["Solo","UI/UX"],["Verified","Trust"]],b:"Before: Awkward favors",a:"After: Structured borrowing",
- researchData: `<h3>In Short</h3><p><strong>Problem:</strong> Neighbors need items they don't own but lack a trustworthy, low-friction channel to borrow them. Social awkwardness is the single most-cited hesitation.</p><p><strong>What I did:</strong> Surveyed 28 residents, synthesized 6 user archetypes, and designed a mobile borrowing flow scoped to a single verified society with a multi-factor trust score.</p><h3>Key Research Insights</h3><ul style="margin:16px 0;padding-left:20px;line-height:1.6"><li><strong>Borrowing is common but undocumented:</strong> Most use informal WhatsApp groups or ask in person.</li><li><strong>Trust outweighs price:</strong> A verified resident identity and transaction history mattered more than rental compensation.</li><li><strong>Closed beats open:</strong> Users preferred an app limited to verified residents of their own housing society over an open map of strangers.</li></ul><h3>Product Decisions</h3><ul style="margin:16px 0;padding-left:20px;line-height:1.6"><li><strong>Scope to a single society:</strong> RWA-verified single-society scope ensures trust right at the front gate.</li><li><strong>Lead with trust score:</strong> Built from profile verification, exchange count, and on-time-return rate.</li><li><strong>Structured async requests:</strong> Requests are explicitly accepted or declined before chat unlocks, removing social friction.</li></ul>`,
- screens:[{img:"https://sunilohdar-portfolio.vercel.app/images/borrow-screen-1-onboarding.png",t:"Verify Society",d:"Residents search for and confirm their specific gated community."},{img:"https://sunilohdar-portfolio.vercel.app/images/borrow-screen-2-home.png",t:"Browse & Request",d:"A clean feed of popular items available inside the resident's society."},{img:"https://sunilohdar-portfolio.vercel.app/images/borrow-screen-3-lender-review.png",t:"Lender Reviews Request",d:"Lenders inspect incoming requests with the borrower's verified details."},{img:"https://sunilohdar-portfolio.vercel.app/images/borrow-screen-4-inbox.png",t:"Track It in Inbox",d:"Segmented tabs keep active borrow handoffs and reminders organized."},{img:"https://sunilohdar-portfolio.vercel.app/images/borrow-screen-5-profile.png",t:"Trust Score & History",d:"A dedicated user profile showcasing overall Trust Score and history."}],
- wireframes:"https://sunilohdar-portfolio.vercel.app/images/borrow-wireframes.jpg"},
-{t:"Blinkit WatchOS",inProg:true,s:"WatchOS App UX Research",c:"linear-gradient(135deg,#F6C800,#D5A900)",q:"How can we design a seamless grocery shopping experience on a smartwatch?",i:"Grocery delivery apps need extreme convenience. WatchOS presents unique interaction constraints.",d:"Conducted research to design a WatchOS application for Blinkit.",r:["+Convenience","WatchOS"],
- pr:"Explored interaction paradigms for 10-minute grocery delivery on an Apple Watch.",st:[["UX","Research"],["Apple","Watch"],["Quick","Commerce"]],b:"Before: Mobile only",a:"After: WatchOS conceptualized",
- researchData: `<h3>Problem Statement & Hypothesis</h3><p>Blinkit offers 10-minute grocery delivery, but users still need their phones to order. <strong>Hypothesis:</strong> A WatchOS app can provide faster reordering and order tracking, reducing friction for frequent buyers.</p><h3>Figma Research Link</h3><p><a href="https://www.figma.com/board/GImQLbnu9jVSV6nMia8fjo/Blinkit-watchos-research?node-id=0-1&t=1KuAMko7rG3EO210-1" target="_blank" style="color: #0066cc; text-decoration: underline;">View the Figma Board (Work in Progress)</a></p>`,
- screens:[]}/*,
+  <script>
+    const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+    const ls = { get: k => { try { return localStorage.getItem(k) } catch (e) { return null } }, set: (k, v) => { try { localStorage.setItem(k, v) } catch (e) { } } };
+    const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
+    const EMAIL = "sunilohdar02@gmail.com";
+    const P = [
+      {
+        t: "Treebo Club UX", inProg: true, s: "UX Research & Audit", c: "linear-gradient(135deg,#DC3009,#F24822)", q: "How can we reduce booking abandonment on Treebo?", i: "Visual inconsistency, interaction bugs, and responsive breakage create friction for mobile and price-sensitive users.", d: "Conducted a UX audit, mapped out user journeys, created personas, and identified critical interaction bugs.", r: ["+Usability", "Insights"],
+        pr: "Analyzed the booking experience spanning Discovery, Room Overview, and Booking to identify drop-off points.", st: [["UX", "Audit"], ["2", "Personas"], ["Booking", "Flow"]], b: "Before: Confusing filters & bugs", a: "After: Actionable UX improvements",
+        researchData: `<h3>Problem Statement & Hypothesis</h3><p>Treebo Club's booking experience shows visual inconsistency, interaction bugs, and responsive breakage that likely increase drop-off before checkout. <strong>Hypothesis:</strong> Simplifying the Discovery filter interaction, fixing state-based bugs, and improving room-amenity accessibility will reduce booking abandonment.</p><h3>User Personas</h3><ul style="margin:16px 0;padding-left:20px;line-height:1.6"><li><strong>Priya Malhotra (28) - Budget Weekend Traveler:</strong> Books on mobile, filters heavily by price/locality. Frustrated by slow filters and unclear sold-out states.</li><li><strong>Rohit Sharma (34) - Frequent Business Traveler:</strong> Needs to book quickly between meetings. Frustrated by non-actionable buttons and poor alignment.</li></ul><h3>Key Usability Issues Identified</h3><ul style="margin:16px 0;padding-left:20px;line-height:1.6"><li><strong>Filter Interaction:</strong> The filter left tab freezes while scrolling. Selecting locations hides offer containers unexpectedly.</li><li><strong>Responsive Breakage:</strong> Amenities container breaks out of layout on smaller screens.</li><li><strong>Confusing States:</strong> Sold-out cards create confusion; non-action buttons look clickable; buttons vanish when clicked.</li><li><strong>Visual Issues:</strong> Spacing problems, text transparency issues, and broken breadcrumbs.</li></ul>`,
+        screens: [{ img: "images/treebo-final-home.png", t: "Home Page (Final UI)", d: "Fully designed home page featuring clear navigation and striking visuals." }, { img: "images/treebo-final-search.png", t: "Search Results (Final UI)", d: "Polished search interface with functional and bug-free filters." }, { img: "images/treebo-final-details.png", t: "Hotel Details (Final UI)", d: "Comprehensive room details and amenities presented in a clean layout." }]
+      },
+      {
+        t: "Borrow App", s: "Neighborhood Lending UI/UX", c: "linear-gradient(135deg,#00685F,#008378)", q: "How can we remove the awkwardness of asking neighbors for items?", i: "Trust issues and social friction prevent neighbors from lending items.", d: "Designed a structured, trust-scored item-lending app with RWA verification.", r: ["+Trust", "Scores"],
+        pr: "I conducted user research, created wireframes, and validated a trust-scored lending flow.", st: [["5", "Weeks"], ["Solo", "UI/UX"], ["Verified", "Trust"]], b: "Before: Awkward favors", a: "After: Structured borrowing",
+        researchData: `<h3>In Short</h3><p><strong>Problem:</strong> Neighbors need items they don't own but lack a trustworthy, low-friction channel to borrow them. Social awkwardness is the single most-cited hesitation.</p><p><strong>What I did:</strong> Surveyed 28 residents, synthesized 6 user archetypes, and designed a mobile borrowing flow scoped to a single verified society with a multi-factor trust score.</p><h3>Key Research Insights</h3><ul style="margin:16px 0;padding-left:20px;line-height:1.6"><li><strong>Borrowing is common but undocumented:</strong> Most use informal WhatsApp groups or ask in person.</li><li><strong>Trust outweighs price:</strong> A verified resident identity and transaction history mattered more than rental compensation.</li><li><strong>Closed beats open:</strong> Users preferred an app limited to verified residents of their own housing society over an open map of strangers.</li></ul><h3>Product Decisions</h3><ul style="margin:16px 0;padding-left:20px;line-height:1.6"><li><strong>Scope to a single society:</strong> RWA-verified single-society scope ensures trust right at the front gate.</li><li><strong>Lead with trust score:</strong> Built from profile verification, exchange count, and on-time-return rate.</li><li><strong>Structured async requests:</strong> Requests are explicitly accepted or declined before chat unlocks, removing social friction.</li></ul>`,
+        screens: [{ img: "https://sunilohdar-portfolio.vercel.app/images/borrow-screen-1-onboarding.png", t: "Verify Society", d: "Residents search for and confirm their specific gated community." }, { img: "https://sunilohdar-portfolio.vercel.app/images/borrow-screen-2-home.png", t: "Browse & Request", d: "A clean feed of popular items available inside the resident's society." }, { img: "https://sunilohdar-portfolio.vercel.app/images/borrow-screen-3-lender-review.png", t: "Lender Reviews Request", d: "Lenders inspect incoming requests with the borrower's verified details." }, { img: "https://sunilohdar-portfolio.vercel.app/images/borrow-screen-4-inbox.png", t: "Track It in Inbox", d: "Segmented tabs keep active borrow handoffs and reminders organized." }, { img: "https://sunilohdar-portfolio.vercel.app/images/borrow-screen-5-profile.png", t: "Trust Score & History", d: "A dedicated user profile showcasing overall Trust Score and history." }],
+        wireframes: "https://sunilohdar-portfolio.vercel.app/images/borrow-wireframes.jpg"
+      },
+      {
+        t: "Blinkit WatchOS", inProg: true, s: "WatchOS App UX Research", c: "linear-gradient(135deg,#F6C800,#D5A900)", q: "How can we design a seamless grocery shopping experience on a smartwatch?", i: "Grocery delivery apps need extreme convenience. WatchOS presents unique interaction constraints.", d: "Conducted research to design a WatchOS application for Blinkit.", r: ["+Convenience", "WatchOS"],
+        pr: "Explored interaction paradigms for 10-minute grocery delivery on an Apple Watch.", st: [["UX", "Research"], ["Apple", "Watch"], ["Quick", "Commerce"]], b: "Before: Mobile only", a: "After: WatchOS conceptualized",
+        researchData: `<h3>Problem Statement & Hypothesis</h3><p>Blinkit offers 10-minute grocery delivery, but users still need their phones to order. <strong>Hypothesis:</strong> A WatchOS app can provide faster reordering and order tracking, reducing friction for frequent buyers.</p><h3>Figma Research Link</h3><p><a href="https://www.figma.com/board/GImQLbnu9jVSV6nMia8fjo/Blinkit-watchos-research?node-id=0-1&t=1KuAMko7rG3EO210-1" target="_blank" style="color: #0066cc; text-decoration: underline;">View the Figma Board (Work in Progress)</a></p>`,
+        screens: []
+      }/*,
 {t:"Brand Book",s:"Virtual Internship - LaunchEd",c:"linear-gradient(135deg,#2447ff,#6b3bff)",q:"How can we improve audience interaction and brand growth?",i:"Needed strategies to strengthen online presence for SHELeadsIndia.",d:"Created a complete Brand Book and developed Engagement Strategies.",r:["+Brand","Identity"],
  pr:"I worked on a digital marketing project, analyzed the brand, and suggested marketing ideas.",st:[["Brand","Book created"],["Engagement","Strategies"],["Online","Presence"]],b:"Before: Basic identity",a:"After: Strong Brand Book"},
 {t:"NGO Operations",s:"Social Internship - Guru Nanak NGO",c:"linear-gradient(135deg,#0f9d77,#1b6ca8)",q:"How can we improve our management efficiency and workflow?",i:"The NGO faced challenges in managing educational and social activities.",d:"Prepared a report suggesting steps to enhance NGO operations.",r:["+Efficiency","Workflow"],
  pr:"I observed underprivileged children, understood NGO operations, and recommended simplification strategies.",st:[["Project","Report"],["Workflow","Simplified"],["Efficiency","Improved"]],b:"Before: Complex workflow",a:"After: Simplified strategies"},
 {t:"GMB Optimization",s:"Local Shop Profile",c:"linear-gradient(135deg,#ff7a1a,#d3262b)",q:"How do we get more customers from Google Search?",i:"The local shop lacked visibility on Google Search and Maps.",d:"Created and managed their Google My Business profile with updated info.",r:["+Visibility","On Google"],
  pr:"I updated business address, working hours, and services, developing practical knowledge of GMB.",st:[["Search","Visibility"],["Maps","Presence"],["Info","Updated"]],b:"Before: Unlisted shop",a:"After: Optimized GMB Profile"}*/];
-const X=[{x1:"Interaction bugs in filters increase cognitive load.",x2:"Responsive breakage hurts mobile-first users.",an:"Annotation: Audited the end-to-end booking flow."},
-{x1:"Trust is the biggest barrier in neighborhood lending.",x2:"RWA verification builds instant credibility.",an:"Annotation: Designed a system using RWA trust scores."},
-{x1:"Smartwatch screens demand hyper-focused interactions.",x2:"Quick commerce requires instant reordering.",an:"Annotation: Exploring WatchOS interactions for Blinkit."}/*,
+    const X = [{ x1: "Interaction bugs in filters increase cognitive load.", x2: "Responsive breakage hurts mobile-first users.", an: "Annotation: Audited the end-to-end booking flow." },
+    { x1: "Trust is the biggest barrier in neighborhood lending.", x2: "RWA verification builds instant credibility.", an: "Annotation: Designed a system using RWA trust scores." },
+    { x1: "Smartwatch screens demand hyper-focused interactions.", x2: "Quick commerce requires instant reordering.", an: "Annotation: Exploring WatchOS interactions for Blinkit." }/*,
 {x1:"A strong identity is the foundation of growth.",x2:"Engagement strategies drive interaction.",an:"Annotation: Created comprehensive guidelines for SHELeadsIndia."},
 {x1:"Observation helps understand real challenges.",x2:"Simplification improves overall efficiency.",an:"Annotation: Studied lifestyle of underprivileged children to provide recommendations."},
 {x1:"Local SEO is crucial for small businesses.",x2:"Accurate information builds trust.",an:"Annotation: Updated working hours, address, and service details."}*/];
-$("#walls").innerHTML=P.map((p,k)=>`<div class="cl" data-k="${k}"><svg aria-hidden="true"></svg><div class="slate" aria-hidden="true"><div class="sticks"></div><div class="sb"><b>SCENE 0${k+1} · TAKE 1</b><span>${p.t}</span><em>${p.s}</em></div></div>
+    $("#walls").innerHTML = P.map((p, k) => `<div class="cl" data-k="${k}"><svg aria-hidden="true"></svg><div class="slate" aria-hidden="true"><div class="sticks"></div><div class="sb"><b>SCENE 0${k + 1} · TAKE 1</b><span>${p.t}</span><em>${p.s}</em></div></div>
 <div class="row">
-<button class="pol" data-pin data-k="${k}" style="--r:${k%2?2:-2}deg" aria-label="Open ${p.t} case study"><div class="ph" style="background:${p.c}">${p.t}</div><b>${p.t}${p.inProg ? ' <span style="color:#d32f2f;font-size:12px;border:1px solid currentcolor;padding:2px 6px;border-radius:12px;vertical-align:middle;display:inline-block;margin-left:6px;position:relative;top:-3px;font-family:sans-serif;font-weight:600;letter-spacing:0.5px">In Progress</span>' : ''}</b><span>${p.s}. Open case study</span></button>
+<button class="pol" data-pin data-k="${k}" style="--r:${k % 2 ? 2 : -2}deg" aria-label="Open ${p.t} case study"><div class="ph" style="background:${p.c}">${p.t}</div><b>${p.t}${p.inProg ? ' <span style="color:#d32f2f;font-size:12px;border:1px solid currentcolor;padding:2px 6px;border-radius:12px;vertical-align:middle;display:inline-block;margin-left:6px;position:relative;top:-3px;font-family:sans-serif;font-weight:600;letter-spacing:0.5px">In Progress</span>' : ''}</b><span>${p.s}. Open case study</span></button>
 <div class="n" data-pin style="--r:-2deg"><span class="lab">what users said</span><span class="q">“${p.q}”</span></div>
 <div class="n bl pl" data-pin style="--r:1.5deg"><div class="bk"><small>underneath</small>${X[k].x1}</div><button class="cn" aria-expanded="false" aria-label="Peel the note to read the extra insight"></button><div class="fr"><span class="lab">what we learned</span>${p.i}</div></div>
 <div class="n g pl" data-pin style="--r:-1deg"><div class="bk"><small>underneath</small>${X[k].x2}</div><button class="cn" aria-expanded="false" aria-label="Peel the note to read the extra detail"></button><div class="fr"><span class="lab">what I changed</span>${p.d}</div></div>
 <div class="n p" data-pin style="--r:2deg"><span class="lab">result</span><span class="res">${p.r[0]}</span>${p.r[1]}</div>
 </div><button class="b fl">Follow the string</button></div>`).join("");
-// strings
-function lay(c){const cr=c.getBoundingClientRect(),pts=$$("[data-k='"+c.dataset.k+"'] [data-pin]").map(e=>{const r=e.getBoundingClientRect();return[r.left+r.width/2-cr.left,r.top-cr.top+10]});
-const sv=c.querySelector("svg");sv.innerHTML="";
-for(let i=0;i<pts.length-1;i++){const[a,b]=pts[i],[x,y]=pts[i+1],pa=document.createElementNS("http://www.w3.org/2000/svg","path");
-pa.setAttribute("d",`M${a},${b} Q${(a+x)/2},${Math.max(b,y)+46} ${x},${y}`);sv.appendChild(pa);const L=Math.ceil(pa.getTotalLength())+4;pa.style.setProperty("--len",L);pa.style.setProperty("--k",i)}}
-const cls=$$(".cl");const relay=()=>cls.forEach(lay);
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("drawn");cue(e.target);io.unobserve(e.target)}}),{threshold:.35});
-cls.forEach(c=>{rm?c.classList.add("drawn"):io.observe(c);new ResizeObserver(()=>lay(c)).observe(c)});
-addEventListener("resize",relay);(document.fonts?document.fonts.ready:Promise.resolve()).then(relay);relay();
-// follow
-cls.forEach(c=>c.querySelector(".fl").onclick=()=>{const ns=[...c.querySelectorAll("[data-pin]")];c.classList.add("follow","drawn");
-ns.forEach((n,i)=>setTimeout(()=>{ns.forEach(x=>x.classList.remove("lit"));n.classList.add("lit");sfx("pin");if(i===ns.length-1)setTimeout(()=>{n.classList.remove("lit");c.classList.remove("follow")},1600)},rm?i*200:i*1000))});
-// case study
-const cd=$("#cd");
-$$(".pol").forEach(b=>b.onclick=()=>{if(b.dataset.m){delete b.dataset.m;return}sfx("click");const p=P[b.dataset.k];
-if(p.inProg){
-$("#cb").innerHTML=`<button class="b" id="x" style="float:right">Close</button><h2>${p.t}</h2><p>${p.s}</p>
+    // strings
+    function lay(c) {
+      const cr = c.getBoundingClientRect(), pts = $$("[data-k='" + c.dataset.k + "'] [data-pin]").map(e => { const r = e.getBoundingClientRect(); return [r.left + r.width / 2 - cr.left, r.top - cr.top + 10] });
+      const sv = c.querySelector("svg"); sv.innerHTML = "";
+      for (let i = 0; i < pts.length - 1; i++) {
+        const [a, b] = pts[i], [x, y] = pts[i + 1], pa = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        pa.setAttribute("d", `M${a},${b} Q${(a + x) / 2},${Math.max(b, y) + 46} ${x},${y}`); sv.appendChild(pa); const L = Math.ceil(pa.getTotalLength()) + 4; pa.style.setProperty("--len", L); pa.style.setProperty("--k", i)
+      }
+    }
+    const cls = $$(".cl"); const relay = () => cls.forEach(lay);
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("drawn"); cue(e.target); io.unobserve(e.target) } }), { threshold: .35 });
+    cls.forEach(c => { rm ? c.classList.add("drawn") : io.observe(c); new ResizeObserver(() => lay(c)).observe(c) });
+    addEventListener("resize", relay); (document.fonts ? document.fonts.ready : Promise.resolve()).then(relay); relay();
+    // follow
+    cls.forEach(c => c.querySelector(".fl").onclick = () => {
+      const ns = [...c.querySelectorAll("[data-pin]")]; c.classList.add("follow", "drawn");
+      ns.forEach((n, i) => setTimeout(() => { ns.forEach(x => x.classList.remove("lit")); n.classList.add("lit"); sfx("pin"); if (i === ns.length - 1) setTimeout(() => { n.classList.remove("lit"); c.classList.remove("follow") }, 1600) }, rm ? i * 200 : i * 1000))
+    });
+    // case study
+    const cd = $("#cd");
+    $$(".pol").forEach(b => b.onclick = () => {
+      if (b.dataset.m) { delete b.dataset.m; return } sfx("click"); const p = P[b.dataset.k];
+      if (p.inProg) {
+        $("#cb").innerHTML = `<button class="b" id="x" style="float:right">Close</button><h2>${p.t}</h2><p>${p.s}</p>
 <div style="margin: 40px 0; text-align: center; padding: 40px; background: rgba(128,128,128,0.05); border-radius: 12px; border: 1px dashed rgba(128,128,128,0.3);">
   <h3 style="color:#d32f2f; margin-bottom: 12px; font-size: 24px;">Work in Progress</h3>
   <p style="font-size: 16px; color: #555;">This case study is currently being documented. Please check back later!</p>
 </div>`;
-} else {
-$("#cb").innerHTML=`<button class="b" id="x" style="float:right">Close</button><h2>${p.t}</h2><p>${p.s}</p>
-<div class="st">${p.st.map(s=>`<div><b>${s[0]}</b>${s[1]}</div>`).join("")}</div>
+      } else {
+        $("#cb").innerHTML = `<button class="b" id="x" style="float:right">Close</button><h2>${p.t}</h2><p>${p.s}</p>
+<div class="st">${p.st.map(s => `<div><b>${s[0]}</b>${s[1]}</div>`).join("")}</div>
 <h3>The problem</h3><p>${p.i} ${p.q}</p><h3>My process</h3><p>${p.pr}</p><h3>Before and after</h3><p>Drag to compare the outcome of the process.</p>
 <div class="ba" id="ba"><div class="a">${p.b}</div><div class="d">${p.a}</div><input type="range" min="0" max="100" value="50" aria-label="Compare before and after"><span class="hn"></span></div>
 ${p.researchData ? `<div style="background:rgba(128,128,128,0.05);padding:24px;border-radius:12px;margin:24px 0;border:1px solid rgba(128,128,128,0.15)">${p.researchData}</div>` : ""}
-${p.screens ? `<h3>High-Fidelity Screens</h3><div style="display:flex;flex-wrap:wrap;gap:16px;margin:20px 0;">${p.screens.map(sc=>`<div style="flex:1 1 200px;background:rgba(128,128,128,0.1);padding:16px;border-radius:8px;border:1px solid rgba(128,128,128,0.2);"><img src="${sc.img}" alt="${sc.t}" style="width:100%;border-radius:4px;box-shadow:0 8px 16px rgba(0,0,0,0.1);margin-bottom:12px;"><h4>${sc.t}</h4><p style="font-size:13px;line-height:1.5;">${sc.d}</p></div>`).join("")}</div>` : ""}
+${p.screens ? `<h3>High-Fidelity Screens</h3><div style="display:flex;flex-wrap:wrap;gap:16px;margin:20px 0;">${p.screens.map(sc => `<div style="flex:1 1 200px;background:rgba(128,128,128,0.1);padding:16px;border-radius:8px;border:1px solid rgba(128,128,128,0.2);"><img src="${sc.img}" alt="${sc.t}" style="width:100%;border-radius:4px;box-shadow:0 8px 16px rgba(0,0,0,0.1);margin-bottom:12px;"><h4>${sc.t}</h4><p style="font-size:13px;line-height:1.5;">${sc.d}</p></div>`).join("")}</div>` : ""}
 ${p.wireframes ? `<h3>Wireframes</h3><img src="${p.wireframes}" alt="Wireframes" style="width:100%;border-radius:8px;margin:20px 0;box-shadow:0 8px 16px rgba(0,0,0,0.1);">` : ""}
 <h3>What I learned</h3><p>Direct observation and targeted strategies yield the best results.</p>`;
-}
-const ba=$("#ba");if(ba)ba.querySelector("input").oninput=e=>ba.style.setProperty("--s",e.target.value+"%");$("#x").onclick=()=>cd.close();cd.showModal()});
-cd.onclick=e=>{if(e.target===cd)cd.close()};
-// toast
-let tt;const toast=m=>{const t=$("#t");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2200)};
-$$("[data-resume]").forEach(a=>a.onclick=e=>{e.preventDefault();toast("Add your resume PDF link in the code")});
-$("#copy").onclick=()=>{(navigator.clipboard?navigator.clipboard.writeText(EMAIL):Promise.reject()).then(()=>toast("Email copied"),()=>toast(EMAIL))};
-// drag (strings follow); touch needs a long press so scrolling still works
-let dg=null,rq=0;
-const rl=el=>{const c=el.closest(".cl");if(!c||rq)return;rq=requestAnimationFrame(()=>{rq=0;lay(c)})};
-document.addEventListener("pointerdown",e=>{const el=e.target.closest(".n,.pol,.tm");if(!el||e.button||e.target.closest(".cn,textarea,a,button:not(.pol)"))return;
-const s={el,x:e.clientX,y:e.clientY,tx:parseFloat(el.style.getPropertyValue("--tx"))||0,ty:parseFloat(el.style.getPropertyValue("--ty"))||0,on:false,id:e.pointerId,touch:e.pointerType==="touch"};dg=s;
-if(s.touch)s.t=setTimeout(()=>{s.on=true;el.classList.add("drag")},320)});
-document.addEventListener("pointermove",e=>{if(!dg)return;const dx=e.clientX-dg.x,dy=e.clientY-dg.y;
-if(!dg.on){if(Math.hypot(dx,dy)<=(dg.touch?10:4))return;if(dg.touch){clearTimeout(dg.t);dg=null;return}dg.on=true;dg.el.classList.add("drag");try{dg.el.setPointerCapture(dg.id)}catch(x){}}
-dg.el.style.setProperty("--tx",dg.tx+dx+"px");dg.el.style.setProperty("--ty",dg.ty+dy+"px");rl(dg.el)});
-const dEnd=()=>{if(!dg)return;clearTimeout(dg.t);if(dg.on){const el=dg.el;el.classList.remove("drag");el.dataset.m="1";setTimeout(()=>delete el.dataset.m,120);sfx("pin");rl(el)}dg=null};
-document.addEventListener("pointerup",dEnd);document.addEventListener("pointercancel",dEnd);
-document.addEventListener("touchmove",e=>{if(dg&&dg.on)e.preventDefault()},{passive:false});
-function tidy(){$$(".n,.pol,.tm").forEach(n=>{n.style.removeProperty("--tx");n.style.removeProperty("--ty")});document.body.classList.add("tidy");const t0=performance.now();(function f(){relay();if(performance.now()-t0<750)requestAnimationFrame(f);else document.body.classList.remove("tidy")})();sfx("drop")}
-$("#tidy").onclick=tidy;
-// writable notes
-const nt=$("#nt"),CL=["bl","g","p"];
-function saveNotes(){ ls.set("notes",JSON.stringify([...$("#mine").querySelectorAll(".pinned .q")].map(x=>x.textContent))); }
-function addNote(v,isNew){
-const d=document.createElement("div");d.className="n pinned "+(isNew?"fresh ":"")+CL[Math.floor(Math.random()*3)];d.style.setProperty("--r",(Math.random()*6-3).toFixed(1)+"deg");
-const l=document.createElement("span");l.className="lab";l.textContent="a note from you";
-const p=document.createElement("p");p.className="q";p.textContent=v;
-const a=document.createElement("a");a.className="em";a.textContent="Email this to me";a.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Note from your portfolio")+"&body="+encodeURIComponent(v);
-const rm=document.createElement("button");rm.innerHTML="&times;";rm.style.cssText="position:absolute;top:5px;right:5px;background:none;border:none;font-size:20px;cursor:pointer;padding:5px;opacity:0.5;line-height:1;";rm.onclick=()=>{d.remove();saveNotes()};
-d.append(l,rm,p,a);$("#mine").append(d);
-}
-try{JSON.parse(ls.get("notes")||"[]").forEach(n=>addNote(n,false))}catch(e){}
-$("#pin").onclick=()=>{const v=nt.value.trim();if(!v){toast("Write something first");nt.focus();return}
-addNote(v,true);nt.value="";saveNotes();sfx("drop");toast("Pinned! Press Email this to me to send it.")};
-// peel
-document.addEventListener("click",e=>{const b=e.target.closest(".cn");if(!b)return;const n=b.closest(".pl");n.classList.toggle("peeled");b.setAttribute("aria-expanded",n.classList.contains("peeled"));sfx("swish")});
-// lamp: day and night
-function night(v){document.body.classList.toggle("night",v);$("#lamp").setAttribute("aria-pressed",v);ls.set("night",v?"1":"0")}
-function lampT(){night(!document.body.classList.contains("night"));sfx("click")}
-addEventListener("pointerdown",e=>{document.documentElement.style.setProperty("--lx",e.clientX+"px");document.documentElement.style.setProperty("--ly",e.clientY+"px")});
-addEventListener("keydown",e=>{if(/TEXTAREA|INPUT/.test(e.target.tagName||"")||!document.body.classList.contains("go")||e.repeat)return;const k=e.key.toLowerCase();if(k==="l")lampT()});
-if(ls.get("night")==="1")night(true);
-// skills map
-const SKL={"UI/UX Design":[0,1],"User Research":[0,1],"Figma":[0,1]};
-const sm=$("#smap");let smL=null;
-sm.innerHTML=`<svg aria-hidden="true"></svg><div class="skr">${Object.keys(SKL).map(k=>`<button class="sn" data-s="${k}">${k}</button>`).join("")}</div><div class="pjr">${P.map((p,k)=>`<button class="pn" data-p="${k}">${p.t}</button>`).join("")}</div>`;
-function drawSm(){const r=sm.getBoundingClientRect(),sv=sm.querySelector("svg");sv.innerHTML="";Object.entries(SKL).forEach(([k,ps])=>{const a=sm.querySelector(`.sn[data-s="${k}"]`).getBoundingClientRect();ps.forEach(j=>{const b=sm.querySelector(`.pn[data-p="${j}"]`).getBoundingClientRect(),x1=a.left+a.width/2-r.left,y1=a.bottom-r.top,x2=b.left+b.width/2-r.left,y2=b.top-r.top,pa=document.createElementNS("http://www.w3.org/2000/svg","path");pa.setAttribute("d",`M${x1},${y1} C${x1},${y1+60} ${x2},${y2-60} ${x2},${y2}`);pa.dataset.s=k;pa.dataset.p=j;sv.appendChild(pa)})});hlSm(smL&&smL.s,smL&&smL.p)}
-function hlSm(s,p){sm.classList.toggle("act",s!=null||p!=null);const ls_=[...sm.querySelectorAll("path")];ls_.forEach(l=>l.classList.toggle("on",(s!=null&&l.dataset.s===s)||(p!=null&&l.dataset.p==p)));
-const on=ls_.filter(l=>l.classList.contains("on")),ss=new Set(on.map(l=>l.dataset.s)),ps=new Set(on.map(l=>l.dataset.p));
-sm.querySelectorAll(".sn").forEach(b=>b.classList.toggle("lit",ss.has(b.dataset.s)));sm.querySelectorAll(".pn").forEach(b=>b.classList.toggle("lit",ps.has(b.dataset.p)))}
-const back=()=>hlSm(smL&&smL.s,smL&&smL.p);
-sm.querySelectorAll(".sn").forEach(b=>{const k=b.dataset.s;b.addEventListener("pointerenter",e=>{if(e.pointerType!=="touch")hlSm(k)});b.addEventListener("pointerleave",back);b.addEventListener("focus",()=>hlSm(k));b.addEventListener("blur",back);b.onclick=()=>{smL=smL&&smL.s===k?null:{s:k};hlSm(smL&&smL.s);sfx("pin")}});
-sm.querySelectorAll(".pn").forEach(b=>{const k=b.dataset.p;b.addEventListener("pointerenter",e=>{if(e.pointerType!=="touch")hlSm(null,k)});b.addEventListener("pointerleave",back);b.addEventListener("focus",()=>hlSm(null,k));b.addEventListener("blur",back);b.onclick=()=>$$(".pol")[k].click()});
-new ResizeObserver(drawSm).observe(sm);(document.fonts?document.fonts.ready:Promise.resolve()).then(drawSm);drawSm();
-// contact form: set FORM_ENDPOINT (e.g. a Formspree URL) when hosted on your own site; otherwise it opens the visitor's email app
-const FORM_ENDPOINT="";
-$("#cf").onsubmit=async e=>{e.preventDefault();let ok=true;const f=$("#cf");
-[["cfn",v=>v.trim(),"Enter your name."],["cfe",v=>/^\S+@\S+\.\S+$/.test(v),"Enter a valid email, like name@example.com."],["cfm",v=>v.trim().length>9,"Write at least 10 characters."]].forEach(([id,fn,msg])=>{const i=$("#"+id),g=fn(i.value);i.setAttribute("aria-invalid",!g);i.nextElementSibling.textContent=g?"":msg;if(!g)ok=false});
-if(!ok)return;const d={name:$("#cfn").value.trim(),email:$("#cfe").value.trim(),message:$("#cfm").value.trim()},btn=$("#cs2");
-const done=m=>{f.outerHTML=`<div class="okm" role="status"><h3 style="font:400 34px var(--t);margin:0 0 6px">Thank you</h3><p style="margin:0;color:#b9b2a3">${m}</p></div>`;sfx("drop")};
-if(FORM_ENDPOINT){btn.disabled=true;btn.textContent="Sending...";try{const r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(d)});if(!r.ok)throw 0;done("Your message was sent. I reply within 24 hours.")}catch(x){btn.disabled=false;btn.textContent="Send message";toast("Could not send. Try the email button instead.")}}
-else{location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Portfolio message from "+d.name)+"&body="+encodeURIComponent(d.message+"\n\n"+d.name+" ("+d.email+")");done("Your email app should open with the message ready. Press send there to deliver it.")}};
-// draggable lamp (the light follows it)
-const lamp=$("#lamp"),lsv=lamp.querySelector("svg");let lampMoved=false,ld=null;
-function lampX(x){x=Math.max(40,Math.min(innerWidth-40,x));lamp.style.left=x+"px";document.documentElement.style.setProperty("--cx",x+"px")}
-lamp.addEventListener("pointerdown",e=>{ld={x:e.clientX,px:e.clientX,m:0};lamp.setPointerCapture(e.pointerId)});
-lamp.addEventListener("pointermove",e=>{if(!ld)return;ld.m=Math.max(ld.m,Math.abs(e.clientX-ld.x));if(ld.m>5){lampMoved=true;lampX(e.clientX);const v=e.clientX-ld.px;ld.px=e.clientX;lsv.style.transition="transform .12s";lsv.style.transform=`rotate(${Math.max(-25,Math.min(25,v*1.6))}deg)`}});
-const lampEnd=()=>{if(!ld)return;lsv.style.transition="transform .7s cubic-bezier(.3,1.9,.5,1)";lsv.style.transform="rotate(0deg)";ld=null;setTimeout(()=>lampMoved=false,60)};
-lamp.addEventListener("pointerup",lampEnd);lamp.addEventListener("pointercancel",lampEnd);
-lamp.addEventListener("keydown",e=>{if(e.key==="ArrowLeft"||e.key==="ArrowRight"){e.preventDefault();lampX((parseFloat(lamp.style.left)||innerWidth/2)+(e.key==="ArrowLeft"?-40:40))}});
-lamp.onclick=()=>{if(!lampMoved)lampT()};
-// sound (synthesized, off by default)
-let ac,on=ls.get("snd")==="1";
-function noise(d){const n=Math.floor(ac.sampleRate*d),b=ac.createBuffer(1,n,ac.sampleRate),a=b.getChannelData(0);for(let i=0;i<n;i++)a[i]=Math.random()*2-1;return b}
-function out(v,d,t){const g=ac.createGain();g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+d);g.connect(ac.destination);return g}
-function nz(t,d,f,q,v,ty){const s=ac.createBufferSource();s.buffer=noise(d);const fl=ac.createBiquadFilter();fl.type=ty||"bandpass";fl.frequency.value=f;fl.Q.value=q;s.connect(fl);fl.connect(out(v,d,t));s.start(t)}
-function tone(t,f1,f2,d,v,ty){const o=ac.createOscillator();o.type=ty||"sine";o.frequency.setValueAtTime(f1,t);o.frequency.exponentialRampToValueAtTime(f2,t+d);o.connect(out(v,d,t));o.start(t);o.stop(t+d)}
-function init(){if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume()}
-function sfx(k,p){if(!on)return;try{init();const t=ac.currentTime+.01;p=p||1;
-const sw=(d,f1,f2,v)=>{const s=ac.createBufferSource();s.buffer=noise(d);const fl=ac.createBiquadFilter();fl.type="bandpass";fl.Q.value=1.4;fl.frequency.setValueAtTime(f1,t);fl.frequency.exponentialRampToValueAtTime(f2,t+d);s.connect(fl);fl.connect(out(v,d,t));s.start(t)};
-if(k==="clap"){nz(t,.09,1800,.8,.9);nz(t+.015,.05,3500,1,.5);tone(t,190,60,.09,.45,"triangle")}
-else if(k==="drop"){nz(t,.12,700,.7,.35);tone(t,130,50,.1,.28)}
-else if(k==="pin"){nz(t,.03,4000,2,.3);tone(t,900,400,.04,.12)}
-else if(k==="string"){nz(t,.45,2400,1.2,.16)}
-else if(k==="boom"){tone(t,75,34,1.5,.8);nz(t,1.2,140,.5,.45,"lowpass")}
-else if(k==="whoosh"){nz(t,.5,900,.8,.18)}
-else if(k==="slam"){nz(t,.06,2200,1,.35);tone(t,150*p,45*p,.16,.5);tone(t,60*p,40*p,.22,.3,"triangle")}
-else if(k==="swish"){sw(.24,600,3500,.22)}
-else if(k==="sweep"){sw(1.4,500,6000,.14)}
-else if(k==="tick"){tone(t,1500+Math.random()*500,1200,.03,.05,"square")}
-else if(k==="lock"){tone(t,1000,650,.05,.14,"square");nz(t,.03,4500,2,.2)}
-else if(k==="ping"){tone(t,330*p,330*p*.99,.6,.12,"triangle")}
-else if(k==="bar"){tone(t,200,800,.6,.05)}
-else if(k==="click"){tone(t,700,500,.05,.1)}}catch(e){}}
-let bg;
-function bgm(){if(!on||bg)return;try{init();const t=ac.currentTime+.05,m=ac.createGain(),N=[];m.gain.value=.8;m.connect(ac.destination);
-const hit=(at,ty,f,d,v)=>{const o=ac.createOscillator(),g=ac.createGain();o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(.0001,t+at);g.gain.linearRampToValueAtTime(v,t+at+.015);g.gain.exponentialRampToValueAtTime(.0001,t+at+d);o.connect(g);g.connect(m);o.start(t+at);o.stop(t+at+d+.05);N.push(o)};
-const lp=ac.createBiquadFilter();lp.type="lowpass";lp.frequency.setValueAtTime(120,t);lp.frequency.exponentialRampToValueAtTime(1100,t+4.6);
-const dg=ac.createGain();dg.gain.setValueAtTime(.0001,t);dg.gain.linearRampToValueAtTime(.1,t+4.5);dg.gain.linearRampToValueAtTime(.0001,t+4.7);lp.connect(dg);dg.connect(m);
-[55,82.4,55.5].forEach(f=>{const o=ac.createOscillator();o.type="sawtooth";o.frequency.value=f;o.connect(lp);o.start(t);o.stop(t+4.8);N.push(o)});
-const rs=ac.createBufferSource();rs.buffer=noise(5);const bp=ac.createBiquadFilter();bp.type="bandpass";bp.Q.value=1.2;bp.frequency.setValueAtTime(300,t);bp.frequency.exponentialRampToValueAtTime(5000,t+4.6);
-const rg=ac.createGain();rg.gain.setValueAtTime(.0001,t);rg.gain.exponentialRampToValueAtTime(.16,t+4.5);rg.gain.linearRampToValueAtTime(0,t+4.62);rs.connect(bp);bp.connect(rg);rg.connect(m);rs.start(t);rs.stop(t+4.7);N.push(rs);
-for(let k=0;k<9;k++)hit(k*.52,"sine",70,.3,.1+k*.025);
-[110,130.8,164.8,220].forEach(f=>hit(4.6,"triangle",f,4.8,.07));hit(4.6,"sine",55,2.5,.22);
-const cr=ac.createBufferSource();cr.buffer=noise(2.2);const hp=ac.createBiquadFilter();hp.type="highpass";hp.frequency.value=5000;const cg=ac.createGain();cg.gain.setValueAtTime(.2,t+4.6);cg.gain.exponentialRampToValueAtTime(.001,t+6.8);cr.connect(hp);hp.connect(cg);cg.connect(m);cr.start(t+4.6);N.push(cr);
-[220,261.6,329.6,440,329.6,440,523.3,659.3].forEach((f,k)=>hit(6.95+k*.4,"triangle",f,.7,.08));
-[110,164.8,220,329.6,440].forEach(f=>hit(9.2,"triangle",f,4,.07));hit(9.2,"sine",55,3,.24);
-bg={stop(f){const n=ac.currentTime;m.gain.cancelScheduledValues(n);m.gain.setValueAtTime(m.gain.value,n);m.gain.linearRampToValueAtTime(0,n+f);N.forEach(x=>{try{x.stop(n+f+.1)}catch(e){}})}}}catch(e){}}
-function stopBgm(f){if(bg){bg.stop(f);bg=null}}
-const snd=$("#snd"),lab=()=>{snd.textContent=on?"Sound on":"Sound off";snd.setAttribute("aria-pressed",on)};
-let amb;
-function ambient(v){if(!ac)return;if(v&&!amb){const t=ac.currentTime,g=ac.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.07,t+3);g.connect(ac.destination);
-const s=ac.createBufferSource();s.buffer=noise(4);s.loop=true;const f=ac.createBiquadFilter();f.type="lowpass";f.frequency.value=180;s.connect(f);f.connect(g);s.start();
-const o=ac.createOscillator();o.frequency.value=55;const og=ac.createGain();og.gain.value=.5;o.connect(og);og.connect(g);o.start();
-const l=ac.createOscillator();l.frequency.value=.12;const lg=ac.createGain();lg.gain.value=.02;l.connect(lg);lg.connect(g.gain);l.start();
-amb={stop(){const n=ac.currentTime;g.gain.cancelScheduledValues(n);g.gain.setValueAtTime(g.gain.value,n);g.gain.linearRampToValueAtTime(0,n+.8);[s,o,l].forEach(x=>x.stop(n+.9));amb=null}}}else if(!v&&amb)amb.stop()}
-snd.onclick=()=>{on=!on;ls.set("snd",on?"1":"0");lab();try{if(on)init();ambient(true)}catch(e){}sfx("click");if(!tr.hidden&&!tr.classList.contains("out")){if(on){i=0;show()}else stopBgm(.4)}};lab();
-addEventListener("pointerdown",()=>{if(on&&!amb){try{init();ambient(true)}catch(e){}}},{once:true});
-document.addEventListener("visibilitychange",()=>{if(ac){document.hidden?ac.suspend():on&&ac.resume()}});
+      }
+      const ba = $("#ba"); if (ba) ba.querySelector("input").oninput = e => ba.style.setProperty("--s", e.target.value + "%"); $("#x").onclick = () => cd.close(); cd.showModal()
+    });
+    cd.onclick = e => { if (e.target === cd) cd.close() };
+    // toast
+    let tt; const toast = m => { const t = $("#t"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2200) };
+    $$("[data-resume]").forEach(a => a.onclick = e => { e.preventDefault(); toast("Add your resume PDF link in the code") });
+    $("#copy").onclick = () => { (navigator.clipboard ? navigator.clipboard.writeText(EMAIL) : Promise.reject()).then(() => toast("Email copied"), () => toast(EMAIL)) };
+    // drag (strings follow); touch needs a long press so scrolling still works
+    let dg = null, rq = 0;
+    const rl = el => { const c = el.closest(".cl"); if (!c || rq) return; rq = requestAnimationFrame(() => { rq = 0; lay(c) }) };
+    document.addEventListener("pointerdown", e => {
+      const el = e.target.closest(".n,.pol,.tm"); if (!el || e.button || e.target.closest(".cn,textarea,a,button:not(.pol)")) return;
+      const s = { el, x: e.clientX, y: e.clientY, tx: parseFloat(el.style.getPropertyValue("--tx")) || 0, ty: parseFloat(el.style.getPropertyValue("--ty")) || 0, on: false, id: e.pointerId, touch: e.pointerType === "touch" }; dg = s;
+      if (s.touch) s.t = setTimeout(() => { s.on = true; el.classList.add("drag") }, 320)
+    });
+    document.addEventListener("pointermove", e => {
+      if (!dg) return; const dx = e.clientX - dg.x, dy = e.clientY - dg.y;
+      if (!dg.on) { if (Math.hypot(dx, dy) <= (dg.touch ? 10 : 4)) return; if (dg.touch) { clearTimeout(dg.t); dg = null; return } dg.on = true; dg.el.classList.add("drag"); try { dg.el.setPointerCapture(dg.id) } catch (x) { } }
+      dg.el.style.setProperty("--tx", dg.tx + dx + "px"); dg.el.style.setProperty("--ty", dg.ty + dy + "px"); rl(dg.el)
+    });
+    const dEnd = () => { if (!dg) return; clearTimeout(dg.t); if (dg.on) { const el = dg.el; el.classList.remove("drag"); el.dataset.m = "1"; setTimeout(() => delete el.dataset.m, 120); sfx("pin"); rl(el) } dg = null };
+    document.addEventListener("pointerup", dEnd); document.addEventListener("pointercancel", dEnd);
+    document.addEventListener("touchmove", e => { if (dg && dg.on) e.preventDefault() }, { passive: false });
+    function tidy() { $$(".n,.pol,.tm").forEach(n => { n.style.removeProperty("--tx"); n.style.removeProperty("--ty") }); document.body.classList.add("tidy"); const t0 = performance.now(); (function f() { relay(); if (performance.now() - t0 < 750) requestAnimationFrame(f); else document.body.classList.remove("tidy") })(); sfx("drop") }
+    $("#tidy").onclick = tidy;
+    // writable notes
+    const nt = $("#nt"), CL = ["bl", "g", "p"];
+    function saveNotes() { ls.set("notes", JSON.stringify([...$("#mine").querySelectorAll(".pinned .q")].map(x => x.textContent))); }
+    function addNote(v, isNew) {
+      const d = document.createElement("div"); d.className = "n pinned " + (isNew ? "fresh " : "") + CL[Math.floor(Math.random() * 3)]; d.style.setProperty("--r", (Math.random() * 6 - 3).toFixed(1) + "deg");
+      const l = document.createElement("span"); l.className = "lab"; l.textContent = "a note from you";
+      const p = document.createElement("p"); p.className = "q"; p.textContent = v;
+      const a = document.createElement("a"); a.className = "em"; a.textContent = "Email this to me"; a.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Note from your portfolio") + "&body=" + encodeURIComponent(v);
+      const rm = document.createElement("button"); rm.innerHTML = "&times;"; rm.style.cssText = "position:absolute;top:5px;right:5px;background:none;border:none;font-size:20px;cursor:pointer;padding:5px;opacity:0.5;line-height:1;"; rm.onclick = () => { d.remove(); saveNotes() };
+      d.append(l, rm, p, a); $("#mine").append(d);
+    }
+    try { JSON.parse(ls.get("notes") || "[]").forEach(n => addNote(n, false)) } catch (e) { }
+    $("#pin").onclick = () => {
+      const v = nt.value.trim(); if (!v) { toast("Write something first"); nt.focus(); return }
+      addNote(v, true); nt.value = ""; saveNotes(); sfx("drop"); toast("Pinned! Press Email this to me to send it.")
+    };
+    // peel
+    document.addEventListener("click", e => { const b = e.target.closest(".cn"); if (!b) return; const n = b.closest(".pl"); n.classList.toggle("peeled"); b.setAttribute("aria-expanded", n.classList.contains("peeled")); sfx("swish") });
+    // lamp: day and night
+    function night(v) { document.body.classList.toggle("night", v); $("#lamp").setAttribute("aria-pressed", v); ls.set("night", v ? "1" : "0") }
+    function lampT() { night(!document.body.classList.contains("night")); sfx("click") }
+    addEventListener("pointerdown", e => { document.documentElement.style.setProperty("--lx", e.clientX + "px"); document.documentElement.style.setProperty("--ly", e.clientY + "px") });
+    addEventListener("keydown", e => { if (/TEXTAREA|INPUT/.test(e.target.tagName || "") || !document.body.classList.contains("go") || e.repeat) return; const k = e.key.toLowerCase(); if (k === "l") lampT() });
+    if (ls.get("night") === "1") night(true);
+    // skills map
+    const SKL = { "UI/UX Design": [0, 1], "User Research": [0, 1], "Figma": [0, 1] };
+    const sm = $("#smap"); let smL = null;
+    sm.innerHTML = `<svg aria-hidden="true"></svg><div class="skr">${Object.keys(SKL).map(k => `<button class="sn" data-s="${k}">${k}</button>`).join("")}</div><div class="pjr">${P.map((p, k) => `<button class="pn" data-p="${k}">${p.t}</button>`).join("")}</div>`;
+    function drawSm() { const r = sm.getBoundingClientRect(), sv = sm.querySelector("svg"); sv.innerHTML = ""; Object.entries(SKL).forEach(([k, ps]) => { const a = sm.querySelector(`.sn[data-s="${k}"]`).getBoundingClientRect(); ps.forEach(j => { const b = sm.querySelector(`.pn[data-p="${j}"]`).getBoundingClientRect(), x1 = a.left + a.width / 2 - r.left, y1 = a.bottom - r.top, x2 = b.left + b.width / 2 - r.left, y2 = b.top - r.top, pa = document.createElementNS("http://www.w3.org/2000/svg", "path"); pa.setAttribute("d", `M${x1},${y1} C${x1},${y1 + 60} ${x2},${y2 - 60} ${x2},${y2}`); pa.dataset.s = k; pa.dataset.p = j; sv.appendChild(pa) }) }); hlSm(smL && smL.s, smL && smL.p) }
+    function hlSm(s, p) {
+      sm.classList.toggle("act", s != null || p != null); const ls_ = [...sm.querySelectorAll("path")]; ls_.forEach(l => l.classList.toggle("on", (s != null && l.dataset.s === s) || (p != null && l.dataset.p == p)));
+      const on = ls_.filter(l => l.classList.contains("on")), ss = new Set(on.map(l => l.dataset.s)), ps = new Set(on.map(l => l.dataset.p));
+      sm.querySelectorAll(".sn").forEach(b => b.classList.toggle("lit", ss.has(b.dataset.s))); sm.querySelectorAll(".pn").forEach(b => b.classList.toggle("lit", ps.has(b.dataset.p)))
+    }
+    const back = () => hlSm(smL && smL.s, smL && smL.p);
+    sm.querySelectorAll(".sn").forEach(b => { const k = b.dataset.s; b.addEventListener("pointerenter", e => { if (e.pointerType !== "touch") hlSm(k) }); b.addEventListener("pointerleave", back); b.addEventListener("focus", () => hlSm(k)); b.addEventListener("blur", back); b.onclick = () => { smL = smL && smL.s === k ? null : { s: k }; hlSm(smL && smL.s); sfx("pin") } });
+    sm.querySelectorAll(".pn").forEach(b => { const k = b.dataset.p; b.addEventListener("pointerenter", e => { if (e.pointerType !== "touch") hlSm(null, k) }); b.addEventListener("pointerleave", back); b.addEventListener("focus", () => hlSm(null, k)); b.addEventListener("blur", back); b.onclick = () => $$(".pol")[k].click() });
+    new ResizeObserver(drawSm).observe(sm); (document.fonts ? document.fonts.ready : Promise.resolve()).then(drawSm); drawSm();
+    // contact form: set FORM_ENDPOINT (e.g. a Formspree URL) when hosted on your own site; otherwise it opens the visitor's email app
+    const FORM_ENDPOINT = "";
+    $("#cf").onsubmit = async e => {
+      e.preventDefault(); let ok = true; const f = $("#cf");
+      [["cfn", v => v.trim(), "Enter your name."], ["cfe", v => /^\S+@\S+\.\S+$/.test(v), "Enter a valid email, like name@example.com."], ["cfm", v => v.trim().length > 9, "Write at least 10 characters."]].forEach(([id, fn, msg]) => { const i = $("#" + id), g = fn(i.value); i.setAttribute("aria-invalid", !g); i.nextElementSibling.textContent = g ? "" : msg; if (!g) ok = false });
+      if (!ok) return; const d = { name: $("#cfn").value.trim(), email: $("#cfe").value.trim(), message: $("#cfm").value.trim() }, btn = $("#cs2");
+      const done = m => { f.outerHTML = `<div class="okm" role="status"><h3 style="font:400 34px var(--t);margin:0 0 6px">Thank you</h3><p style="margin:0;color:#b9b2a3">${m}</p></div>`; sfx("drop") };
+      if (FORM_ENDPOINT) { btn.disabled = true; btn.textContent = "Sending..."; try { const r = await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(d) }); if (!r.ok) throw 0; done("Your message was sent. I reply within 24 hours.") } catch (x) { btn.disabled = false; btn.textContent = "Send message"; toast("Could not send. Try the email button instead.") } }
+      else { location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Portfolio message from " + d.name) + "&body=" + encodeURIComponent(d.message + "\n\n" + d.name + " (" + d.email + ")"); done("Your email app should open with the message ready. Press send there to deliver it.") }
+    };
+    // draggable lamp (the light follows it)
+    const lamp = $("#lamp"), lsv = lamp.querySelector("svg"); let lampMoved = false, ld = null;
+    function lampX(x) { x = Math.max(40, Math.min(innerWidth - 40, x)); lamp.style.left = x + "px"; document.documentElement.style.setProperty("--cx", x + "px") }
+    lamp.addEventListener("pointerdown", e => { ld = { x: e.clientX, px: e.clientX, m: 0 }; lamp.setPointerCapture(e.pointerId) });
+    lamp.addEventListener("pointermove", e => { if (!ld) return; ld.m = Math.max(ld.m, Math.abs(e.clientX - ld.x)); if (ld.m > 5) { lampMoved = true; lampX(e.clientX); const v = e.clientX - ld.px; ld.px = e.clientX; lsv.style.transition = "transform .12s"; lsv.style.transform = `rotate(${Math.max(-25, Math.min(25, v * 1.6))}deg)` } });
+    const lampEnd = () => { if (!ld) return; lsv.style.transition = "transform .7s cubic-bezier(.3,1.9,.5,1)"; lsv.style.transform = "rotate(0deg)"; ld = null; setTimeout(() => lampMoved = false, 60) };
+    lamp.addEventListener("pointerup", lampEnd); lamp.addEventListener("pointercancel", lampEnd);
+    lamp.addEventListener("keydown", e => { if (e.key === "ArrowLeft" || e.key === "ArrowRight") { e.preventDefault(); lampX((parseFloat(lamp.style.left) || innerWidth / 2) + (e.key === "ArrowLeft" ? -40 : 40)) } });
+    lamp.onclick = () => { if (!lampMoved) lampT() };
+    // sound (synthesized, off by default)
+    let ac, on = ls.get("snd") === "1";
+    function noise(d) { const n = Math.floor(ac.sampleRate * d), b = ac.createBuffer(1, n, ac.sampleRate), a = b.getChannelData(0); for (let i = 0; i < n; i++)a[i] = Math.random() * 2 - 1; return b }
+    function out(v, d, t) { const g = ac.createGain(); g.gain.setValueAtTime(v, t); g.gain.exponentialRampToValueAtTime(.001, t + d); g.connect(ac.destination); return g }
+    function nz(t, d, f, q, v, ty) { const s = ac.createBufferSource(); s.buffer = noise(d); const fl = ac.createBiquadFilter(); fl.type = ty || "bandpass"; fl.frequency.value = f; fl.Q.value = q; s.connect(fl); fl.connect(out(v, d, t)); s.start(t) }
+    function tone(t, f1, f2, d, v, ty) { const o = ac.createOscillator(); o.type = ty || "sine"; o.frequency.setValueAtTime(f1, t); o.frequency.exponentialRampToValueAtTime(f2, t + d); o.connect(out(v, d, t)); o.start(t); o.stop(t + d) }
+    function init() { if (!ac) ac = new (window.AudioContext || window.webkitAudioContext)(); if (ac.state === "suspended") ac.resume() }
+    function sfx(k, p) {
+      if (!on) return; try {
+        init(); const t = ac.currentTime + .01; p = p || 1;
+        const sw = (d, f1, f2, v) => { const s = ac.createBufferSource(); s.buffer = noise(d); const fl = ac.createBiquadFilter(); fl.type = "bandpass"; fl.Q.value = 1.4; fl.frequency.setValueAtTime(f1, t); fl.frequency.exponentialRampToValueAtTime(f2, t + d); s.connect(fl); fl.connect(out(v, d, t)); s.start(t) };
+        if (k === "clap") { nz(t, .09, 1800, .8, .9); nz(t + .015, .05, 3500, 1, .5); tone(t, 190, 60, .09, .45, "triangle") }
+        else if (k === "drop") { nz(t, .12, 700, .7, .35); tone(t, 130, 50, .1, .28) }
+        else if (k === "pin") { nz(t, .03, 4000, 2, .3); tone(t, 900, 400, .04, .12) }
+        else if (k === "string") { nz(t, .45, 2400, 1.2, .16) }
+        else if (k === "boom") { tone(t, 75, 34, 1.5, .8); nz(t, 1.2, 140, .5, .45, "lowpass") }
+        else if (k === "whoosh") { nz(t, .5, 900, .8, .18) }
+        else if (k === "slam") { nz(t, .06, 2200, 1, .35); tone(t, 150 * p, 45 * p, .16, .5); tone(t, 60 * p, 40 * p, .22, .3, "triangle") }
+        else if (k === "swish") { sw(.24, 600, 3500, .22) }
+        else if (k === "sweep") { sw(1.4, 500, 6000, .14) }
+        else if (k === "tick") { tone(t, 1500 + Math.random() * 500, 1200, .03, .05, "square") }
+        else if (k === "lock") { tone(t, 1000, 650, .05, .14, "square"); nz(t, .03, 4500, 2, .2) }
+        else if (k === "ping") { tone(t, 330 * p, 330 * p * .99, .6, .12, "triangle") }
+        else if (k === "bar") { tone(t, 200, 800, .6, .05) }
+        else if (k === "click") { tone(t, 700, 500, .05, .1) }
+      } catch (e) { }
+    }
+    let bg;
+    function bgm() {
+      if (!on || bg) return; try {
+        init(); const t = ac.currentTime + .05, m = ac.createGain(), N = []; m.gain.value = .8; m.connect(ac.destination);
+        const hit = (at, ty, f, d, v) => { const o = ac.createOscillator(), g = ac.createGain(); o.type = ty; o.frequency.value = f; g.gain.setValueAtTime(.0001, t + at); g.gain.linearRampToValueAtTime(v, t + at + .015); g.gain.exponentialRampToValueAtTime(.0001, t + at + d); o.connect(g); g.connect(m); o.start(t + at); o.stop(t + at + d + .05); N.push(o) };
+        const lp = ac.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.setValueAtTime(120, t); lp.frequency.exponentialRampToValueAtTime(1100, t + 4.6);
+        const dg = ac.createGain(); dg.gain.setValueAtTime(.0001, t); dg.gain.linearRampToValueAtTime(.1, t + 4.5); dg.gain.linearRampToValueAtTime(.0001, t + 4.7); lp.connect(dg); dg.connect(m);
+        [55, 82.4, 55.5].forEach(f => { const o = ac.createOscillator(); o.type = "sawtooth"; o.frequency.value = f; o.connect(lp); o.start(t); o.stop(t + 4.8); N.push(o) });
+        const rs = ac.createBufferSource(); rs.buffer = noise(5); const bp = ac.createBiquadFilter(); bp.type = "bandpass"; bp.Q.value = 1.2; bp.frequency.setValueAtTime(300, t); bp.frequency.exponentialRampToValueAtTime(5000, t + 4.6);
+        const rg = ac.createGain(); rg.gain.setValueAtTime(.0001, t); rg.gain.exponentialRampToValueAtTime(.16, t + 4.5); rg.gain.linearRampToValueAtTime(0, t + 4.62); rs.connect(bp); bp.connect(rg); rg.connect(m); rs.start(t); rs.stop(t + 4.7); N.push(rs);
+        for (let k = 0; k < 9; k++)hit(k * .52, "sine", 70, .3, .1 + k * .025);
+        [110, 130.8, 164.8, 220].forEach(f => hit(4.6, "triangle", f, 4.8, .07)); hit(4.6, "sine", 55, 2.5, .22);
+        const cr = ac.createBufferSource(); cr.buffer = noise(2.2); const hp = ac.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 5000; const cg = ac.createGain(); cg.gain.setValueAtTime(.2, t + 4.6); cg.gain.exponentialRampToValueAtTime(.001, t + 6.8); cr.connect(hp); hp.connect(cg); cg.connect(m); cr.start(t + 4.6); N.push(cr);
+        [220, 261.6, 329.6, 440, 329.6, 440, 523.3, 659.3].forEach((f, k) => hit(6.95 + k * .4, "triangle", f, .7, .08));
+        [110, 164.8, 220, 329.6, 440].forEach(f => hit(9.2, "triangle", f, 4, .07)); hit(9.2, "sine", 55, 3, .24);
+        bg = { stop(f) { const n = ac.currentTime; m.gain.cancelScheduledValues(n); m.gain.setValueAtTime(m.gain.value, n); m.gain.linearRampToValueAtTime(0, n + f); N.forEach(x => { try { x.stop(n + f + .1) } catch (e) { } }) } }
+      } catch (e) { }
+    }
+    function stopBgm(f) { if (bg) { bg.stop(f); bg = null } }
+    const snd = $("#snd"), lab = () => { snd.textContent = on ? "Sound on" : "Sound off"; snd.setAttribute("aria-pressed", on) };
+    let amb;
+    function ambient(v) {
+      if (!ac) return; if (v && !amb) {
+        const t = ac.currentTime, g = ac.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.07, t + 3); g.connect(ac.destination);
+        const s = ac.createBufferSource(); s.buffer = noise(4); s.loop = true; const f = ac.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = 180; s.connect(f); f.connect(g); s.start();
+        const o = ac.createOscillator(); o.frequency.value = 55; const og = ac.createGain(); og.gain.value = .5; o.connect(og); og.connect(g); o.start();
+        const l = ac.createOscillator(); l.frequency.value = .12; const lg = ac.createGain(); lg.gain.value = .02; l.connect(lg); lg.connect(g.gain); l.start();
+        amb = { stop() { const n = ac.currentTime; g.gain.cancelScheduledValues(n); g.gain.setValueAtTime(g.gain.value, n); g.gain.linearRampToValueAtTime(0, n + .8);[s, o, l].forEach(x => x.stop(n + .9)); amb = null } }
+      } else if (!v && amb) amb.stop()
+    }
+    snd.onclick = () => { on = !on; ls.set("snd", on ? "1" : "0"); lab(); try { if (on) init(); ambient(true) } catch (e) { } sfx("click"); if (!tr.hidden && !tr.classList.contains("out")) { if (on) { i = 0; show() } else stopBgm(.4) } }; lab();
+    addEventListener("pointerdown", () => { if (on && !amb) { try { init(); ambient(true) } catch (e) { } } }, { once: true });
+    document.addEventListener("visibilitychange", () => { if (ac) { document.hidden ? ac.suspend() : on && ac.resume() } });
 
-function cue(c){setTimeout(()=>sfx("clap"),480);[...c.querySelectorAll(".row>*")].forEach((n,j)=>setTimeout(()=>sfx("drop"),500+j*140));setTimeout(()=>sfx("string"),1000)}
-// trailer
-const tr=$("#tr"),card=$("#card"),bar=$("#bar");
-const L=[["Every project starts with a goal."],["Most never look at the full picture."],["SUNIL OHDAR","UI/UX Designer",1],["Three case studies. Real problems. Measurable growth."],["Now showing",0,1]];
-let i=0,tm,kt;
-const W=(t,d,c,du)=>`<span class="w${c||""}" style="--d:${d}s;--du:${du||.26}s">${t}</span>`;
-const S1=["clamp(46px,11vw,130px)","clamp(72px,19vw,230px)","clamp(46px,11vw,130px)","clamp(34px,8vw,96px)","clamp(34px,8vw,96px)"];
-const BIG="clamp(30px,7vw,84px)";
-const K=[
-()=>`<div class="stk">${[["EVERY",0],["APP",.26],["STARTS",.52],["WITH",.78],["A",1.04]].map(a=>W(a[0],a[1])).join("")}${W("QUESTION<b>?</b>",1.3," hold")}</div>`,
-()=>`<div class="pst">${["MOST","NEVER","ASK","THE PEOPLE","WHO USE IT"].map((t,k)=>`<div class="ln"><span class="${k==4?"rd":""}" style="--d:${k*.26}s;font-size:${S1[k]}">${t}</span></div>`).join("")}</div>`,
-()=>`<div class="nm" id="nm" aria-label="${L[2][0]}">${[...L[2][0]].map((c,k)=>`<i style="--d:${k*.05}s">${c===" "?"&nbsp;":c}</i>`).join("")}</div><div class="rl">${L[2][1]}</div><u class="bar"></u>`,
-()=>`<div class="sm">FOUR CASE STUDIES</div><div class="stk short">${["RESEARCH","DESIGN","TEST","SHIP"].map((t,k)=>W(t,k*.4+.05,"",.4)).join("")}</div><div class="ln"><span style="--d:1.7s;font-size:${BIG}">REAL USERS.</span></div><div class="ln"><span class="rd" style="--d:1.95s;font-size:${BIG}">MEASURED RESULTS.</span></div>`,
-()=>`<div class="spr">NOW SHOWING</div><u class="bar" style="animation-delay:.6s"></u>`];
-const CU=[
-[[0,"slam",1],[260,"slam",1.05],[520,"slam",1.1],[780,"slam",1.15],[1040,"slam",1.2],[1300,"flash"],[1300,"slam",.55]],
-[0,1,2,3,4].flatMap(k=>[[k*260,"swish"],[k*260+240,"slam",.7+k*.05]]),
-[[0,"flash"],[0,"boom"],[900,"bar"],[1000,"swish"]],
-[[0,"swish"],[50,"ping",1],[450,"ping",1.25],[850,"ping",1.5],[1250,"ping",2],[1700,"swish"],[1700,"slam",.8],[1950,"swish"],[1950,"slam",.65]],
-[[0,"flash"],[0,"slam",.5],[100,"sweep"],[600,"bar"]]];
-let cq=[];
-function flash(){const f=$("#fl");f.classList.remove("on");void f.offsetWidth;f.classList.add("on")}
-function cues(){cq.forEach(clearTimeout);cq=CU[i].map(c=>setTimeout(()=>{c[1]==="flash"?flash():sfx(c[1],c[2])},c[0]))}
-function kin(){clearInterval(kt);const n=$("#nm");if(!n)return;const el=[...n.children],fin=el.map(e=>e.textContent),G="ABCDEFGHIJKLMNOPQRSTUVWXYZ#%&@",t0=Date.now();
-let nt=0;const lk=[];kt=setInterval(()=>{const dt=Date.now()-t0;let done=1;el.forEach((e,k)=>{if(fin[k]===" "||fin[k]==="\u00a0")return;if(dt>250+k*80){if(!lk[k]){lk[k]=1;e.textContent=fin[k];sfx("lock")}}else{done=0;e.textContent=G[Math.floor(Math.random()*G.length)]}});if(!done&&nt++%2===0)sfx("tick");if(done)clearInterval(kt)},50)}
-function show(){const l=L[i];if(i===0)bgm();card.className="";card.innerHTML=K[i]();kin();cues();void card.offsetWidth;card.className="in";
-bar.style.transition="none";bar.style.width=(i/L.length*100)+"%";void bar.offsetWidth;bar.style.transition="width 2.3s linear";bar.style.width=((i+1)/L.length*100)+"%";
-clearTimeout(tm);tm=setTimeout(next,2300)}
-function next(){i++;i>=L.length?end():show()}
-function end(f){clearTimeout(tm);cq.forEach(clearTimeout);clearInterval(kt);stopBgm(f||1.6);tr.classList.add("out");document.body.classList.add("go");document.body.style.overflow="";ls.set("seen","1");setTimeout(()=>{tr.hidden=true;relay()},700)}
-function play(){i=0;tr.hidden=false;tr.classList.remove("out");document.body.style.overflow="hidden";scrollTo(0,0);show();$("#skip").focus()}
-tr.onclick=e=>{if(e.target.id!=="skip")next()};$("#skip").onclick=()=>end(.4);
-addEventListener("keydown",e=>{if(!tr.hidden&&!tr.classList.contains("out")){if(e.key==="Escape")end(.4);else if(e.key==="Enter"&&e.target.id!=="skip")next()}});
-$("#replay").onclick=play;
-const rt=document.documentElement;let raf;
-addEventListener("pointermove",e=>{if(e.pointerType==="touch")return;cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{rt.style.setProperty("--lx",e.clientX+"px");rt.style.setProperty("--ly",e.clientY+"px")})});
-if(rm||ls.get("seen")){tr.hidden=true;document.body.classList.add("go")}else{document.body.style.overflow="hidden";show()}
-</script>
+    function cue(c) { setTimeout(() => sfx("clap"), 480);[...c.querySelectorAll(".row>*")].forEach((n, j) => setTimeout(() => sfx("drop"), 500 + j * 140)); setTimeout(() => sfx("string"), 1000) }
+    // trailer
+    const tr = $("#tr"), card = $("#card"), bar = $("#bar");
+    const L = [["Every project starts with a goal."], ["Most never look at the full picture."], ["SUNIL OHDAR", "UI/UX Designer", 1], ["Three case studies. Real problems. Measurable growth."], ["Now showing", 0, 1]];
+    let i = 0, tm, kt;
+    const W = (t, d, c, du) => `<span class="w${c || ""}" style="--d:${d}s;--du:${du || .26}s">${t}</span>`;
+    const S1 = ["clamp(46px,11vw,130px)", "clamp(72px,19vw,230px)", "clamp(46px,11vw,130px)", "clamp(34px,8vw,96px)", "clamp(34px,8vw,96px)"];
+    const BIG = "clamp(30px,7vw,84px)";
+    const K = [
+      () => `<div class="stk">${[["EVERY", 0], ["APP", .26], ["STARTS", .52], ["WITH", .78], ["A", 1.04]].map(a => W(a[0], a[1])).join("")}${W("QUESTION<b>?</b>", 1.3, " hold")}</div>`,
+      () => `<div class="pst">${["MOST", "NEVER", "ASK", "THE PEOPLE", "WHO USE IT"].map((t, k) => `<div class="ln"><span class="${k == 4 ? "rd" : ""}" style="--d:${k * .26}s;font-size:${S1[k]}">${t}</span></div>`).join("")}</div>`,
+      () => `<div class="nm" id="nm" aria-label="${L[2][0]}">${[...L[2][0]].map((c, k) => `<i style="--d:${k * .05}s">${c === " " ? "&nbsp;" : c}</i>`).join("")}</div><div class="rl">${L[2][1]}</div><u class="bar"></u>`,
+      () => `<div class="sm">FOUR CASE STUDIES</div><div class="stk short">${["RESEARCH", "DESIGN", "TEST", "SHIP"].map((t, k) => W(t, k * .4 + .05, "", .4)).join("")}</div><div class="ln"><span style="--d:1.7s;font-size:${BIG}">REAL USERS.</span></div><div class="ln"><span class="rd" style="--d:1.95s;font-size:${BIG}">MEASURED RESULTS.</span></div>`,
+      () => `<div class="spr">NOW SHOWING</div><u class="bar" style="animation-delay:.6s"></u>`];
+    const CU = [
+      [[0, "slam", 1], [260, "slam", 1.05], [520, "slam", 1.1], [780, "slam", 1.15], [1040, "slam", 1.2], [1300, "flash"], [1300, "slam", .55]],
+      [0, 1, 2, 3, 4].flatMap(k => [[k * 260, "swish"], [k * 260 + 240, "slam", .7 + k * .05]]),
+      [[0, "flash"], [0, "boom"], [900, "bar"], [1000, "swish"]],
+      [[0, "swish"], [50, "ping", 1], [450, "ping", 1.25], [850, "ping", 1.5], [1250, "ping", 2], [1700, "swish"], [1700, "slam", .8], [1950, "swish"], [1950, "slam", .65]],
+      [[0, "flash"], [0, "slam", .5], [100, "sweep"], [600, "bar"]]];
+    let cq = [];
+    function flash() { const f = $("#fl"); f.classList.remove("on"); void f.offsetWidth; f.classList.add("on") }
+    function cues() { cq.forEach(clearTimeout); cq = CU[i].map(c => setTimeout(() => { c[1] === "flash" ? flash() : sfx(c[1], c[2]) }, c[0])) }
+    function kin() {
+      clearInterval(kt); const n = $("#nm"); if (!n) return; const el = [...n.children], fin = el.map(e => e.textContent), G = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#%&@", t0 = Date.now();
+      let nt = 0; const lk = []; kt = setInterval(() => { const dt = Date.now() - t0; let done = 1; el.forEach((e, k) => { if (fin[k] === " " || fin[k] === "\u00a0") return; if (dt > 250 + k * 80) { if (!lk[k]) { lk[k] = 1; e.textContent = fin[k]; sfx("lock") } } else { done = 0; e.textContent = G[Math.floor(Math.random() * G.length)] } }); if (!done && nt++ % 2 === 0) sfx("tick"); if (done) clearInterval(kt) }, 50)
+    }
+    function show() {
+      const l = L[i]; if (i === 0) bgm(); card.className = ""; card.innerHTML = K[i](); kin(); cues(); void card.offsetWidth; card.className = "in";
+      bar.style.transition = "none"; bar.style.width = (i / L.length * 100) + "%"; void bar.offsetWidth; bar.style.transition = "width 2.3s linear"; bar.style.width = ((i + 1) / L.length * 100) + "%";
+      clearTimeout(tm); tm = setTimeout(next, 2300)
+    }
+    function next() { i++; i >= L.length ? end() : show() }
+    function end(f) { clearTimeout(tm); cq.forEach(clearTimeout); clearInterval(kt); stopBgm(f || 1.6); tr.classList.add("out"); document.body.classList.add("go"); document.body.style.overflow = ""; ls.set("seen", "1"); setTimeout(() => { tr.hidden = true; relay() }, 700) }
+    function play() { i = 0; tr.hidden = false; tr.classList.remove("out"); document.body.style.overflow = "hidden"; scrollTo(0, 0); show(); $("#skip").focus() }
+    tr.onclick = e => { if (e.target.id !== "skip") next() }; $("#skip").onclick = () => end(.4);
+    addEventListener("keydown", e => { if (!tr.hidden && !tr.classList.contains("out")) { if (e.key === "Escape") end(.4); else if (e.key === "Enter" && e.target.id !== "skip") next() } });
+    $("#replay").onclick = play;
+    const rt = document.documentElement; let raf;
+    addEventListener("pointermove", e => { if (e.pointerType === "touch") return; cancelAnimationFrame(raf); raf = requestAnimationFrame(() => { rt.style.setProperty("--lx", e.clientX + "px"); rt.style.setProperty("--ly", e.clientY + "px") }) });
+    if (rm || ls.get("seen")) { tr.hidden = true; document.body.classList.add("go") } else { document.body.style.overflow = "hidden"; show() }
+  </script>
 </body>
+
 </html>
