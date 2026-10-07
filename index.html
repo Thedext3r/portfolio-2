@@ -229,7 +229,7 @@ body:not(.go) #lamp{display:none}
 <h2>End credits</h2>
 <div class="cr"><b>BBA Student</b><span>Sushant University, 2023 – 2026</span><b>Digital Marketing Intern</b><span>LaunchEd</span><b>Social Intern</b><span>Guru Nanak NGO</span></div>
 <h3>tools and methods</h3>
-<div class="cr"><b>Tools</b><span>Adobe Premiere Pro, Final Cut Pro, After Effects, Canva, Office Tools</span><b>Skills</b><span>Digital Marketing, GMB Optimization, Video Editing, Creative Media</span></div>
+<div class="cr"><b>Tools</b><span>Figma, Adobe Premiere Pro, Final Cut Pro, After Effects, Canva, Office Tools</span><b>Skills</b><span>UI/UX Design, Digital Marketing, GMB Optimization, Video Editing, Creative Media</span></div>
 <div class="cs"><a class="b r" href="resume.pdf" target="_blank">Download resume</a><a class="b" href="mailto:sunilohdar02@gmail.com">Email me</a><button class="b" id="copy">Copy email</button></div>
 <p style="color:#8a8478">Replies within 24 hours.</p>
 <form id="cf" class="cf" novalidate><label>Name<input id="cfn" autocomplete="name"><span class="er"></span></label><label>Email<input id="cfe" type="email" autocomplete="email"><span class="er"></span></label><label>Message<textarea id="cfm" rows="4"></textarea><span class="er"></span></label><button class="b r" type="submit" id="cs2">Send message</button></form>
@@ -343,7 +343,7 @@ addEventListener("pointerdown",e=>{document.documentElement.style.setProperty("-
 addEventListener("keydown",e=>{if(/TEXTAREA|INPUT/.test(e.target.tagName||"")||!document.body.classList.contains("go")||e.repeat)return;const k=e.key.toLowerCase();if(k==="l")lampT()});
 if(ls.get("night")==="1")night(true);
 // skills map
-const SKL={"UI/UX Design":[0,1],"User Research":[0,1]};
+const SKL={"UI/UX Design":[0,1],"User Research":[0,1],"Figma":[0,1]};
 const sm=$("#smap");let smL=null;
 sm.innerHTML=`<svg aria-hidden="true"></svg><div class="skr">${Object.keys(SKL).map(k=>`<button class="sn" data-s="${k}">${k}</button>`).join("")}</div><div class="pjr">${P.map((p,k)=>`<button class="pn" data-p="${k}">${p.t}</button>`).join("")}</div>`;
 function drawSm(){const r=sm.getBoundingClientRect(),sv=sm.querySelector("svg");sv.innerHTML="";Object.entries(SKL).forEach(([k,ps])=>{const a=sm.querySelector(`.sn[data-s="${k}"]`).getBoundingClientRect();ps.forEach(j=>{const b=sm.querySelector(`.pn[data-p="${j}"]`).getBoundingClientRect(),x1=a.left+a.width/2-r.left,y1=a.bottom-r.top,x2=b.left+b.width/2-r.left,y2=b.top-r.top,pa=document.createElementNS("http://www.w3.org/2000/svg","path");pa.setAttribute("d",`M${x1},${y1} C${x1},${y1+60} ${x2},${y2-60} ${x2},${y2}`);pa.dataset.s=k;pa.dataset.p=j;sv.appendChild(pa)})});hlSm(smL&&smL.s,smL&&smL.p)}
