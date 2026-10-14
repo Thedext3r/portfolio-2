@@ -233,6 +233,116 @@
       .top-bar-inner { flex-wrap: wrap; }
       .nav-links { display: none; }
     }
+
+    /* Hero Video Showcase */
+    .video-showcase-card {
+      padding: 24px 28px 20px;
+      margin-bottom: 36px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid rgba(15, 118, 110, 0.25);
+      box-shadow: 0 16px 32px -8px rgba(15, 118, 110, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    .video-showcase-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .video-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .video-live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #14b8a6;
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25);
+      display: inline-block;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.15); }
+    }
+    .video-badge {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--primary-bg);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 118, 110, 0.15);
+    }
+    .video-duration {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--slate-500);
+      background: var(--slate-100);
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .video-meta-hint {
+      font-size: 0.88rem;
+      color: var(--slate-600);
+      font-weight: 500;
+    }
+    .video-frame {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0f172a;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+      border: 1px solid var(--slate-800);
+      line-height: 0;
+    }
+    .video-frame video {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 640px;
+      object-fit: contain;
+      background: #0f172a;
+    }
+    .video-caption-bar {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 0.86rem;
+      color: var(--slate-600);
+      flex-wrap: wrap;
+    }
+    .video-caption-left strong {
+      color: var(--primary);
+    }
+    .video-open-raw {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--primary-bg);
+      border: 1px solid rgba(15, 118, 110, 0.2);
+      transition: all 0.2s;
+    }
+    .video-open-raw:hover {
+      background: var(--primary);
+      color: white;
+    }
     h2.sec-title {
       font-family: 'Montserrat', sans-serif;
       color: var(--primary);
@@ -515,6 +625,7 @@
         <div class="nav-brand">Sunil Ohdar <span>· Case Study</span></div>
       </div>
       <div class="nav-links">
+        <a href="#demo-video" class="nav-link-btn" style="color:#5eead4;font-weight:600;">▶ Video Demo</a>
         <a href="#executive-summary" class="nav-link-btn">Vision</a>
         <a href="#user-journey" class="nav-link-btn">User Journey</a>
         <a href="#ui-showcase" class="nav-link-btn">UI Showcase</a>
@@ -561,6 +672,37 @@
 
   <div class="container">
     
+    <!-- HERO VIDEO SHOWCASE -->
+    <section class="card video-showcase-card" id="demo-video">
+      <div class="video-showcase-header">
+        <div class="video-badge-group">
+          <span class="video-live-dot"></span>
+          <span class="video-badge">Interactive Prototype Walkthrough</span>
+          <span class="video-duration">58 sec · 1080p</span>
+        </div>
+        <div class="video-meta-hint">Watch the redesigned desktop booking funnel in action</div>
+      </div>
+      
+      <div class="video-frame">
+        <video 
+          controls 
+          playsinline 
+          preload="metadata" 
+          poster="assets/treebo_video_poster.jpg" 
+          title="Treebo Club Web Experience Redesign Video Walkthrough">
+          <source src="treebo demo video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-caption-bar">
+        <div class="video-caption-left">
+          <strong>Key Highlights Covered:</strong> Floating Hero Search · Dynamic Map Split View · Transparent Pricing &amp; 1-Click Room Selection · Non-Intrusive Sign-In Modal
+        </div>
+        <a href="treebo demo video.mp4" target="_blank" class="video-open-raw">⤢ Pop Out Video</a>
+      </div>
+    </section>
+
     <!-- SECTION 1 -->
     <section class="card" id="executive-summary">
       <h2 class="sec-title">1. Executive Summary & Design Vision</h2>

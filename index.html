@@ -751,6 +751,39 @@
     }
     .treebo-cs .badge.teal { background: #ccfbf1; color: #0f766e; }
     .treebo-cs .badge.gold { background: #fef08a; color: #854d0e; }
+    .treebo-cs .treebo-video-box {
+      background: #ffffff;
+      border: 1px solid rgba(15, 118, 110, 0.25);
+      border-radius: 12px;
+      padding: 18px 20px 14px;
+      margin: 22px 0 28px;
+      box-shadow: 0 10px 25px -5px rgba(15, 118, 110, 0.1);
+    }
+    .treebo-cs .treebo-video-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: #0f172a;
+    }
+    .treebo-cs .treebo-live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #14b8a6;
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25);
+      display: inline-block;
+    }
+    .treebo-cs .treebo-video-wrap {
+      border-radius: 8px;
+      overflow: hidden;
+      background: #0f172a;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      line-height: 0;
+    }
     .treebo-cs .full-width-img-card {
       margin: 22px 0;
       border-radius: 10px;
@@ -2149,6 +2182,26 @@
     </div>
   </div>
 
+  <div class="treebo-video-box">
+    <div class="treebo-video-header">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span class="treebo-live-dot"></span>
+        <strong style="color:#0f766e;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.04em;">Interactive Prototype Walkthrough</strong>
+        <span style="font-size:0.75rem;color:#64748b;background:#f1f5f9;padding:2px 8px;border-radius:6px;">58s · 1080p</span>
+      </div>
+      <a href="treebo demo video.mp4" target="_blank" style="font-size:0.8rem;color:#0f766e;text-decoration:none;font-weight:600;">⤢ Fullscreen Pop Out</a>
+    </div>
+    <div class="treebo-video-wrap">
+      <video controls playsinline preload="metadata" poster="assets/treebo_video_poster.jpg" style="width:100%;height:auto;display:block;max-height:480px;object-fit:contain;background:#0f172a;">
+        <source src="treebo demo video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div style="font-size:0.8rem;color:#64748b;margin-top:10px;line-height:1.4;">
+      <strong style="color:#0f766e;">Walkthrough Highlights:</strong> Floating Hero Search · Dynamic Map Split View · Transparent Pricing &amp; 1-Click Room Selection · In-Context Sign-in Modal
+    </div>
+  </div>
+
   <h2>1. Executive Summary & Design Vision</h2>
   <p>Treebo Hotels is one of India's leading budget and boutique hospitality franchisors. The "Treebo Club" ecosystem was created to reward loyal guests through member-exclusive discounts, complimentary upgrades, and priority customer care.</p>
   
@@ -2516,6 +2569,7 @@ ${p.wireframes ? `<h3>Wireframes</h3><img src="${p.wireframes}" alt="Wireframes"
       cd.showModal();
     });
     cd.onclick = e => { if (e.target === cd) cd.close() };
+    cd.addEventListener("close", () => { $$("video", cd).forEach(v => v.pause()) });
     // toast
     let tt; const toast = m => { const t = $("#t"); t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2200) };
     $$("[data-resume]").forEach(a => a.onclick = e => { e.preventDefault(); toast("Add your resume PDF link in the code") });
