@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treebo Club Web Experience Redesign · Sunil Ohdar Case Study</title>
+  <meta name="description" content="High-Fidelity Component Architecture, Design System Tokens, and Full-Funnel Booking Journey Redesign for Treebo Hotels.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --primary-light: #14b8a6;
+      --primary-bg: #f0fdfa;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --gold: #c29748;
+      --gold-bg: #fefce8;
+      --green: #16a34a;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--slate-700);
+      background: #fafaf9;
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+
+    /* Top Sticky Navigation Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 12px 24px;
+    }
+    .top-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ccfbf1;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.2s;
+    }
+    .back-btn:hover {
+      background: rgba(20, 184, 166, 0.25);
+      color: #fff;
+      border-color: #14b8a6;
+    }
+    .nav-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #f1f5f9;
+      letter-spacing: -0.01em;
+    }
+    .nav-brand span {
+      color: #14b8a6;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #e2e8f0;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .nav-link-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .nav-cta {
+      background: #c29748;
+      color: #0f172a !important;
+      font-weight: 600;
+      border-radius: 6px;
+    }
+    .nav-cta:hover {
+      background: #d4a757 !important;
+    }
+
+    /* Hero Section */
+    header.hero {
+      background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+      color: white;
+      padding: 70px 24px 60px;
+      text-align: center;
+      position: relative;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding: 6px 18px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    header.hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    header.hero p.tagline {
+      font-size: 1.2rem;
+      color: #ccfbf1;
+      max-width: 820px;
+      margin: 0 auto 32px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 960px;
+      margin: 0 auto 28px;
+      font-size: 0.9rem;
+    }
+    .hero-meta-item {
+      background: rgba(0,0,0,0.22);
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-meta-item strong {
+      color: #99f6e4;
+    }
+
+    /* Metrics Grid in Hero */
+    .metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      max-width: 900px;
+      margin: 20px auto 0;
+    }
+    .metric-pill {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: center;
+    }
+    .metric-val {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #fef08a;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .metric-lbl {
+      font-size: 0.8rem;
+      color: #ccfbf1;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* Container & Cards */
+    .container {
+      max-width: 1140px;
+      margin: -24px auto 0;
+      padding: 0 20px;
+      position: relative;
+    }
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 44px;
+      margin-bottom: 36px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--slate-200);
+    }
+    @media (max-width: 640px) {
+      .card { padding: 24px 18px; }
+      header.hero { padding: 48px 16px 40px; }
+      .top-bar-inner { flex-wrap: wrap; }
+      .nav-links { display: none; }
+    }
+    h2.sec-title {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary);
+      font-size: 1.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--primary-bg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h3.sub-title {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--slate-800);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 32px 0 16px;
+    }
+    p { margin-bottom: 16px; font-size: 1.02rem; color: var(--slate-700); line-height: 1.65; }
+    .callout {
+      background: var(--primary-bg);
+      border-left: 4px solid var(--primary);
+      padding: 22px 26px;
+      border-radius: 8px;
+      margin: 24px 0;
+    }
+    .callout h4 {
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .callout p { margin: 0; color: var(--slate-800); font-size: 0.98rem; }
+    .table-container {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: 8px;
+      border: 1px solid var(--slate-200);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+    th {
+      background: var(--primary);
+      color: white;
+      padding: 14px 16px;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+    }
+    td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--slate-200);
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: var(--slate-50); }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .badge.teal { background: #ccfbf1; color: #0f766e; }
+    .badge.gold { background: #fef08a; color: #854d0e; }
+    .badge.green { background: #dcfce7; color: #15803d; }
+    .badge.red { background: #fee2e2; color: #b91c1c; }
+
+    /* Images and Figures */
+    .full-width-img-card {
+      margin: 28px 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--slate-200);
+      box-shadow: var(--shadow);
+      background: var(--slate-50);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: zoom-in;
+    }
+    .full-width-img-card:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    .full-width-img-card img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.2s;
+    }
+    .full-width-img-card:hover img {
+      opacity: 0.96;
+    }
+    .img-caption {
+      padding: 12px 18px;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--slate-500);
+      background: white;
+      border-top: 1px solid var(--slate-200);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .img-caption::after {
+      content: "🔍 Click to expand";
+      font-style: normal;
+      font-size: 0.78rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin: 24px 0;
+    }
+    @media (max-width: 768px) {
+      .comparison-grid { grid-template-columns: 1fr; }
+    }
+    .comp-col {
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+    .comp-header {
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-align: center;
+      background: var(--slate-100);
+      color: var(--slate-800);
+      border-bottom: 1px solid var(--slate-200);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .comp-header.primary {
+      background: var(--primary-bg);
+      color: var(--primary);
+      border-bottom: 2px solid #ccfbf1;
+    }
+    .comp-body {
+      padding: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--slate-50);
+      min-height: 240px;
+      cursor: zoom-in;
+    }
+    .comp-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .comp-footer {
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      color: var(--slate-600);
+      background: white;
+      border-top: 1px solid var(--slate-200);
+    }
+    .check-list {
+      list-style: none;
+      margin: 20px 0;
+    }
+    .check-list li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 12px;
+      font-size: 1rem;
+      color: var(--slate-700);
+    }
+    .check-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    /* Lightbox Modal */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      padding: 24px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #lightbox.open {
+      display: flex;
+    }
+    #lightbox img {
+      max-width: 95vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    #lightbox .lb-caption {
+      color: #e2e8f0;
+      margin-top: 16px;
+      font-size: 0.95rem;
+      text-align: center;
+      max-width: 800px;
+    }
+    #lightbox .lb-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      color: #fff;
+      font-size: 32px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    #lightbox .lb-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Footer */
+    footer.page-footer {
+      max-width: 1140px;
+      margin: 40px auto 0;
+      padding: 30px 20px 0;
+      border-top: 1px solid var(--slate-200);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: var(--slate-500);
+    }
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Top Navigation Bar -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <div class="nav-left">
+        <a href="index.html" class="back-btn">← Back to Portfolio Wall</a>
+        <div class="nav-brand">Sunil Ohdar <span>· Case Study</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="#executive-summary" class="nav-link-btn">Vision</a>
+        <a href="#user-journey" class="nav-link-btn">User Journey</a>
+        <a href="#ui-showcase" class="nav-link-btn">UI Showcase</a>
+        <a href="#design-system" class="nav-link-btn">Design Tokens</a>
+        <a href="assets/Treebo_Club_UI_UX_Case_Study.pdf" target="_blank" class="nav-link-btn nav-cta">📄 PDF Report</a>
+        <a href="assets/Treebo_Club_UI_UX_Case_Study.docx" target="_blank" class="nav-link-btn">📝 Word Doc</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-badge">UI / UX Product Design Showcase</div>
+    <h1>Treebo Club Web Experience Redesign</h1>
+    <p class="tagline">High-Fidelity Component Architecture, Design System Tokens, and Full-Funnel Booking Journey Redesign</p>
+    
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>Platform:</strong> Responsive Web (Desktop 1440px)</div>
+      <div class="hero-meta-item"><strong>Domain:</strong> Hospitality & Travel Tech</div>
+      <div class="hero-meta-item"><strong>Deliverables:</strong> PDF Report, Word Document, Figma Design File</div>
+      <div class="hero-meta-item"><strong>Tool:</strong> Figma (Design System & High-Fidelity UI)</div>
+    </div>
+
+    <!-- Key Metrics Highlight Bar -->
+    <div class="metrics-bar">
+      <div class="metric-pill">
+        <div class="metric-val">-40%</div>
+        <div class="metric-lbl">Task Completion Time</div>
+      </div>
+      <div class="metric-pill">
+        <div class="metric-val">+24%</div>
+        <div class="metric-lbl">Est. Completed Bookings</div>
+      </div>
+      <div class="metric-pill">
+        <div class="metric-val">100%</div>
+        <div class="metric-lbl">Upfront Price Transparency</div>
+      </div>
+      <div class="metric-pill">
+        <div class="metric-val">WCAG AA</div>
+        <div class="metric-lbl">Accessible UI Tokens</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- SECTION 1 -->
+    <section class="card" id="executive-summary">
+      <h2 class="sec-title">1. Executive Summary & Design Vision</h2>
+      <p>
+        Treebo Hotels is one of India's leading budget and boutique hospitality franchisors. The "Treebo Club" ecosystem was created to reward loyal guests through member-exclusive discounts, complimentary upgrades, and priority customer care.
+      </p>
+      
+      <div class="callout">
+        <h4>✦ Core Redesign Objectives & Hypothesis</h4>
+        <p>
+          <strong>Vision:</strong> Elevate the Treebo Club digital experience into a modern, delightful, and high-converting travel platform through clean visual hierarchy, transparent pricing patterns, and cohesive component architecture.<br><br>
+          <strong>Design Hypothesis:</strong> By introducing an intuitive multi-facet filter side panel, an interactive split map with synchronized price pins, inline room amenities, and a non-intrusive sign-in modal, Treebo will cut booking task completion time by ~40% and increase completed bookings by +18% to +24%.
+        </p>
+      </div>
+
+      <ul class="check-list">
+        <li><strong>Transparency First:</strong> 100% upfront pricing disclosure eliminating surprise fee additions at payment.</li>
+        <li><strong>Seamless Spatial Discovery:</strong> Interactive split map pairing live listing cards with dynamic price pins.</li>
+        <li><strong>Low Cognitive Load:</strong> Zero-click inline amenity tags surfacing AC, Free Wi-Fi, and Breakfast directly on room cards.</li>
+        <li><strong>In-Context Authentication:</strong> Non-intrusive modal dialog (60% scrim) preserving user search context with 1-tap Google OAuth.</li>
+        <li><strong>Elevated Loyalty Value:</strong> Prominent Treebo Club tier branding and instant discount savings displayed across all touchpoints.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="card" id="user-journey">
+      <h2 class="sec-title">2. Full-Funnel User Journey & Information Architecture</h2>
+      <p>
+        The redesigned booking experience guides travelers effortlessly from initial destination exploration to confirmed reservation:
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Funnel Stage</th>
+              <th>Redesigned Screen</th>
+              <th>Core User Action & UX Enhancements</th>
+              <th>Design Goal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Discovery</strong></td>
+              <td>Home Page (Desktop - 1)</td>
+              <td>High-contrast hero search with live date pickers, destination suggestions, and Treebo Club perks banner.</td>
+              <td><span class="badge teal">Intent Capture</span></td>
+            </tr>
+            <tr>
+              <td><strong>2. Evaluation</strong></td>
+              <td>Search Results & Filters</td>
+              <td>Standardized 490px listing cards, independent filter side panel with price sliders, verified ratings.</td>
+              <td><span class="badge teal">Decision Clarity</span></td>
+            </tr>
+            <tr>
+              <td><strong>3. Spatial Search</strong></td>
+              <td>Interactive Split Map</td>
+              <td>Dual-pane view with dynamic price pins synchronized in real time with hotel listing cards.</td>
+              <td><span class="badge teal">Proximity Match</span></td>
+            </tr>
+            <tr>
+              <td><strong>4. Selection</strong></td>
+              <td>Hotel Details Page</td>
+              <td>Expansive categorized photo gallery, permanent 'Selected' room badge, and 1-click amenities modal.</td>
+              <td><span class="badge teal">Confidence Build</span></td>
+            </tr>
+            <tr>
+              <td><strong>5. Authentication</strong></td>
+              <td>In-Context Sign-in Modal</td>
+              <td>Non-intrusive modal dialog (60% scrim) preserving user search flow with 1-tap Google OAuth.</td>
+              <td><span class="badge teal">Frictionless Access</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub-title">Target Traveler Personas</h3>
+      <div class="comparison-grid">
+        <div class="comp-col">
+          <div class="comp-header primary">Priya Malhotra, 28 (Budget & Leisure Weekend Traveler)</div>
+          <div class="comp-body" style="align-items: flex-start; background: white;">
+            <div>
+              <p><strong>Goal:</strong> Clean, safe, couple-friendly stays near key landmarks under ₹2,000/night with friends.</p>
+              <p><strong>Behavior:</strong> Highly price-conscious; applies strict filters; compares options spatially on maps before booking.</p>
+              <p><strong>Design Response:</strong> Interactive split map with exact price markers, upfront all-inclusive pricing, and couple-friendly trust badges.</p>
+            </div>
+          </div>
+        </div>
+        <div class="comp-col">
+          <div class="comp-header primary">Rohit Sharma, 34 (Frequent Corporate Business Traveler)</div>
+          <div class="comp-body" style="align-items: flex-start; background: white;">
+            <div>
+              <p><strong>Goal:</strong> Rapid 1-minute booking near tech corridors; verified Wi-Fi and workspace; easy GST billing.</p>
+              <p><strong>Behavior:</strong> Repeat loyalty booker; desktop planning and mobile modifications; values speed above all.</p>
+              <p><strong>Design Response:</strong> 1-click room selection with green confirmation badge, inline amenity scanning, and 1-tap Google sign-in.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="card" id="ui-showcase">
+      <h2 class="sec-title">3. High-Fidelity Screen Showcase & UI Walkthrough</h2>
+      <p>All screens are sourced directly from the <strong>Figma Design File</strong> (1440px desktop viewports).</p>
+
+      <h3 class="sub-title">3.1 Home Page Experience: Legacy Web vs. Redesigned Treebo Club</h3>
+      <div class="full-width-img-card" onclick="openLightbox('assets/new_ui/home_comparison_side_by_side.png', 'Figure: Treebo Experience Evolution — Legacy Home Page vs. Redesigned Treebo Club (Figma Desktop - 1)')">
+        <img src="assets/new_ui/home_comparison_side_by_side.png" alt="Home Page Evolution Comparison">
+        <div class="img-caption">Figure: Treebo Experience Evolution — Legacy Home Page vs. Redesigned Treebo Club (Figma Desktop - 1)</div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Dimension / UX Feature</th>
+              <th>Legacy Home Page (Production)</th>
+              <th>Redesigned Treebo Club (Figma)</th>
+              <th>Usability & Conversion Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hero Search Widget</strong></td>
+              <td>Flat, cramped inputs with subtle divider lines and low-contrast search button.</td>
+              <td>Elevated floating pill container with generous touch targets, clear dividers, and circular teal CTA.</td>
+              <td><span class="badge teal">Search Velocity</span> Slashes search friction and improves input legibility.</td>
+            </tr>
+            <tr>
+              <td><strong>City Quick-Filter Chips</strong></td>
+              <td>10 crowded, low-contrast chips without clear active state feedback.</td>
+              <td>Streamlined top metro chips with distinct active pill (<code>#0F766E</code> All Cities).</td>
+              <td><span class="badge teal">Cognitive Ease</span> Rapid 1-tap destination filtering without fatigue.</td>
+            </tr>
+            <tr>
+              <td><strong>Loyalty Value Proposition</strong></td>
+              <td>Muted dark green member strip with cramped typography and basic text.</td>
+              <td>Curated dark teal loyalty banner with golden Treebo emblem (<code>#C29748</code>), vertical dividers, and white CTA.</td>
+              <td><span class="badge teal">Loyalty Lift</span> Highlights immediate 5% savings and member perks.</td>
+            </tr>
+            <tr>
+              <td><strong>Navigation & Header CTAs</strong></td>
+              <td>Plain text links with plain text "Sign in".</td>
+              <td>Pill-container navigation items and high-contrast golden brand CTA (<code>#C29748</code>).</td>
+              <td><span class="badge teal">Brand Clarity</span> Boosts primary CTA visibility and brand hierarchy.</td>
+            </tr>
+            <tr>
+              <td><strong>Cognitive Load & Clutter</strong></td>
+              <td>Disjointed 3rd-party ads (Swiggy), nested promo cards, video placeholders, and dense SEO text.</td>
+              <td>Focused visual hierarchy prioritizing booking velocity and 6 standardized trust signals.</td>
+              <td><span class="badge teal">Drop-Off Prevention</span> Cuts bounce rates and preserves booking intent.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="full-width-img-card" onclick="openLightbox('assets/new_ui/new_home_full.png', 'Figure: Redesigned Full Home Page UI (Figma Desktop - 1, 1440px)')">
+        <img src="assets/new_ui/new_home_full.png" alt="Redesigned Home Page">
+        <div class="img-caption">Figure: Redesigned Full Home Page UI (Figma Desktop - 1, 1440px)</div>
+      </div>
+      <div class="full-width-img-card" onclick="openLightbox('assets/new_ui/new_club_benefits.png', 'Figure: Treebo Club Loyalty Tier & Exclusive Member Benefits Showcase')">
+        <img src="assets/new_ui/new_club_benefits.png" alt="Treebo Club Loyalty Benefits">
+        <div class="img-caption">Figure: Treebo Club Loyalty Tier & Exclusive Member Benefits Showcase</div>
+      </div>
+
+      <h3 class="sub-title">3.2 Discovery & Search Results Page</h3>
+      <div class="full-width-img-card" onclick="openLightbox('assets/new_ui/new_discovery_search_results.png', 'Figure: Redesigned Full Discovery & Search Results Page (Figma 1440px)')">
+        <img src="assets/new_ui/new_discovery_search_results.png" alt="Search Results Page">
+        <div class="img-caption">Figure: Redesigned Full Discovery & Search Results Page (Figma 1440px)</div>
+      </div>
+
+      <h3 class="sub-title">3.3 Dedicated Filter Side Panel & Listing Feed</h3>
+      <div class="comparison-grid">
+        <div class="comp-col">
+          <div class="comp-header">Dedicated Filter Side Panel</div>
+          <div class="comp-body" onclick="openLightbox('assets/new_ui/new_filter_side_panel.png', 'Dedicated Filter Side Panel with dynamic price slider')"><img src="assets/new_ui/new_filter_side_panel.png" alt="Filter Side Panel"></div>
+          <div class="comp-footer">Smooth price slider, verified star-rating chips, and 1-tap filter reset.</div>
+        </div>
+        <div class="comp-col">
+          <div class="comp-header">Hotel Listings Feed Column</div>
+          <div class="comp-body" onclick="openLightbox('assets/new_ui/new_listings_column.png', 'Hotel Listings Feed Column with standardized 490px cards')"><img src="assets/new_ui/new_listings_column.png" alt="Listings Column"></div>
+          <div class="comp-footer">Standardized 490px cards, couple-friendly trust badges, and upfront pricing.</div>
+        </div>
+      </div>
+
+      <h3 class="sub-title">3.4 Interactive Split Map View</h3>
+      <div class="full-width-img-card" onclick="openLightbox('assets/new_ui/new_map_view.png', 'Figure: Interactive Split Map View with Dynamic Price Pins and Synchronized Highlights (Figma 1440px)')">
+        <img src="assets/new_ui/new_map_view.png" alt="Interactive Split Map View">
+        <div class="img-caption">Figure: Interactive Split Map View with Dynamic Price Pins and Synchronized Highlights (Figma 1440px)</div>
+      </div>
+
+      <h3 class="sub-title">3.5 Hotel Details & Comprehensive Property Experience</h3>
+      <div class="full-width-img-card" onclick="openLightbox('assets/new_ui/new_hotel_hero_gallery.png', 'Figure: Categorized Hotel Photo Gallery Showcase (Bedroom, Twin Room, Lobby, Bathroom, Dining)')">
+        <img src="assets/new_ui/new_hotel_hero_gallery.png" alt="Hotel Photo Gallery">
+        <div class="img-caption">Figure: Categorized Hotel Photo Gallery Showcase (Bedroom, Twin Room, Lobby, Bathroom, Dining)</div>
+      </div>
+      <div class="full-width-img-card" onclick="openLightbox('assets/new_ui/new_hotel_details_full.png', 'Figure: Redesigned Full Hotel Details & Property Overview Experience (Figma 1440px)')">
+        <img src="assets/new_ui/new_hotel_details_full.png" alt="Full Hotel Details Page">
+        <div class="img-caption">Figure: Redesigned Full Hotel Details & Property Overview Experience (Figma 1440px)</div>
+      </div>
+
+      <h3 class="sub-title">3.6 Room Selection & Categorized Amenities Architecture</h3>
+      <div class="comparison-grid">
+        <div class="comp-col">
+          <div class="comp-header">Available Rooms Section</div>
+          <div class="comp-body" onclick="openLightbox('assets/new_ui/new_available_rooms.png', 'Available Rooms Section with multi-tier comparison')"><img src="assets/new_ui/new_available_rooms.png" alt="Available Rooms"></div>
+          <div class="comp-footer">Multi-tier room comparison with transparent nightly rates.</div>
+        </div>
+        <div class="comp-col">
+          <div class="comp-header">Selected Room Card State</div>
+          <div class="comp-body" onclick="openLightbox('assets/new_ui/new_room_card_selected.png', 'Selected Room Card State with green badge')"><img src="assets/new_ui/new_room_card_selected.png" alt="Selected Room Card"></div>
+          <div class="comp-footer">Unambiguous green "Selected" confirmation badge and Change Room action.</div>
+        </div>
+      </div>
+      <div class="full-width-img-card" onclick="openLightbox('assets/new_ui/new_hotel_location_map.png', 'Figure: Integrated Neighborhood Map Module with Distance Markers to Transit & Tech Parks')">
+        <img src="assets/new_ui/new_hotel_location_map.png" alt="Location Map Module">
+        <div class="img-caption">Figure: Integrated Neighborhood Map Module with Distance Markers to Transit & Tech Parks</div>
+      </div>
+
+      <h3 class="sub-title">3.7 In-Context Authentication & Sign-in Experience</h3>
+      <div class="comparison-grid">
+        <div class="comp-col">
+          <div class="comp-header">Full Screen Modal Scrim Overlay</div>
+          <div class="comp-body" onclick="openLightbox('assets/new_ui/new_signin_modal_full.png', 'Full Screen Modal Scrim Overlay preserving user background')"><img src="assets/new_ui/new_signin_modal_full.png" alt="Sign-in Modal Full"></div>
+          <div class="comp-footer">60% scrim dialog preserving user position and search context on background.</div>
+        </div>
+        <div class="comp-col">
+          <div class="comp-header">Sign-in Modal Component Anatomy</div>
+          <div class="comp-body" onclick="openLightbox('assets/new_ui/new_signin_modal_box.png', 'Sign-in Modal Component Anatomy with 1-tap OAuth')"><img src="assets/new_ui/new_signin_modal_box.png" alt="Sign-in Modal Box"></div>
+          <div class="comp-footer">Outlined input, reassuring OTP micro-copy, active gold CTA, and 1-tap Google OAuth.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="card" id="design-system">
+      <h2 class="sec-title">4. Design System Tokens, Typography & Accessibility</h2>
+      <p>
+        The redesign is powered by an accessible, scalable Figma design system enforcing brand unity and design-to-code fidelity.
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Token Name</th>
+              <th>Hex / Value</th>
+              <th>Semantic Application & Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary Brand Teal</strong></td>
+              <td><code>#0F766E</code> / <code>#14B8A6</code></td>
+              <td>Primary CTAs, active navigation items, brand badges, and header accents.</td>
+            </tr>
+            <tr>
+              <td><strong>Secondary Accent Blue</strong></td>
+              <td><code>#0284C7</code> / <code>#38BDF8</code></td>
+              <td>Interactive map markers, location links, and secondary informational tags.</td>
+            </tr>
+            <tr>
+              <td><strong>Loyalty Amber Gold</strong></td>
+              <td><code>#C29748</code> / <code>#FEF08A</code></td>
+              <td>Treebo Club membership badges, continue CTA buttons, and savings highlights.</td>
+            </tr>
+            <tr>
+              <td><strong>Semantic Status Green/Red</strong></td>
+              <td><code>#16A34A</code> / <code>#DC2626</code></td>
+              <td>Green for 'Selected' room badge & free cancellation; Red for urgency tags & form errors.</td>
+            </tr>
+            <tr>
+              <td><strong>Neutral Slate Ramp</strong></td>
+              <td><code>#0F172A</code> / <code>#334155</code> / <code>#F8FAFC</code></td>
+              <td>Slate 900 for headings, Slate 700 for body copy, Slate 50 for clean card backdrops.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="check-list">
+        <li><strong>Display & Headings:</strong> Montserrat (Bold 700, SemiBold 600) — Used for prominent editorial headlines, destination cards, and hero titles.</li>
+        <li><strong>Interface Body & UI:</strong> Inter (Regular 400, Medium 500, SemiBold 600) — High-legibility sans-serif for UI labels, filter chips, prices, and tabular data.</li>
+        <li><strong>Accessibility (WCAG 2.1 AA):</strong> 100% compliant contrast ratios (minimum 4.5:1), 44x44pt touch targets, and visible focus indicators.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div id="lightbox" onclick="closeLightbox(event)">
+    <button class="lb-close" onclick="closeLightbox(event)">&times;</button>
+    <img id="lb-img" src="" alt="Expanded Preview">
+    <div class="lb-caption" id="lb-caption"></div>
+  </div>
+
+  <footer class="page-footer">
+    <div>© 2026 Sunil Ohdar · UI/UX Designer & Digital Marketer</div>
+    <div class="footer-links">
+      <a href="index.html">← Return to Portfolio</a>
+      <a href="assets/Treebo_Club_UI_UX_Case_Study.pdf" target="_blank">Download PDF (10MB)</a>
+      <a href="resume.pdf" target="_blank">Resume</a>
+      <a href="mailto:sunilohdar02@gmail.com">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    function openLightbox(src, caption) {
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lb-img');
+      const cap = document.getElementById('lb-caption');
+      img.src = src;
+      cap.textContent = caption || '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(e) {
+      if (e.target.id === 'lb-img') return;
+      const lb = document.getElementById('lightbox');
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const lb = document.getElementById('lightbox');
+        if (lb && lb.classList.contains('open')) {
+          lb.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

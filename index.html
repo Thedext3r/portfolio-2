@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600&family=Special+Elite&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600&family=Special+Elite&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
     rel="stylesheet">
   <style>
     :root {
@@ -528,7 +528,330 @@
       padding: 32px;
       max-height: 90vh;
       overflow: auto;
-      box-shadow: 0 20px 60px #000a
+      box-shadow: 0 20px 60px #000a;
+      transition: width 0.25s ease;
+    }
+
+    .cd.wide {
+      width: min(1040px, 96vw);
+      padding: 36px 30px;
+      border-radius: 14px;
+    }
+
+    /* Scoped Treebo Club Case Study within Modal */
+    .treebo-cs {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #334155;
+      line-height: 1.6;
+    }
+    .treebo-cs h2 {
+      font-family: 'Montserrat', sans-serif !important;
+      color: #0f766e !important;
+      font-size: 1.6rem !important;
+      font-weight: 700 !important;
+      margin: 32px 0 16px !important;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f0fdfa;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .treebo-cs h3 {
+      font-family: 'Montserrat', sans-serif !important;
+      color: #1e293b !important;
+      font-size: 1.25rem !important;
+      font-weight: 600 !important;
+      margin: 26px 0 14px !important;
+    }
+    .treebo-cs p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.98rem;
+      margin-bottom: 16px;
+      color: #475569;
+      line-height: 1.65;
+    }
+    .treebo-cs .hero-card {
+      background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+      color: white;
+      padding: 32px 28px;
+      border-radius: 12px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .treebo-cs .hero-card h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 10px 0 12px;
+      color: #ffffff;
+    }
+    .treebo-cs .hero-card p.tagline {
+      font-size: 1.05rem;
+      color: #ccfbf1;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .treebo-cs .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+    .treebo-cs .hero-meta-tag {
+      background: rgba(0, 0, 0, 0.22);
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .treebo-cs .hero-meta-tag strong {
+      color: #99f6e4;
+    }
+    .treebo-cs .action-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .treebo-cs .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .treebo-cs .action-btn.gold {
+      background: #c29748;
+      color: #0f172a;
+    }
+    .treebo-cs .action-btn.gold:hover {
+      background: #d4a757;
+      transform: translateY(-1px);
+    }
+    .treebo-cs .action-btn.secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .treebo-cs .action-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+    .treebo-cs .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      line-height: 1;
+      transition: all 0.2s;
+    }
+    .treebo-cs .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .treebo-cs .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 20px 0 28px;
+    }
+    .treebo-cs .metric-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .treebo-cs .metric-val {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #0f766e;
+      display: block;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .treebo-cs .metric-lbl {
+      font-size: 0.78rem;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .treebo-cs .callout {
+      background: #f0fdfa;
+      border-left: 4px solid #0f766e;
+      padding: 20px 24px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .treebo-cs .callout h4 {
+      color: #0f766e;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .treebo-cs .callout p {
+      margin: 0;
+      color: #1e293b;
+    }
+    .treebo-cs .table-container {
+      overflow-x: auto;
+      margin: 22px 0;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+    .treebo-cs table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .treebo-cs th {
+      background: #0f766e;
+      color: white;
+      padding: 12px 14px;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+    }
+    .treebo-cs td {
+      padding: 11px 14px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      background: white;
+    }
+    .treebo-cs tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    .treebo-cs .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .treebo-cs .badge.teal { background: #ccfbf1; color: #0f766e; }
+    .treebo-cs .badge.gold { background: #fef08a; color: #854d0e; }
+    .treebo-cs .full-width-img-card {
+      margin: 22px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      background: #f8fafc;
+      text-align: center;
+    }
+    .treebo-cs .full-width-img-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .treebo-cs .img-caption {
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      font-style: italic;
+      color: #64748b;
+      background: white;
+      border-top: 1px solid #e2e8f0;
+    }
+    .treebo-cs .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    @media (max-width: 720px) {
+      .treebo-cs .comparison-grid { grid-template-columns: 1fr; }
+      .treebo-cs .hero-card { padding: 22px 18px; }
+      .cd.wide { padding: 24px 16px; }
+    }
+    .treebo-cs .comp-col {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+    .treebo-cs .comp-header {
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-align: center;
+      background: #f1f5f9;
+      color: #1e293b;
+      border-bottom: 1px solid #e2e8f0;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .treebo-cs .comp-header.primary {
+      background: #f0fdfa;
+      color: #0f766e;
+    }
+    .treebo-cs .comp-body {
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f8fafc;
+      min-height: 200px;
+    }
+    .treebo-cs .comp-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .treebo-cs .comp-footer {
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      color: #475569;
+      background: white;
+      border-top: 1px solid #e2e8f0;
+    }
+    .treebo-cs .check-list {
+      list-style: none;
+      margin: 16px 0;
+      padding: 0;
+    }
+    .treebo-cs .check-list li {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+    .treebo-cs .check-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #0f766e;
+      font-weight: 800;
+    }
+    .treebo-cs .footer-action-card {
+      margin-top: 36px;
+      padding: 24px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      text-align: center;
     }
 
     .cd h2 {
@@ -1788,12 +2111,329 @@
     const ls = { get: k => { try { return localStorage.getItem(k) } catch (e) { return null } }, set: (k, v) => { try { localStorage.setItem(k, v) } catch (e) { } } };
     const rm = matchMedia('(prefers-reduced-motion:reduce)').matches;
     const EMAIL = "sunilohdar02@gmail.com";
+    const treeboCaseStudyHtml = `<div class="treebo-cs">
+  <div class="hero-card">
+    <button class="modal-close-btn" data-close-modal title="Close case study">&times;</button>
+    <div style="display:inline-block;background:rgba(255,255,255,0.15);padding:4px 14px;border-radius:99px;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">UI / UX Product Design Showcase</div>
+    <h1>Treebo Club Web Experience Redesign</h1>
+    <p class="tagline">High-Fidelity Component Architecture, Design System Tokens, and Full-Funnel Booking Journey Redesign</p>
+    <div class="hero-meta-row">
+      <div class="hero-meta-tag"><strong>Platform:</strong> Responsive Web (Desktop 1440px)</div>
+      <div class="hero-meta-tag"><strong>Domain:</strong> Hospitality & Travel Tech</div>
+      <div class="hero-meta-tag"><strong>Tool:</strong> Figma (Design System & High-Fidelity UI)</div>
+    </div>
+    <div class="action-strip">
+      <a href="treebo.html" class="action-btn gold" target="_blank">↗ View Standalone Full Page</a>
+      <a href="assets/Treebo_Club_UI_UX_Case_Study.pdf" class="action-btn secondary" target="_blank">📄 Download PDF Report (10MB)</a>
+      <a href="assets/Treebo_Club_UI_UX_Case_Study.docx" class="action-btn secondary" target="_blank">📝 Word Document</a>
+      <button class="action-btn secondary" data-close-modal style="cursor:pointer">✕ Close</button>
+    </div>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <span class="metric-val">-40%</span>
+      <span class="metric-lbl">Task Completion Time</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-val">+24%</span>
+      <span class="metric-lbl">Est. Completed Bookings</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-val">100%</span>
+      <span class="metric-lbl">Upfront Price Transparency</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-val">WCAG AA</span>
+      <span class="metric-lbl">Accessible Tokens</span>
+    </div>
+  </div>
+
+  <h2>1. Executive Summary & Design Vision</h2>
+  <p>Treebo Hotels is one of India's leading budget and boutique hospitality franchisors. The "Treebo Club" ecosystem was created to reward loyal guests through member-exclusive discounts, complimentary upgrades, and priority customer care.</p>
+  
+  <div class="callout">
+    <h4>✦ Core Redesign Objectives & Hypothesis</h4>
+    <p><strong>Vision:</strong> Elevate the Treebo Club digital experience into a modern, delightful, and high-converting travel platform through clean visual hierarchy, transparent pricing patterns, and cohesive component architecture.<br><br>
+    <strong>Design Hypothesis:</strong> By introducing an intuitive multi-facet filter side panel, an interactive split map with synchronized price pins, inline room amenities, and a non-intrusive sign-in modal, Treebo will cut booking task completion time by ~40% and increase completed bookings by +18% to +24%.</p>
+  </div>
+
+  <ul class="check-list">
+    <li><strong>Transparency First:</strong> 100% upfront pricing disclosure eliminating surprise fee additions at payment.</li>
+    <li><strong>Seamless Spatial Discovery:</strong> Interactive split map pairing live listing cards with dynamic price pins.</li>
+    <li><strong>Low Cognitive Load:</strong> Zero-click inline amenity tags surfacing AC, Free Wi-Fi, and Breakfast directly on room cards.</li>
+    <li><strong>In-Context Authentication:</strong> Non-intrusive modal dialog (60% scrim) preserving user search context with 1-tap Google OAuth.</li>
+    <li><strong>Elevated Loyalty Value:</strong> Prominent Treebo Club tier branding and instant discount savings displayed across all touchpoints.</li>
+  </ul>
+
+  <h2>2. Full-Funnel User Journey & Information Architecture</h2>
+  <p>The redesigned booking experience guides travelers effortlessly from initial destination exploration to confirmed reservation:</p>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Funnel Stage</th>
+          <th>Redesigned Screen</th>
+          <th>Core User Action & UX Enhancements</th>
+          <th>Design Goal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Discovery</strong></td>
+          <td>Home Page (Desktop - 1)</td>
+          <td>High-contrast hero search with live date pickers, destination suggestions, and Treebo Club perks banner.</td>
+          <td><span class="badge teal">Intent Capture</span></td>
+        </tr>
+        <tr>
+          <td><strong>2. Evaluation</strong></td>
+          <td>Search Results & Filters</td>
+          <td>Standardized 490px listing cards, independent filter side panel with price sliders, verified ratings.</td>
+          <td><span class="badge teal">Decision Clarity</span></td>
+        </tr>
+        <tr>
+          <td><strong>3. Spatial Search</strong></td>
+          <td>Interactive Split Map</td>
+          <td>Dual-pane view with dynamic price pins synchronized in real time with hotel listing cards.</td>
+          <td><span class="badge teal">Proximity Match</span></td>
+        </tr>
+        <tr>
+          <td><strong>4. Selection</strong></td>
+          <td>Hotel Details Page</td>
+          <td>Expansive categorized photo gallery, permanent 'Selected' room badge, and 1-click amenities modal.</td>
+          <td><span class="badge teal">Confidence Build</span></td>
+        </tr>
+        <tr>
+          <td><strong>5. Authentication</strong></td>
+          <td>In-Context Sign-in Modal</td>
+          <td>Non-intrusive modal dialog (60% scrim) preserving user search flow with 1-tap Google OAuth.</td>
+          <td><span class="badge teal">Frictionless Access</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Target Traveler Personas</h3>
+  <div class="comparison-grid">
+    <div class="comp-col">
+      <div class="comp-header primary">Priya Malhotra, 28 (Budget & Leisure Weekend Traveler)</div>
+      <div class="comp-body" style="align-items: flex-start; background: white;">
+        <div>
+          <p><strong>Goal:</strong> Clean, safe, couple-friendly stays near key landmarks under ₹2,000/night with friends.</p>
+          <p><strong>Behavior:</strong> Highly price-conscious; applies strict filters; compares options spatially on maps before booking.</p>
+          <p><strong>Design Response:</strong> Interactive split map with exact price markers, upfront all-inclusive pricing, and couple-friendly trust badges.</p>
+        </div>
+      </div>
+    </div>
+    <div class="comp-col">
+      <div class="comp-header primary">Rohit Sharma, 34 (Frequent Corporate Business Traveler)</div>
+      <div class="comp-body" style="align-items: flex-start; background: white;">
+        <div>
+          <p><strong>Goal:</strong> Rapid 1-minute booking near tech corridors; verified Wi-Fi and workspace; easy GST billing.</p>
+          <p><strong>Behavior:</strong> Repeat loyalty booker; desktop planning and mobile modifications; values speed above all.</p>
+          <p><strong>Design Response:</strong> 1-click room selection with green confirmation badge, inline amenity scanning, and 1-tap Google sign-in.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>3. High-Fidelity Screen Showcase & UI Walkthrough</h2>
+  <p>All screens are sourced directly from the <strong>Figma Design File</strong> (1440px desktop viewports).</p>
+
+  <h3>3.1 Home Page Experience: Legacy Web vs. Redesigned Treebo Club</h3>
+  <div class="full-width-img-card">
+    <img src="assets/new_ui/home_comparison_side_by_side.png" alt="Home Page Evolution Comparison" loading="lazy">
+    <div class="img-caption">Figure: Treebo Experience Evolution — Legacy Home Page vs. Redesigned Treebo Club (Figma Desktop - 1)</div>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Dimension / UX Feature</th>
+          <th>Legacy Home Page (Production)</th>
+          <th>Redesigned Treebo Club (Figma)</th>
+          <th>Usability & Conversion Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Hero Search Widget</strong></td>
+          <td>Flat, cramped inputs with subtle divider lines and low-contrast search button.</td>
+          <td>Elevated floating pill container with generous touch targets, clear dividers, and circular teal CTA.</td>
+          <td><span class="badge teal">Search Velocity</span> Slashes search friction and improves input legibility.</td>
+        </tr>
+        <tr>
+          <td><strong>City Quick-Filter Chips</strong></td>
+          <td>10 crowded, low-contrast chips without clear active state feedback.</td>
+          <td>Streamlined top metro chips with distinct active pill (<code>#0F766E</code> All Cities).</td>
+          <td><span class="badge teal">Cognitive Ease</span> Rapid 1-tap destination filtering without fatigue.</td>
+        </tr>
+        <tr>
+          <td><strong>Loyalty Value Proposition</strong></td>
+          <td>Muted dark green member strip with cramped typography and basic text.</td>
+          <td>Curated dark teal loyalty banner with golden Treebo emblem (<code>#C29748</code>), vertical dividers, and white CTA.</td>
+          <td><span class="badge teal">Loyalty Lift</span> Highlights immediate 5% savings and member perks.</td>
+        </tr>
+        <tr>
+          <td><strong>Navigation & Header CTAs</strong></td>
+          <td>Plain text links with plain text "Sign in".</td>
+          <td>Pill-container navigation items and high-contrast golden brand CTA (<code>#C29748</code>).</td>
+          <td><span class="badge teal">Brand Clarity</span> Boosts primary CTA visibility and brand hierarchy.</td>
+        </tr>
+        <tr>
+          <td><strong>Cognitive Load & Clutter</strong></td>
+          <td>Disjointed 3rd-party ads (Swiggy), nested promo cards, video placeholders, and dense SEO text.</td>
+          <td>Focused visual hierarchy prioritizing booking velocity and 6 standardized trust signals.</td>
+          <td><span class="badge teal">Drop-Off Prevention</span> Cuts bounce rates and preserves booking intent.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="full-width-img-card">
+    <img src="assets/new_ui/new_home_full.png" alt="Redesigned Home Page" loading="lazy">
+    <div class="img-caption">Figure: Redesigned Full Home Page UI (Figma Desktop - 1, 1440px)</div>
+  </div>
+  <div class="full-width-img-card">
+    <img src="assets/new_ui/new_club_benefits.png" alt="Treebo Club Loyalty Benefits" loading="lazy">
+    <div class="img-caption">Figure: Treebo Club Loyalty Tier & Exclusive Member Benefits Showcase</div>
+  </div>
+
+  <h3>3.2 Discovery & Search Results Page</h3>
+  <div class="full-width-img-card">
+    <img src="assets/new_ui/new_discovery_search_results.png" alt="Search Results Page" loading="lazy">
+    <div class="img-caption">Figure: Redesigned Full Discovery & Search Results Page (Figma 1440px)</div>
+  </div>
+
+  <h3>3.3 Dedicated Filter Side Panel & Listing Feed</h3>
+  <div class="comparison-grid">
+    <div class="comp-col">
+      <div class="comp-header">Dedicated Filter Side Panel</div>
+      <div class="comp-body"><img src="assets/new_ui/new_filter_side_panel.png" alt="Filter Side Panel" loading="lazy"></div>
+      <div class="comp-footer">Smooth price slider, verified star-rating chips, and 1-tap filter reset.</div>
+    </div>
+    <div class="comp-col">
+      <div class="comp-header">Hotel Listings Feed Column</div>
+      <div class="comp-body"><img src="assets/new_ui/new_listings_column.png" alt="Listings Column" loading="lazy"></div>
+      <div class="comp-footer">Standardized 490px cards, couple-friendly trust badges, and upfront pricing.</div>
+    </div>
+  </div>
+
+  <h3>3.4 Interactive Split Map View</h3>
+  <div class="full-width-img-card">
+    <img src="assets/new_ui/new_map_view.png" alt="Interactive Split Map View" loading="lazy">
+    <div class="img-caption">Figure: Interactive Split Map View with Dynamic Price Pins and Synchronized Highlights (Figma 1440px)</div>
+  </div>
+
+  <h3>3.5 Hotel Details & Comprehensive Property Experience</h3>
+  <div class="full-width-img-card">
+    <img src="assets/new_ui/new_hotel_hero_gallery.png" alt="Hotel Photo Gallery" loading="lazy">
+    <div class="img-caption">Figure: Categorized Hotel Photo Gallery Showcase (Bedroom, Twin Room, Lobby, Bathroom, Dining)</div>
+  </div>
+  <div class="full-width-img-card">
+    <img src="assets/new_ui/new_hotel_details_full.png" alt="Full Hotel Details Page" loading="lazy">
+    <div class="img-caption">Figure: Redesigned Full Hotel Details & Property Overview Experience (Figma 1440px)</div>
+  </div>
+
+  <h3>3.6 Room Selection & Categorized Amenities Architecture</h3>
+  <div class="comparison-grid">
+    <div class="comp-col">
+      <div class="comp-header">Available Rooms Section</div>
+      <div class="comp-body"><img src="assets/new_ui/new_available_rooms.png" alt="Available Rooms" loading="lazy"></div>
+      <div class="comp-footer">Multi-tier room comparison with transparent nightly rates.</div>
+    </div>
+    <div class="comp-col">
+      <div class="comp-header">Selected Room Card State</div>
+      <div class="comp-body"><img src="assets/new_ui/new_room_card_selected.png" alt="Selected Room Card" loading="lazy"></div>
+      <div class="comp-footer">Unambiguous green "Selected" confirmation badge and Change Room action.</div>
+    </div>
+  </div>
+  <div class="full-width-img-card">
+    <img src="assets/new_ui/new_hotel_location_map.png" alt="Location Map Module" loading="lazy">
+    <div class="img-caption">Figure: Integrated Neighborhood Map Module with Distance Markers to Transit & Tech Parks</div>
+  </div>
+
+  <h3>3.7 In-Context Authentication & Sign-in Experience</h3>
+  <div class="comparison-grid">
+    <div class="comp-col">
+      <div class="comp-header">Full Screen Modal Scrim Overlay</div>
+      <div class="comp-body"><img src="assets/new_ui/new_signin_modal_full.png" alt="Sign-in Modal Full" loading="lazy"></div>
+      <div class="comp-footer">60% scrim dialog preserving user position and search context on background.</div>
+    </div>
+    <div class="comp-col">
+      <div class="comp-header">Sign-in Modal Component Anatomy</div>
+      <div class="comp-body"><img src="assets/new_ui/new_signin_modal_box.png" alt="Sign-in Modal Box" loading="lazy"></div>
+      <div class="comp-footer">Outlined input, reassuring OTP micro-copy, active gold CTA, and 1-tap Google OAuth.</div>
+    </div>
+  </div>
+
+  <h2>4. Design System Tokens, Typography & Accessibility</h2>
+  <p>The redesign is powered by an accessible, scalable Figma design system enforcing brand unity and design-to-code fidelity.</p>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Token Name</th>
+          <th>Hex / Value</th>
+          <th>Semantic Application & Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Primary Brand Teal</strong></td>
+          <td><code>#0F766E</code> / <code>#14B8A6</code></td>
+          <td>Primary CTAs, active navigation items, brand badges, and header accents.</td>
+        </tr>
+        <tr>
+          <td><strong>Secondary Accent Blue</strong></td>
+          <td><code>#0284C7</code> / <code>#38BDF8</code></td>
+          <td>Interactive map markers, location links, and secondary informational tags.</td>
+        </tr>
+        <tr>
+          <td><strong>Loyalty Amber Gold</strong></td>
+          <td><code>#C29748</code> / <code>#FEF08A</code></td>
+          <td>Treebo Club membership badges, continue CTA buttons, and savings highlights.</td>
+        </tr>
+        <tr>
+          <td><strong>Semantic Status Green/Red</strong></td>
+          <td><code>#16A34A</code> / <code>#DC2626</code></td>
+          <td>Green for 'Selected' room badge & free cancellation; Red for urgency tags & form errors.</td>
+        </tr>
+        <tr>
+          <td><strong>Neutral Slate Ramp</strong></td>
+          <td><code>#0F172A</code> / <code>#334155</code> / <code>#F8FAFC</code></td>
+          <td>Slate 900 for headings, Slate 700 for body copy, Slate 50 for clean card backdrops.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ul class="check-list">
+    <li><strong>Display & Headings:</strong> Montserrat (Bold 700, SemiBold 600) — Used for prominent editorial headlines, destination cards, and hero titles.</li>
+    <li><strong>Interface Body & UI:</strong> Inter (Regular 400, Medium 500, SemiBold 600) — High-legibility sans-serif for UI labels, filter chips, prices, and tabular data.</li>
+    <li><strong>Accessibility (WCAG 2.1 AA):</strong> 100% compliant contrast ratios (minimum 4.5:1), 44x44pt touch targets, and visible focus indicators.</li>
+  </ul>
+
+  <div class="footer-action-card">
+    <h3 style="margin-top:0">Explore the Full Experience</h3>
+    <p>Read the standalone responsive case study page or download the complete 10MB PDF report.</p>
+    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:14px;">
+      <a href="treebo.html" target="_blank" class="action-btn gold">↗ Open Standalone Page</a>
+      <a href="assets/Treebo_Club_UI_UX_Case_Study.pdf" target="_blank" class="action-btn secondary" style="background:#0f766e;color:#fff;">📄 Download PDF Report</a>
+      <button class="action-btn secondary" data-close-modal style="background:#e2e8f0;color:#0f172a;cursor:pointer">✕ Close Dialog</button>
+    </div>
+  </div>
+</div>`;
+
     const P = [
       {
-        t: "Treebo UX", inProg: true, s: "UX Research & Audit", c: "linear-gradient(135deg,#DC3009,#F24822)", q: "How can we reduce booking abandonment on Treebo?", i: "Visual inconsistency, interaction bugs, and responsive breakage create friction for mobile and price-sensitive users.", d: "Conducted a UX audit, mapped out user journeys, created personas, and identified critical interaction bugs.", r: ["+Usability", "Insights"],
-        pr: "Analyzed the booking experience spanning Discovery, Room Overview, and Booking to identify drop-off points.", st: [["UX", "Audit"], ["2", "Personas"], ["Booking", "Flow"]], b: "Before: Confusing filters & bugs", a: "After: Actionable UX improvements",
-        researchData: `<h3>Problem Statement & Hypothesis</h3><p>Treebo's booking experience shows visual inconsistency, interaction bugs, and responsive breakage that likely increase drop-off before checkout. <strong>Hypothesis:</strong> Simplifying the Discovery filter interaction, fixing state-based bugs, and improving room-amenity accessibility will reduce booking abandonment.</p><h3>User Personas</h3><ul style="margin:16px 0;padding-left:20px;line-height:1.6"><li><strong>Priya Malhotra (28) - Budget Weekend Traveler:</strong> Books on mobile, filters heavily by price/locality. Frustrated by slow filters and unclear sold-out states.</li><li><strong>Rohit Sharma (34) - Frequent Business Traveler:</strong> Needs to book quickly between meetings. Frustrated by non-actionable buttons and poor alignment.</li></ul><h3>Key Usability Issues Identified</h3><ul style="margin:16px 0;padding-left:20px;line-height:1.6"><li><strong>Filter Interaction:</strong> The filter left tab freezes while scrolling. Selecting locations hides offer containers unexpectedly.</li><li><strong>Responsive Breakage:</strong> Amenities container breaks out of layout on smaller screens.</li><li><strong>Confusing States:</strong> Sold-out cards create confusion; non-action buttons look clickable; buttons vanish when clicked.</li><li><strong>Visual Issues:</strong> Spacing problems, text transparency issues, and broken breadcrumbs.</li></ul>`,
-        screens: [{ img: "images/treebo-final-home.png", t: "Home Page (Final UI)", d: "Fully designed home page featuring clear navigation and striking visuals." }, { img: "images/treebo-final-search.png", t: "Search Results (Final UI)", d: "Polished search interface with functional and bug-free filters." }, { img: "images/treebo-final-details.png", t: "Hotel Details (Final UI)", d: "Comprehensive room details and amenities presented in a clean layout." }]
+        t: "Treebo Club", s: "Web Experience Redesign", c: "linear-gradient(135deg,#0F766E,#14B8A6)", q: "How can we reduce booking abandonment and elevate member loyalty on Treebo?", i: "Legacy experience suffered from cluttered discovery, slow filter interaction, and lack of upfront pricing.", d: "Redesigned full-funnel booking journey with interactive split map, unified tokens, and transparent pricing.", r: ["+24%", "Est. Bookings"],
+        pr: "End-to-end UX redesign across Discovery, Filter Systems, Interactive Split Map, Hotel Details, and Authentication.", st: [["-40%", "Task Time"], ["+24%", "Est. Bookings"], ["100%", "Upfront Price"], ["WCAG", "AA Tokens"]], b: "Before: Cluttered legacy UI & hidden costs", a: "After: Streamlined Treebo Club experience",
+        customHtml: treeboCaseStudyHtml,
+        screens: [{ img: "assets/new_ui/new_home_full.png", t: "Home Page (Figma 1440px)", d: "Elevated floating search pill, clear metro chips, and dark teal loyalty banner." }, { img: "assets/new_ui/new_discovery_search_results.png", t: "Discovery & Search Results", d: "Standardized 490px cards, dynamic price slider, and couple-friendly trust badges." }, { img: "assets/new_ui/new_map_view.png", t: "Interactive Split Map", d: "Synchronized live hotel cards with interactive map price pins." }, { img: "assets/new_ui/new_hotel_details_full.png", t: "Hotel Details & Overview", d: "Categorized photo gallery, amenity modal, and location distance map." }]
       },
       {
         t: "Borrow App", s: "Neighborhood Lending UI/UX", c: "linear-gradient(135deg,#00685F,#008378)", q: "How can we remove the awkwardness of asking neighbors for items?", i: "Trust issues and social friction prevent neighbors from lending items.", d: "Designed a structured, trust-scored item-lending app with RWA verification.", r: ["+Trust", "Scores"],
@@ -1814,7 +2454,7 @@
  pr:"I observed underprivileged children, understood NGO operations, and recommended simplification strategies.",st:[["Project","Report"],["Workflow","Simplified"],["Efficiency","Improved"]],b:"Before: Complex workflow",a:"After: Simplified strategies"},
 {t:"GMB Optimization",s:"Local Shop Profile",c:"linear-gradient(135deg,#ff7a1a,#d3262b)",q:"How do we get more customers from Google Search?",i:"The local shop lacked visibility on Google Search and Maps.",d:"Created and managed their Google My Business profile with updated info.",r:["+Visibility","On Google"],
  pr:"I updated business address, working hours, and services, developing practical knowledge of GMB.",st:[["Search","Visibility"],["Maps","Presence"],["Info","Updated"]],b:"Before: Unlisted shop",a:"After: Optimized GMB Profile"}*/];
-    const X = [{ x1: "Interaction bugs in filters increase cognitive load.", x2: "Responsive breakage hurts mobile-first users.", an: "Annotation: Audited the end-to-end booking flow." },
+    const X = [{ x1: "Interaction bugs in filters and sudden fee disclosures increase drop-offs before checkout.", x2: "Interactive split map with dynamic price pins cuts booking task completion time by ~40%.", an: "Annotation: Complete full-funnel redesign with Figma design system tokens." },
     { x1: "Trust is the biggest barrier in neighborhood lending.", x2: "RWA verification builds instant credibility.", an: "Annotation: Designed a system using RWA trust scores." },
     { x1: "Smartwatch screens demand hyper-focused interactions.", x2: "Quick commerce requires instant reordering.", an: "Annotation: Exploring WatchOS interactions for Blinkit." }/*,
 {x1:"A strong identity is the foundation of growth.",x2:"Engagement strategies drive interaction.",an:"Annotation: Created comprehensive guidelines for SHELeadsIndia."},
@@ -1847,17 +2487,22 @@
       ns.forEach((n, i) => setTimeout(() => { ns.forEach(x => x.classList.remove("lit")); n.classList.add("lit"); sfx("pin"); if (i === ns.length - 1) setTimeout(() => { n.classList.remove("lit"); c.classList.remove("follow") }, 1600) }, rm ? i * 200 : i * 1000))
     });
     // case study
-    const cd = $("#cd");
+    const cd = $("#cd"), cb = $("#cb");
     $$(".pol").forEach(b => b.onclick = () => {
       if (b.dataset.m) { delete b.dataset.m; return } sfx("click"); const p = P[b.dataset.k];
       if (p.inProg) {
-        $("#cb").innerHTML = `<button class="b" id="x" style="float:right">Close</button><h2>${p.t}</h2><p>${p.s}</p>
+        cb.classList.remove("wide");
+        cb.innerHTML = `<button class="b" id="x" style="float:right">Close</button><h2>${p.t}</h2><p>${p.s}</p>
 <div style="margin: 40px 0; text-align: center; padding: 40px; background: rgba(128,128,128,0.05); border-radius: 12px; border: 1px dashed rgba(128,128,128,0.3);">
   <h3 style="color:#d32f2f; margin-bottom: 12px; font-size: 24px;">Work in Progress</h3>
   <p style="font-size: 16px; color: #555;">This case study is currently being documented. Please check back later!</p>
 </div>`;
+      } else if (p.customHtml) {
+        cb.classList.add("wide");
+        cb.innerHTML = p.customHtml;
       } else {
-        $("#cb").innerHTML = `<button class="b" id="x" style="float:right">Close</button><h2>${p.t}</h2><p>${p.s}</p>
+        cb.classList.remove("wide");
+        cb.innerHTML = `<button class="b" id="x" style="float:right">Close</button><h2>${p.t}</h2><p>${p.s}</p>
 <div class="st">${p.st.map(s => `<div><b>${s[0]}</b>${s[1]}</div>`).join("")}</div>
 <h3>The problem</h3><p>${p.i} ${p.q}</p><h3>My process</h3><p>${p.pr}</p><h3>Before and after</h3><p>Drag to compare the outcome of the process.</p>
 <div class="ba" id="ba"><div class="a">${p.b}</div><div class="d">${p.a}</div><input type="range" min="0" max="100" value="50" aria-label="Compare before and after"><span class="hn"></span></div>
@@ -1866,7 +2511,9 @@ ${p.screens ? `<h3>High-Fidelity Screens</h3><div style="display:flex;flex-wrap:
 ${p.wireframes ? `<h3>Wireframes</h3><img src="${p.wireframes}" alt="Wireframes" style="width:100%;border-radius:8px;margin:20px 0;box-shadow:0 8px 16px rgba(0,0,0,0.1);">` : ""}
 <h3>What I learned</h3><p>Direct observation and targeted strategies yield the best results.</p>`;
       }
-      const ba = $("#ba"); if (ba) ba.querySelector("input").oninput = e => ba.style.setProperty("--s", e.target.value + "%"); $("#x").onclick = () => cd.close(); cd.showModal()
+      const ba = $("#ba"); if (ba) ba.querySelector("input").oninput = e => ba.style.setProperty("--s", e.target.value + "%");
+      $$("[data-close-modal], #x").forEach(btn => btn.onclick = () => cd.close());
+      cd.showModal();
     });
     cd.onclick = e => { if (e.target === cd) cd.close() };
     // toast
@@ -1916,7 +2563,7 @@ ${p.wireframes ? `<h3>Wireframes</h3><img src="${p.wireframes}" alt="Wireframes"
     addEventListener("keydown", e => { if (/TEXTAREA|INPUT/.test(e.target.tagName || "") || !document.body.classList.contains("go") || e.repeat) return; const k = e.key.toLowerCase(); if (k === "l") lampT() });
     if (ls.get("night") === "1") night(true);
     // skills map
-    const SKL = { "UI/UX Design": [0, 1], "User Research": [0, 1], "Figma": [0, 1] };
+    const SKL = { "UI/UX Design": [0, 1], "User Research": [0, 1], "Design System": [0], "Figma": [0, 1] };
     const sm = $("#smap"); let smL = null;
     sm.innerHTML = `<svg aria-hidden="true"></svg><div class="skr">${Object.keys(SKL).map(k => `<button class="sn" data-s="${k}">${k}</button>`).join("")}</div><div class="pjr">${P.map((p, k) => `<button class="pn" data-p="${k}">${p.t}</button>`).join("")}</div>`;
     function drawSm() { const r = sm.getBoundingClientRect(), sv = sm.querySelector("svg"); sv.innerHTML = ""; Object.entries(SKL).forEach(([k, ps]) => { const a = sm.querySelector(`.sn[data-s="${k}"]`).getBoundingClientRect(); ps.forEach(j => { const b = sm.querySelector(`.pn[data-p="${j}"]`).getBoundingClientRect(), x1 = a.left + a.width / 2 - r.left, y1 = a.bottom - r.top, x2 = b.left + b.width / 2 - r.left, y2 = b.top - r.top, pa = document.createElementNS("http://www.w3.org/2000/svg", "path"); pa.setAttribute("d", `M${x1},${y1} C${x1},${y1 + 60} ${x2},${y2 - 60} ${x2},${y2}`); pa.dataset.s = k; pa.dataset.p = j; sv.appendChild(pa) }) }); hlSm(smL && smL.s, smL && smL.p) }
@@ -2021,7 +2668,7 @@ ${p.wireframes ? `<h3>Wireframes</h3><img src="${p.wireframes}" alt="Wireframes"
       () => `<div class="stk">${[["EVERY", 0], ["APP", .26], ["STARTS", .52], ["WITH", .78], ["A", 1.04]].map(a => W(a[0], a[1])).join("")}${W("QUESTION<b>?</b>", 1.3, " hold")}</div>`,
       () => `<div class="pst">${["MOST", "NEVER", "ASK", "THE PEOPLE", "WHO USE IT"].map((t, k) => `<div class="ln"><span class="${k == 4 ? "rd" : ""}" style="--d:${k * .26}s;font-size:${S1[k]}">${t}</span></div>`).join("")}</div>`,
       () => `<div class="nm" id="nm" aria-label="${L[2][0]}">${[...L[2][0]].map((c, k) => `<i style="--d:${k * .05}s">${c === " " ? "&nbsp;" : c}</i>`).join("")}</div><div class="rl">${L[2][1]}</div><u class="bar"></u>`,
-      () => `<div class="sm">FOUR CASE STUDIES</div><div class="stk short">${["RESEARCH", "DESIGN", "TEST", "SHIP"].map((t, k) => W(t, k * .4 + .05, "", .4)).join("")}</div><div class="ln"><span style="--d:1.7s;font-size:${BIG}">REAL USERS.</span></div><div class="ln"><span class="rd" style="--d:1.95s;font-size:${BIG}">MEASURED RESULTS.</span></div>`,
+      () => `<div class="sm">THREE CASE STUDIES</div><div class="stk short">${["RESEARCH", "DESIGN", "TEST", "SHIP"].map((t, k) => W(t, k * .4 + .05, "", .4)).join("")}</div><div class="ln"><span style="--d:1.7s;font-size:${BIG}">REAL USERS.</span></div><div class="ln"><span class="rd" style="--d:1.95s;font-size:${BIG}">MEASURED RESULTS.</span></div>`,
       () => `<div class="spr">NOW SHOWING</div><u class="bar" style="animation-delay:.6s"></u>`];
     const CU = [
       [[0, "slam", 1], [260, "slam", 1.05], [520, "slam", 1.1], [780, "slam", 1.15], [1040, "slam", 1.2], [1300, "flash"], [1300, "slam", .55]],
