@@ -887,6 +887,579 @@
       text-align: center;
     }
 
+    /* Scoped Blinkit WatchOS Case Study within Modal */
+    .blinkit-cs {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #334155;
+      line-height: 1.6;
+    }
+    .blinkit-cs h2 {
+      font-family: 'Montserrat', sans-serif !important;
+      color: #0c831f !important;
+      font-size: 1.55rem !important;
+      font-weight: 700 !important;
+      margin: 32px 0 16px !important;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #fef08a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .blinkit-cs h3 {
+      font-family: 'Montserrat', sans-serif !important;
+      color: #0f172a !important;
+      font-size: 1.25rem !important;
+      font-weight: 600 !important;
+      margin: 26px 0 14px !important;
+    }
+    .blinkit-cs p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.98rem;
+      margin-bottom: 16px;
+      color: #475569;
+      line-height: 1.65;
+    }
+    .blinkit-cs .hero-card {
+      background: linear-gradient(135deg, #111827 0%, #064e3b 50%, #0c831f 100%);
+      color: white;
+      padding: 32px 28px;
+      border-radius: 14px;
+      margin-bottom: 28px;
+      position: relative;
+      border: 1px solid rgba(246, 200, 0, 0.3);
+      box-shadow: 0 16px 36px -10px rgba(12, 131, 31, 0.25);
+    }
+    .blinkit-cs .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f6c800;
+      color: #0f172a;
+      padding: 4px 14px;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .blinkit-cs .hero-card h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 6px 0 12px;
+      color: #ffffff;
+    }
+    .blinkit-cs .hero-card p.tagline {
+      font-size: 1.05rem;
+      color: #fef08a;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .blinkit-cs .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+    .blinkit-cs .hero-meta-tag {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #f8fafc;
+    }
+    .blinkit-cs .hero-meta-tag strong {
+      color: #fde047;
+    }
+    .blinkit-cs .action-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .blinkit-cs .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .blinkit-cs .action-btn.yellow {
+      background: #f6c800;
+      color: #111827;
+    }
+    .blinkit-cs .action-btn.yellow:hover {
+      background: #ffd700;
+      transform: translateY(-1px);
+    }
+    .blinkit-cs .action-btn.secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .blinkit-cs .action-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+    .blinkit-cs .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      line-height: 1;
+      transition: all 0.2s;
+    }
+    .blinkit-cs .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .blinkit-cs .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 20px 0 28px;
+    }
+    .blinkit-cs .metric-card {
+      background: #fffbeb;
+      border: 1px solid #fef08a;
+      border-radius: 8px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .blinkit-cs .metric-val {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #0c831f;
+      display: block;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .blinkit-cs .metric-lbl {
+      font-size: 0.78rem;
+      color: #713f12;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .blinkit-cs .callout {
+      background: #f0fdf4;
+      border-left: 4px solid #0c831f;
+      padding: 18px 22px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .blinkit-cs .callout.yellow-callout {
+      background: #fefce8;
+      border-left: 4px solid #f59e0b;
+    }
+    .blinkit-cs .callout h4 {
+      color: #0c831f;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .blinkit-cs .callout.yellow-callout h4 {
+      color: #b45309;
+    }
+    .blinkit-cs .callout p {
+      margin: 0;
+      color: #1e293b;
+    }
+    .blinkit-cs .persona-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+    }
+    .blinkit-cs .persona-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .blinkit-cs .persona-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #fef08a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      border: 2px solid #f6c800;
+    }
+    .blinkit-cs .persona-meta h4 {
+      margin: 0 0 4px;
+      font-size: 1.2rem;
+      font-family: 'Montserrat', sans-serif;
+      color: #0f172a;
+    }
+    .blinkit-cs .persona-meta span {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+    .blinkit-cs .persona-quote {
+      font-style: italic;
+      color: #0c831f;
+      background: #f0fdf4;
+      padding: 10px 16px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      font-size: 0.92rem;
+    }
+    .blinkit-cs .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .blinkit-cs .persona-col {
+      background: #f8fafc;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #f1f5f9;
+    }
+    .blinkit-cs .persona-col h5 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      font-family: 'Montserrat', sans-serif;
+      color: #0f172a;
+    }
+    .blinkit-cs .persona-col ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.5;
+    }
+    .blinkit-cs .persona-col li {
+      margin-bottom: 6px;
+    }
+    .blinkit-cs .decision-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 22px 0;
+    }
+    .blinkit-cs .decision-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+    .blinkit-cs .decision-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #0c831f;
+      background: #dcfce7;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .blinkit-cs .decision-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .blinkit-cs .decision-finding {
+      font-size: 0.88rem;
+      color: #64748b;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+    .blinkit-cs .before-after-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 10px 0;
+      font-size: 0.88rem;
+    }
+    @media (max-width: 640px) {
+      .blinkit-cs .before-after-row { grid-template-columns: 1fr; }
+    }
+    .blinkit-cs .before-box {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: #991b1b;
+    }
+    .blinkit-cs .after-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: #166534;
+    }
+    .blinkit-cs .tag-before {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #dc2626;
+      margin-bottom: 4px;
+    }
+    .blinkit-cs .tag-after {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #16a34a;
+      margin-bottom: 4px;
+    }
+    .blinkit-cs .screens-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 24px 0;
+    }
+    .blinkit-cs .watch-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .blinkit-cs .watch-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.1);
+    }
+    .blinkit-cs .watch-frame-outer {
+      background: #0f172a;
+      padding: 22px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .blinkit-cs .watch-bezel {
+      background: #000000;
+      border: 6px solid #27272a;
+      border-radius: 36px;
+      padding: 8px;
+      position: relative;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+      max-width: 220px;
+      width: 100%;
+    }
+    .blinkit-cs .watch-crown {
+      position: absolute;
+      right: -10px;
+      top: 40px;
+      width: 6px;
+      height: 24px;
+      background: #52525b;
+      border-radius: 2px 4px 4px 2px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .blinkit-cs .watch-button {
+      position: absolute;
+      right: -8px;
+      top: 76px;
+      width: 4px;
+      height: 18px;
+      background: #3f3f46;
+      border-radius: 1px 3px 3px 1px;
+    }
+    .blinkit-cs .watch-screen-img {
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+      display: block;
+      background: #000;
+    }
+    .blinkit-cs .watch-info {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blinkit-cs .watch-step-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #0c831f;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .blinkit-cs .watch-screen-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .blinkit-cs .watch-question {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #d97706;
+      margin-bottom: 10px;
+    }
+    .blinkit-cs .watch-desc {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .blinkit-cs .watch-points {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.84rem;
+      color: #334155;
+    }
+    .blinkit-cs .watch-points li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .blinkit-cs .watch-points li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      color: #0c831f;
+      font-weight: bold;
+    }
+    .blinkit-cs .banner-container {
+      margin: 24px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      background: #0f172a;
+      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+    .blinkit-cs .banner-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .blinkit-cs .banner-caption {
+      padding: 12px 16px;
+      background: #1e293b;
+      color: #e2e8f0;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .blinkit-cs .table-container {
+      overflow-x: auto;
+      margin: 22px 0;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+    .blinkit-cs table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .blinkit-cs th {
+      background: #0c831f;
+      color: white;
+      padding: 12px 14px;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+    }
+    .blinkit-cs td {
+      padding: 11px 14px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      background: white;
+    }
+    .blinkit-cs tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    .blinkit-cs .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .blinkit-cs .badge.green { background: #dcfce7; color: #166534; }
+    .blinkit-cs .badge.yellow { background: #fef08a; color: #854d0e; }
+    .blinkit-cs .badge.gray { background: #f1f5f9; color: #475569; }
+    .blinkit-cs .tokens-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .blinkit-cs .token-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .blinkit-cs .token-swatch {
+      height: 38px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+    .blinkit-cs .token-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+    .blinkit-cs .token-desc {
+      font-size: 0.78rem;
+      color: #64748b;
+    }
+    .blinkit-cs .footer-action-card {
+      margin-top: 36px;
+      padding: 26px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      text-align: center;
+    }
+
     .cd h2 {
       font: 400 clamp(40px, 7vw, 64px)/1 var(--t);
       margin: 0 0 4px
@@ -2481,6 +3054,446 @@
   </div>
 </div>`;
 
+    const blinkitCaseStudyHtml = `<div class="blinkit-cs">
+  <div class="hero-card">
+    <button class="modal-close-btn" data-close-modal title="Close case study">&times;</button>
+    <div class="hero-badge">watchOS UI/UX Case Study</div>
+    <h1>Blinkit on the Wrist</h1>
+    <p class="tagline">Designing a 10-Minute Grocery Experience for a 2-Second Glance · Apple Watch (watchOS) Concept</p>
+    <div class="hero-meta-row">
+      <div class="hero-meta-tag"><strong>Platform:</strong> Apple Watch (watchOS 208×248 pt)</div>
+      <div class="hero-meta-tag"><strong>Role:</strong> Solo UX Researcher & Product Designer</div>
+      <div class="hero-meta-tag"><strong>Tools:</strong> Figma, FigJam, Google Forms</div>
+      <div class="hero-meta-tag"><strong>Scope:</strong> Reorder, Live Tracking, Haptic OTP, Delivery Handoff</div>
+    </div>
+    <div class="action-strip">
+      <a href="https://www.figma.com/board/GImQLbnu9jVSV6nMia8fjo/Blinkit-watchos-research?node-id=0-1&t=1KuAMko7rG3EO210-1" class="action-btn yellow" target="_blank">↗ View Figma Research Board</a>
+      <a href="assets/Blinkit_on_the_Wrist_Case_Study.docx" class="action-btn secondary" target="_blank">📝 Download Word Document</a>
+      <button class="action-btn secondary" data-close-modal style="cursor:pointer">✕ Close</button>
+    </div>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <span class="metric-val">~2 Sec</span>
+      <span class="metric-lbl">Glance Interaction</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-val">6 of 9</span>
+      <span class="metric-lbl">Repeat Buyers Validated</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-val">7 of 10</span>
+      <span class="metric-lbl">Missed Call Pain Solved</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-val">0 Maps</span>
+      <span class="metric-lbl">Glanceable ETA Progress</span>
+    </div>
+  </div>
+
+  <div class="banner-container">
+    <img src="assets/blinkit/hero_screens_banner.png" alt="Complete watchOS Quick Commerce Screen Flow" loading="lazy">
+    <div class="banner-caption">
+      <span><strong>Figure 1:</strong> End-to-End WatchOS Flow — Reorder Usuals → Confirm Order → Arriving ETA → Haptic OTP Handoff → Delivery Celebration</span>
+      <span style="font-size:0.75rem;opacity:0.8;">Designed for watchOS (208×248 pt)</span>
+    </div>
+  </div>
+
+  <h2>1. Problem & The Quick-Commerce Opportunity</h2>
+  <p>Quick commerce promises delivery in 10 minutes, yet the digital experience around that promise still anchors users to their smartphone. To reorder everyday items like milk, bread, or snacks, users must unlock their phone, search or browse the app, and check out. While waiting, they pick up their phone repeatedly to check the ETA. When the delivery rider arrives, they are often juggling grocery bags, keys, or a door while trying to locate and read out a 4-digit OTP.</p>
+  
+  <p>These touchpoints are short, repetitive, and typically <em>hands-busy</em>—precisely the conditions where a smartphone is slow and cumbersome, but a smartwatch on the wrist is exceptionally fast.</p>
+
+  <div class="callout">
+    <h4>Competitive Audit: The Unclaimed Wrist in Indian Quick Commerce</h4>
+    <p>In my audit of App Store listings for India's leading quick-commerce players (<strong>Blinkit, Zepto, and Swiggy Instamart</strong>), none offer a dedicated Apple Watch app. This leaves the wrist completely unclaimed in Indian quick commerce, despite watches excelling at rapid status checks and ambient glanceable alerts.</p>
+  </div>
+
+  <div class="callout yellow-callout">
+    <h4>The Design Challenge</h4>
+    <p><strong>How might we let people reorder their usual items, track their delivery, and complete the handoff in seconds from their wrist, without squeezing a bloated mobile app onto a tiny screen?</strong></p>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Touchpoint</th>
+          <th>Mobile Friction</th>
+          <th>watchOS Advantage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Repeat Reordering</strong></td>
+          <td>Unlock phone, open heavy app, search catalog, review basket (~30–45s).</td>
+          <td>Raise wrist, tap 1–2 items from "Your usuals", 1-tap confirm (~4s).</td>
+        </tr>
+        <tr>
+          <td><strong>Waiting & Tracking</strong></td>
+          <td>Unlocking phone 2–3 times; dense GPS map is distracting on the move.</td>
+          <td>2-second glance at large green ETA number and simple progress bar.</td>
+        </tr>
+        <tr>
+          <td><strong>Arrival & Handoff</strong></td>
+          <td>Phone rings in pocket/room; rider call missed; digging for OTP at the door.</td>
+          <td>Wrist-tap haptic notification; OTP presented instantly on screen with 1-tap reply.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>2. User Research & Persona</h2>
+  <p>I conducted a 4-part Google Forms research study (demographics, recent habits, prototype walkthrough across 3 core tasks, and open qualitative feedback) with <strong>10 quick-commerce consumers</strong>. Respondents were students and young professionals aged 18–24 across metro and tier-2 cities.</p>
+
+  <div class="persona-card">
+    <div class="persona-header">
+      <div class="persona-avatar">👩‍🎓</div>
+      <div class="persona-meta">
+        <h4>Riya Sharma · 22</h4>
+        <span>Final-Year Design Student · Metro City · Orders 4–8 times/month</span>
+      </div>
+    </div>
+    <div class="persona-quote">
+      "The delivery went smoothly, but the rider was a bit late. I appreciated the communication, though." — Survey Participant
+    </div>
+    <div class="persona-grid">
+      <div class="persona-col">
+        <h5>Behaviors (What She Does)</h5>
+        <ul>
+          <li>Orders 4–8x a month; in most orders, at least 3 of her last 5 included a repeat item (6 of 9).</li>
+          <li>Checks status 2–3x while waiting, prioritizing ETA above all else (6 of 10).</li>
+          <li>Already uses wrist devices for delivery and ride notifications (4 of 10).</li>
+        </ul>
+      </div>
+      <div class="persona-col">
+        <h5>Frustrations (What Slows Her Down)</h5>
+        <ul>
+          <li><strong>Missing rider calls</strong> is the #1 handoff pain (7 of 10).</li>
+          <li>Dense maps on small screens are confusing (7 of 10 picked Arriving map as most confusing).</li>
+          <li>Phone is often across the room, charging, or in a backpack.</li>
+        </ul>
+      </div>
+      <div class="persona-col">
+        <h5>Goals (What She Needs)</h5>
+        <ul>
+          <li>Reorder everyday favorites in seconds without unlocking phone.</li>
+          <li>Know the rider's arrival time at a quick 2-second glance.</li>
+          <li>Gentle wrist-tap alert at arrival so calls are never missed.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout yellow-callout">
+    <h4>Methodological Transparency: Data vs. Assumptions</h4>
+    <p><strong>Backed by Data:</strong> Order frequency (4–8x/mo), repeat purchasing behavior (6/9), ETA prioritization over maps (6/10), missed rider calls as dominant handoff friction (7/10), and request for a pre-order confirm summary.<br><br>
+    <strong>Honest Assumption & Constraint:</strong> None of the 10 survey participants currently owned an Apple Watch (3 used Wear OS, 1 a fitness band, 6 had no watch). In this case study, watchOS ownership is treated as a strategic design hypothesis to be formally tested with physical hardware.</p>
+  </div>
+
+  <h2>3. Research Insights & The 7 Design Decisions</h2>
+  <p>Each design decision directly links an observed user behavior or pain point to a specific interface solution, intentionally respecting the interaction constraints of watchOS.</p>
+
+  <div class="decision-grid">
+    <div class="decision-card">
+      <span class="decision-num">Decision 01</span>
+      <div class="decision-title">Replace the Map with a Glanceable ETA View</div>
+      <div class="decision-finding">Insight: 7 of 10 users found the map screen confusing; 6 of 10 look only for the ETA.</div>
+      <div class="before-after-row">
+        <div class="before-box">
+          <span class="tag-before">Before</span>
+          Cluttered mini-map with tiny overlaid distance and ETA chips that compete for visual attention.
+        </div>
+        <div class="after-box">
+          <span class="tag-after">After</span>
+          Hero green "3 MIN" display, "350 m away" subtitle, and a clean Store-to-You progress bar with iPhone handoff.
+        </div>
+      </div>
+      <p style="margin:8px 0 0;font-size:0.85rem;color:#475569;"><strong>Trade-off:</strong> Less geographic context on wrist; users who want spatial navigation can tap "Open map on iPhone".</p>
+    </div>
+
+    <div class="decision-card">
+      <span class="decision-num">Decision 02</span>
+      <div class="decision-title">Turn Arrival into a Haptic Moment with Auto-OTP</div>
+      <div class="decision-finding">Insight: 7 of 10 users reported missing the rider's call—the single biggest friction point during delivery handoff.</div>
+      <div class="before-after-row">
+        <div class="before-box">
+          <span class="tag-before">Before</span>
+          User must unlock phone, navigate back to the active order, and locate the small OTP numbers while holding the door.
+        </div>
+        <div class="after-box">
+          <span class="tag-after">After</span>
+          Wrist taps user via distinct haptic buzz, immediately displaying large OTP digits (7 4 6 8) and a 1-tap "Coming down" reply.
+        </div>
+      </div>
+      <p style="margin:8px 0 0;font-size:0.85rem;color:#475569;"><strong>Rationale:</strong> The watch gently interrupts at the precise moment of arrival, preventing missed calls entirely.</p>
+    </div>
+
+    <div class="decision-card">
+      <span class="decision-num">Decision 03</span>
+      <div class="decision-title">Dynamic "Your usuals" Reordering over Static Catalog</div>
+      <div class="decision-finding">Insight: 6 of 9 respondents routinely repeat items; orders frequently include snacks and fruits, not just milk or eggs.</div>
+      <div class="before-after-row">
+        <div class="before-box">
+          <span class="tag-before">Before</span>
+          Hardcoded "Morning staples" listing limited to bread, eggs, and milk.
+        </div>
+        <div class="after-box">
+          <span class="tag-after">After</span>
+          Smart personalized "Your usuals" list curated from the user's order history with high-contrast photo thumbnails and + targets.
+        </div>
+      </div>
+      <p style="margin:8px 0 0;font-size:0.85rem;color:#475569;"><strong>Trade-off:</strong> Relies on order history; fresh accounts default to local bestselling quick staples.</p>
+    </div>
+
+    <div class="decision-card">
+      <span class="decision-num">Decision 04</span>
+      <div class="decision-title">Add a Compact Confirm Step Before Order Placement</div>
+      <div class="decision-finding">Insight: Survey participants explicitly sought order total clarity before checkout; small watch screens invite accidental taps.</div>
+      <div class="before-after-row">
+        <div class="before-box">
+          <span class="tag-before">Before</span>
+          Tapping "+" or cart lacked immediate line-item breakdown or total price verification.
+        </div>
+        <div class="after-box">
+          <span class="tag-after">After</span>
+          Dedicated Review screen with item counts, prices, bold green ₹100 total, and deliberate "Place order" button.
+        </div>
+      </div>
+      <p style="margin:8px 0 0;font-size:0.85rem;color:#475569;"><strong>Rationale:</strong> An intentional 1-tap confirmation step prevents costly mis-taps on small touchscreens.</p>
+    </div>
+
+    <div class="decision-card">
+      <span class="decision-num">Decision 05</span>
+      <div class="decision-title">Give the Delivered Screen a Purposeful Action</div>
+      <div class="decision-finding">Insight: The Delivered state was rated least clear (only 1 of 10 found it clear) because it featured a placeholder button.</div>
+      <div class="before-after-row">
+        <div class="before-box">
+          <span class="tag-before">Before</span>
+          Generic "Action" placeholder button with no next user action.
+        </div>
+        <div class="after-box">
+          <span class="tag-after">After</span>
+          Primary "Rate delivery" button, secondary "Reorder" pill, and celebration badge ("Delivered in 9m 12s").
+        </div>
+      </div>
+    </div>
+
+    <div class="decision-card">
+      <span class="decision-num">Decision 06</span>
+      <div class="decision-title">Keep the Home Screen as the Familiar Anchor</div>
+      <div class="decision-finding">Insight: Home was voted the clearest screen (4/10) and "add milk" was the easiest task (4.1/5 rating).</div>
+      <p style="margin:8px 0 0;font-size:0.85rem;color:#475569;"><strong>Decision:</strong> Preserved the clean list layout, generous touch targets, and familiar bottom navigation rather than reinventing the wheel.</p>
+    </div>
+
+    <div class="decision-card">
+      <span class="decision-num">Decision 07</span>
+      <div class="decision-title">Standardize High-Contrast Typography & Tap Targets</div>
+      <div class="decision-finding">Insight: 7 of 10 approved text sizes, but users requested bolder action buttons suited for one-handed watch taps.</div>
+      <p style="margin:8px 0 0;font-size:0.85rem;color:#475569;"><strong>Decision:</strong> Adopted minimum 44pt touch targets, high-contrast yellow/green buttons, and bold headline numbers.</p>
+    </div>
+  </div>
+
+  <h2>4. High-Fidelity watchOS Screen Flow</h2>
+  <p>The final design comprises five focused screens. Each answers exactly <strong>one key question</strong> the user has at that moment and provides <strong>one primary action</strong>.</p>
+
+  <div class="screens-flow-grid">
+    <!-- Screen 1 -->
+    <div class="watch-card">
+      <div class="watch-frame-outer">
+        <div class="watch-bezel">
+          <div class="watch-crown"></div>
+          <div class="watch-button"></div>
+          <img src="assets/blinkit/screen_1_home_usuals.png" alt="Home - Your usuals watch screen" class="watch-screen-img" loading="lazy">
+        </div>
+      </div>
+      <div class="watch-info">
+        <span class="watch-step-tag">Screen 01 · Discovery</span>
+        <div class="watch-screen-title">Home · Your usuals</div>
+        <div class="watch-question">Q: "What do I usually order?"</div>
+        <div class="watch-desc">Displays the user's repeat grocery staples without catalog bloat.</div>
+        <ul class="watch-points">
+          <li>Green <strong>10 MIN</strong> status header with live clock.</li>
+          <li>Product thumbnails for instant visual recognition.</li>
+          <li>Large yellow <strong>+</strong> touch targets for effortless adding.</li>
+          <li>Full-width green <strong>Go to cart</strong> primary CTA.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Screen 2 -->
+    <div class="watch-card">
+      <div class="watch-frame-outer">
+        <div class="watch-bezel">
+          <div class="watch-crown"></div>
+          <div class="watch-button"></div>
+          <img src="assets/blinkit/screen_2_confirm_order.png" alt="Confirm order watch screen" class="watch-screen-img" loading="lazy">
+        </div>
+      </div>
+      <div class="watch-info">
+        <span class="watch-step-tag">Screen 02 · Checkout</span>
+        <div class="watch-screen-title">Confirm order</div>
+        <div class="watch-question">Q: "Is this order right?"</div>
+        <div class="watch-desc">One-tap summary preventing accidental watch orders.</div>
+        <ul class="watch-points">
+          <li><strong>REVIEW</strong> status pill in navigation header.</li>
+          <li>Itemized quantities and individual price breakdowns.</li>
+          <li>Bold green total price (<strong>₹100</strong>) as visual anchor.</li>
+          <li>Quiet "Edit items" link keeping checkout frictionless.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Screen 3 -->
+    <div class="watch-card">
+      <div class="watch-frame-outer">
+        <div class="watch-bezel">
+          <div class="watch-crown"></div>
+          <div class="watch-button"></div>
+          <img src="assets/blinkit/screen_3_arriving_eta.png" alt="Arriving ETA watch screen" class="watch-screen-img" loading="lazy">
+        </div>
+      </div>
+      <div class="watch-info">
+        <span class="watch-step-tag">Screen 03 · Live Tracking</span>
+        <div class="watch-screen-title">Arriving · ETA</div>
+        <div class="watch-question">Q: "When will it get here?"</div>
+        <div class="watch-desc">Ultra-glanceable ETA replacing the confusing mini-map.</div>
+        <ul class="watch-points">
+          <li>Massive green <strong>3 MIN</strong> hero headline.</li>
+          <li>Live distance indicator (<strong>350 m away</strong>).</li>
+          <li>Store-to-User linear progress bar with yellow rider icon.</li>
+          <li>Outlined <strong>Open map on iPhone</strong> fallback button.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Screen 4 -->
+    <div class="watch-card">
+      <div class="watch-frame-outer">
+        <div class="watch-bezel">
+          <div class="watch-crown"></div>
+          <div class="watch-button"></div>
+          <img src="assets/blinkit/screen_4_rider_door_otp.png" alt="Rider at door OTP watch screen" class="watch-screen-img" loading="lazy">
+        </div>
+      </div>
+      <div class="watch-info">
+        <span class="watch-step-tag">Screen 04 · Door Handoff</span>
+        <div class="watch-screen-title">Rider at door · OTP</div>
+        <div class="watch-question">Q: "What do I tell the rider?"</div>
+        <div class="watch-desc">Haptic wrist-tap alert with immediate OTP presentation.</div>
+        <ul class="watch-points">
+          <li>Yellow banner signifying active <strong>wrist-tap haptic</strong> alert.</li>
+          <li>Four bold, high-contrast OTP digits in tinted boxes (<strong>7 4 6 8</strong>).</li>
+          <li>Clear rider attribution (<strong>"Show to rider Ramesh"</strong>).</li>
+          <li>1-tap quick reply button to notify rider without opening door.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Screen 5 -->
+    <div class="watch-card">
+      <div class="watch-frame-outer">
+        <div class="watch-bezel">
+          <div class="watch-crown"></div>
+          <div class="watch-button"></div>
+          <img src="assets/blinkit/screen_5_delivered.png" alt="Delivered watch screen" class="watch-screen-img" loading="lazy">
+        </div>
+      </div>
+      <div class="watch-info">
+        <span class="watch-step-tag">Screen 05 · Fulfillment</span>
+        <div class="watch-screen-title">Delivered Celebration</div>
+        <div class="watch-question">Q: "Did it go well?"</div>
+        <div class="watch-desc">Closes the 10-minute promise loop with quick reorder loop.</div>
+        <ul class="watch-points">
+          <li>Celebratory delivery time (<strong>Delivered in 9m 12s</strong>).</li>
+          <li>Delivery rider recognition (<strong>"Handed to you by Ramesh K."</strong>).</li>
+          <li>Primary green <strong>Rate delivery</strong> feedback button.</li>
+          <li>Secondary outlined <strong>Reorder</strong> quick shortcut.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2>5. watchOS Design System & Tokens</h2>
+  <p>All five screens adhere to Apple's Human Interface Guidelines for watchOS while honoring Blinkit's recognizable brand personality.</p>
+
+  <div class="tokens-grid">
+    <div class="token-card">
+      <div class="token-swatch" style="background:#f6c800;color:#111827;">#F6C800</div>
+      <div class="token-name">Blinkit Yellow</div>
+      <div class="token-desc">Action triggers, + add buttons, rider marker, haptic banner.</div>
+    </div>
+    <div class="token-card">
+      <div class="token-swatch" style="background:#0c831f;color:#ffffff;">#0C831F</div>
+      <div class="token-name">Quick Commerce Green</div>
+      <div class="token-desc">Status pills, primary CTAs, live ETA display, success states.</div>
+    </div>
+    <div class="token-card">
+      <div class="token-swatch" style="background:#000000;color:#ffffff;border:1px solid #333;">#000000</div>
+      <div class="token-name">OLED Watch Black</div>
+      <div class="token-desc">Blends seamlessly with hardware bezels; maximizes battery life.</div>
+    </div>
+    <div class="token-card">
+      <div class="token-swatch" style="background:#27272a;color:#ffffff;">#27272A</div>
+      <div class="token-name">Surface Gray</div>
+      <div class="token-desc">Item card backdrops, progress tracks, and OTP digit containers.</div>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>System Component</th>
+          <th>Interaction & Visual Specification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Status Header Pill</strong></td>
+          <td>Fixed green pill in the top-left status bar (<code>10 MIN</code>, <code>REVIEW</code>, <code>ARRIVING</code>, <code>RIDER AT DOOR</code>, <code>DELIVERED</code>) with live digital clock in top-right.</td>
+        </tr>
+        <tr>
+          <td><strong>Persistent 3-Tab Nav</strong></td>
+          <td>Consistent bottom tab bar: <em>Staples (Home)</em>, <em>Tracking (Rider)</em>, and <em>Orders</em> with icon tinting.</td>
+        </tr>
+        <tr>
+          <td><strong>Button Hierarchy</strong></td>
+          <td>Primary: Full-width green rounded pills (44pt touch height). Secondary: Subtle outline pill (e.g. "Open map on iPhone", "Reorder").</td>
+        </tr>
+        <tr>
+          <td><strong>Typography Scale</strong></td>
+          <td>Glanceable SF Compact: 28pt+ for key decision numbers (ETA, OTP digits, Order total) readable from 12+ inches away.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>6. Critical Reflections & Future Roadmap</h2>
+  <div class="callout">
+    <h4>Honest Self-Critique & Limitations</h4>
+    <p>1. <strong>Hardware Gap in Survey:</strong> The 10 respondents tested the prototype on smartphone screens rather than physical Apple Watches. While ratings were positive, wrist perception of tap targets and haptic timing requires in-person testing on watch hardware.<br><br>
+    2. <strong>Order History Prerequisite:</strong> "Your usuals" relies heavily on prior purchase history. For new or low-frequency users, an intelligent cold-start algorithm based on neighborhood bestsellers is required.</p>
+  </div>
+
+  <ul class="check-list" style="list-style:none;padding-left:0;">
+    <li style="margin-bottom:10px;padding-left:24px;position:relative;"><span style="position:absolute;left:0;color:#0c831f;font-weight:bold;">➔</span> <strong>Moderated Watch Usability Testing:</strong> Run 3–5 hands-on test sessions on real Apple Watch units simulating a grocery delivery doorbell arrival.</li>
+    <li style="margin-bottom:10px;padding-left:24px;position:relative;"><span style="position:absolute;left:0;color:#0c831f;font-weight:bold;">➔</span> <strong>watchOS Smart Stack & Complications:</strong> Design watch face modular complications and Smart Stack widgets for live ETA glanceability without launching the app.</li>
+    <li style="margin-bottom:10px;padding-left:24px;position:relative;"><span style="position:absolute;left:0;color:#0c831f;font-weight:bold;">➔</span> <strong>Voice Interaction via Siri:</strong> Enable "Hey Siri, reorder my Blinkit milk" single-utterance shortcuts.</li>
+  </ul>
+
+  <div class="footer-action-card">
+    <h3 style="margin-top:0;font-family:'Montserrat',sans-serif;color:#0f172a;">Explore the Research & Figma Assets</h3>
+    <p style="color:#475569;">Inspect the complete FigJam user research workspace, wireframes, and high-fidelity watchOS components.</p>
+    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:16px;">
+      <a href="https://www.figma.com/board/GImQLbnu9jVSV6nMia8fjo/Blinkit-watchos-research?node-id=0-1&t=1KuAMko7rG3EO210-1" target="_blank" class="action-btn yellow">↗ Open Figma Board</a>
+      <a href="assets/Blinkit_on_the_Wrist_Case_Study.docx" target="_blank" class="action-btn secondary" style="background:#0c831f;color:#fff;">📝 Download Word Document</a>
+      <button class="action-btn secondary" data-close-modal style="background:#e2e8f0;color:#0f172a;cursor:pointer">✕ Close Case Study</button>
+    </div>
+  </div>
+</div>`;
+
     const P = [
       {
         t: "Treebo Club", s: "Web Experience Redesign", c: "linear-gradient(135deg,#0F766E,#14B8A6)", q: "How can we reduce booking abandonment and elevate member loyalty on Treebo?", i: "Legacy experience suffered from cluttered discovery, slow filter interaction, and lack of upfront pricing.", d: "Redesigned full-funnel booking journey with interactive split map, unified tokens, and transparent pricing.", r: ["+24%", "Est. Bookings"],
@@ -2496,10 +3509,16 @@
         wireframes: "https://sunilohdar-portfolio.vercel.app/images/borrow-wireframes.jpg"
       },
       {
-        t: "Blinkit WatchOS", inProg: true, s: "WatchOS App UX Research", c: "linear-gradient(135deg,#F6C800,#D5A900)", q: "How can we design a seamless grocery shopping experience on a smartwatch?", i: "Grocery delivery apps need extreme convenience. WatchOS presents unique interaction constraints.", d: "Conducted research to design a WatchOS application for Blinkit.", r: ["+Convenience", "WatchOS"],
-        pr: "Explored interaction paradigms for 10-minute grocery delivery on an Apple Watch.", st: [["UX", "Research"], ["Apple", "Watch"], ["Quick", "Commerce"]], b: "Before: Mobile only", a: "After: WatchOS conceptualized",
-        researchData: `<h3>Problem Statement & Hypothesis</h3><p>Blinkit offers 10-minute grocery delivery, but users still need their phones to order. <strong>Hypothesis:</strong> A WatchOS app can provide faster reordering and order tracking, reducing friction for frequent buyers.</p><h3>Figma Research Link</h3><p><a href="https://www.figma.com/board/GImQLbnu9jVSV6nMia8fjo/Blinkit-watchos-research?node-id=0-1&t=1KuAMko7rG3EO210-1" target="_blank" style="color: #0066cc; text-decoration: underline;">View the Figma Board (Work in Progress)</a></p>`,
-        screens: []
+        t: "Blinkit on the Wrist", s: "watchOS Quick Commerce UX", c: "linear-gradient(135deg,#F6C800,#0C831F)", q: "How might we design a 10-minute grocery delivery experience for a 2-second glance?", i: "A 10-minute promise is undermined by a 30-second phone routine during hands-busy moments.", d: "Designed a glanceable watchOS experience with 1-tap reordering ('Your usuals'), live ETA progress tracking, and haptic OTP arrival.", r: ["~2 Sec", "Glance Time"],
+        pr: "Conducted user research with 10 quick-commerce consumers, formulated 7 design decisions, and prototyped a 5-screen watchOS journey.", st: [["~2s", "Glance"], ["10 Min", "Promise"], ["watchOS", "Apple Watch"], ["7", "Decisions"]], b: "Before: Phone unlocking, map confusion, and missed rider calls", a: "After: 2s wrist glance reorder, glanceable ETA & haptic OTP handoff",
+        customHtml: blinkitCaseStudyHtml,
+        screens: [
+          { img: "assets/blinkit/screen_1_home_usuals.png", t: "01. Home · Your usuals", d: "Personalized repeat grocery staples with quick + touch targets." },
+          { img: "assets/blinkit/screen_2_confirm_order.png", t: "02. Confirm Order", d: "One-tap order review and bold total preventing accidental taps." },
+          { img: "assets/blinkit/screen_3_arriving_eta.png", t: "03. Arriving · ETA", d: "Glanceable green ETA headline and linear rider progress bar." },
+          { img: "assets/blinkit/screen_4_rider_door_otp.png", t: "04. Rider at Door · OTP", d: "Haptic wrist-tap alert with immediate OTP digits and quick reply." },
+          { img: "assets/blinkit/screen_5_delivered.png", t: "05. Delivered Celebration", d: "Closing the 10-minute delivery loop with rating and reorder shortcut." }
+        ]
       }/*,
 {t:"Brand Book",s:"Virtual Internship - LaunchEd",c:"linear-gradient(135deg,#2447ff,#6b3bff)",q:"How can we improve audience interaction and brand growth?",i:"Needed strategies to strengthen online presence for SHELeadsIndia.",d:"Created a complete Brand Book and developed Engagement Strategies.",r:["+Brand","Identity"],
  pr:"I worked on a digital marketing project, analyzed the brand, and suggested marketing ideas.",st:[["Brand","Book created"],["Engagement","Strategies"],["Online","Presence"]],b:"Before: Basic identity",a:"After: Strong Brand Book"},
@@ -2509,7 +3528,7 @@
  pr:"I updated business address, working hours, and services, developing practical knowledge of GMB.",st:[["Search","Visibility"],["Maps","Presence"],["Info","Updated"]],b:"Before: Unlisted shop",a:"After: Optimized GMB Profile"}*/];
     const X = [{ x1: "Interaction bugs in filters and sudden fee disclosures increase drop-offs before checkout.", x2: "Interactive split map with dynamic price pins cuts booking task completion time by ~40%.", an: "Annotation: Complete full-funnel redesign with Figma design system tokens." },
     { x1: "Trust is the biggest barrier in neighborhood lending.", x2: "RWA verification builds instant credibility.", an: "Annotation: Designed a system using RWA trust scores." },
-    { x1: "Smartwatch screens demand hyper-focused interactions.", x2: "Quick commerce requires instant reordering.", an: "Annotation: Exploring WatchOS interactions for Blinkit." }/*,
+    { x1: "7 of 10 users miss rider calls; dense maps are unreadable on small displays.", x2: "Wrist-tap haptics with auto-OTP and a massive ETA progress bar solve handoff friction.", an: "Annotation: 5-screen watchOS concept designed for Apple Watch." }/*,
 {x1:"A strong identity is the foundation of growth.",x2:"Engagement strategies drive interaction.",an:"Annotation: Created comprehensive guidelines for SHELeadsIndia."},
 {x1:"Observation helps understand real challenges.",x2:"Simplification improves overall efficiency.",an:"Annotation: Studied lifestyle of underprivileged children to provide recommendations."},
 {x1:"Local SEO is crucial for small businesses.",x2:"Accurate information builds trust.",an:"Annotation: Updated working hours, address, and service details."}*/];
@@ -2617,7 +3636,7 @@ ${p.wireframes ? `<h3>Wireframes</h3><img src="${p.wireframes}" alt="Wireframes"
     addEventListener("keydown", e => { if (/TEXTAREA|INPUT/.test(e.target.tagName || "") || !document.body.classList.contains("go") || e.repeat) return; const k = e.key.toLowerCase(); if (k === "l") lampT() });
     if (ls.get("night") === "1") night(true);
     // skills map
-    const SKL = { "UI/UX Design": [0, 1], "User Research": [0, 1], "Design System": [0], "Figma": [0, 1] };
+    const SKL = { "UI/UX Design": [0, 1, 2], "User Research": [0, 1, 2], "Design System": [0, 2], "Figma": [0, 1, 2] };
     const sm = $("#smap"); let smL = null;
     sm.innerHTML = `<svg aria-hidden="true"></svg><div class="skr">${Object.keys(SKL).map(k => `<button class="sn" data-s="${k}">${k}</button>`).join("")}</div><div class="pjr">${P.map((p, k) => `<button class="pn" data-p="${k}">${p.t}</button>`).join("")}</div>`;
     function drawSm() { const r = sm.getBoundingClientRect(), sv = sm.querySelector("svg"); sv.innerHTML = ""; Object.entries(SKL).forEach(([k, ps]) => { const a = sm.querySelector(`.sn[data-s="${k}"]`).getBoundingClientRect(); ps.forEach(j => { const b = sm.querySelector(`.pn[data-p="${j}"]`).getBoundingClientRect(), x1 = a.left + a.width / 2 - r.left, y1 = a.bottom - r.top, x2 = b.left + b.width / 2 - r.left, y2 = b.top - r.top, pa = document.createElementNS("http://www.w3.org/2000/svg", "path"); pa.setAttribute("d", `M${x1},${y1} C${x1},${y1 + 60} ${x2},${y2 - 60} ${x2},${y2}`); pa.dataset.s = k; pa.dataset.p = j; sv.appendChild(pa) }) }); hlSm(smL && smL.s, smL && smL.p) }
