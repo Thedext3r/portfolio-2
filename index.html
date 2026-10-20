@@ -25,16 +25,64 @@ a{color:inherit}
 section{padding:96px 0}
 h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:12px}
 .lead{color:var(--mute);max-width:56ch;margin:0 0 40px}
-nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
-nav .wrap{display:flex;align-items:center;gap:20px;height:62px}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav .wrap{display:flex;align-items:center;gap:18px;height:66px}
 nav b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem;margin-right:auto;letter-spacing:-.02em}
-nav a{text-decoration:none;font-size:.95rem;color:var(--mute);transition:color .2s}nav a:hover,nav a.on{color:var(--accent);font-weight:600}
+/* apple glass tab bar */
+.nav-tabs{
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+  padding:4px;
+  background:color-mix(in srgb,var(--surface) 65%,transparent);
+  backdrop-filter:blur(24px) saturate(190%);
+  -webkit-backdrop-filter:blur(24px) saturate(190%);
+  border:1px solid color-mix(in srgb,var(--line) 80%,transparent);
+  border-radius:999px;
+  box-shadow:0 4px 18px -2px color-mix(in srgb,var(--ink) 6%,transparent),inset 0 1px 1px color-mix(in srgb,#fff 85%,transparent);
+  transition:all .25s ease;
+}
+:root[data-theme="dark"] .nav-tabs{
+  background:color-mix(in srgb,var(--surface) 50%,transparent);
+  border:1px solid color-mix(in srgb,var(--line) 75%,transparent);
+  box-shadow:0 8px 24px -4px rgba(0,0,0,.4),inset 0 1px 1px rgba(255,255,255,.12);
+}
+.nav-tabs a{
+  text-decoration:none;
+  font-size:.88rem;
+  font-weight:500;
+  color:var(--mute);
+  padding:6px 16px;
+  border-radius:999px;
+  transition:all .22s cubic-bezier(.16,1,.3,1);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+  position:relative;
+}
+.nav-tabs a:hover{
+  color:var(--ink);
+  background:color-mix(in srgb,var(--ink) 5%,transparent);
+}
+.nav-tabs a.on{
+  color:var(--accent);
+  background:var(--surface);
+  font-weight:600;
+  box-shadow:0 2px 8px color-mix(in srgb,var(--ink) 10%,transparent),inset 0 1px 0 color-mix(in srgb,#fff 90%,transparent);
+}
+:root[data-theme="dark"] .nav-tabs a.on{
+  color:#fff;
+  background:color-mix(in srgb,var(--surface) 90%,#fff);
+  box-shadow:0 4px 12px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.15);
+}
 .bar{position:fixed;left:0;top:0;height:3px;width:0;background:var(--accent);z-index:30;transition:width .1s linear}
-@media(max-width:700px){
-  nav .wrap{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:760px){
+  nav .wrap{gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch}
   nav .wrap::-webkit-scrollbar{display:none}
-  nav a{white-space:nowrap;font-size:.9rem}
   nav b{font-size:1.05rem}
+  .nav-tabs{padding:3px;gap:2px}
+  .nav-tabs a{padding:5px 12px;font-size:.82rem}
   .sw{display:none}
 }
 /* hero */
@@ -147,7 +195,13 @@ footer{padding:32px 0;color:var(--mute);font-size:.9rem;border-top:1px solid var
 <div class="bar" id="bar"></div>
 <div id="cur" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M2 2l6 15 2.5-6.5L17 8z"/></svg><span>You</span></div>
 <nav><div class="wrap"><b id="logo"></b>
-<a href="#journey">Journey</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#resume">Resume</a><a href="#contact">Contact</a>
+<div class="nav-tabs" role="tablist" aria-label="Navigation sections">
+  <a href="#journey" role="tab">Journey</a>
+  <a href="#work" role="tab">Work</a>
+  <a href="#skills" role="tab">Skills</a>
+  <a href="#resume" role="tab">Resume</a>
+  <a href="#contact" role="tab">Contact</a>
+</div>
 <span class="sw" id="sw" role="group" aria-label="Accent colour"></span><button id="tg" aria-label="Toggle dark mode">Dark mode</button></div></nav>
 
 <header class="hero"><div class="wrap">
