@@ -68,14 +68,25 @@ h1{font-size:clamp(2.8rem,9vw,6.5rem);font-weight:800}
 .path::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--line);border-radius:3px}
 .fill{position:absolute;left:0;top:0;width:3px;height:0;background:var(--accent);border-radius:3px;transition:height .1s ease}
 .dot{position:absolute;left:-8px;top:0;width:19px;height:19px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 25%,transparent);transition:transform .1s ease}
-.stop{position:relative;margin-bottom:28px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 26px;cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s}
-.stop::before{content:"";position:absolute;left:-41px;top:28px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:3px solid var(--line);transition:.3s}
+.stop{position:relative;margin-bottom:28px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 28px;transition:border-color .2s,box-shadow .2s,background .2s}
+.stop::before{content:"";position:absolute;left:-42.5px;top:28px;width:15px;height:15px;border-radius:50%;background:var(--surface);border:3px solid var(--line);box-shadow:0 0 0 3px var(--bg);transition:border-color .3s,background .3s,transform .2s}
 .stop.seen::before{border-color:var(--accent);background:var(--accent)}
-.stop:hover{border-color:var(--accent);transform:translateX(3px);box-shadow:0 4px 14px color-mix(in srgb,var(--ink) 4%,transparent)}
-.stop h3{font-size:1.35rem;margin-top:2px}.stop small{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
-.stop p{margin:0;color:var(--mute);max-height:0;overflow:hidden;transition:max-height .4s ease,margin .3s ease;line-height:1.65}
-.stop.open p{max-height:300px;margin-top:12px}
-.stop .hint{font-size:.82rem;color:var(--mute);margin-top:8px;font-weight:500}
+.stop:hover{border-color:var(--accent);box-shadow:0 8px 24px color-mix(in srgb,var(--accent) 12%,transparent)}
+.stop:hover::before{transform:scale(1.2)}
+.stop-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.stop-meta{display:flex;align-items:center;gap:10px}
+.stop-year{color:var(--accent);font-weight:700;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase}
+.stop-badge{font-size:.75rem;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);font-weight:600}
+.stop h3{font-size:1.35rem;margin:0 0 4px}
+.stop-sub{font-size:.9rem;color:var(--mute);font-weight:500;margin-bottom:10px}
+.stop p{margin:0;color:color-mix(in srgb,var(--ink) 80%,transparent);font-size:.96rem;line-height:1.65}
+.stop-takeaway{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:.82rem;font-weight:600;color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:5px 14px;border-radius:999px}
+.stop-takeaway i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+@media(max-width:640px){
+  .path{margin-left:6px;padding-left:26px}
+  .stop{padding:18px 18px;margin-bottom:20px}
+  .stop::before{left:-32px;width:13px;height:13px;top:22px}
+}
 /* work */
 .proj{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:32px;margin-bottom:36px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;box-shadow:0 4px 20px color-mix(in srgb,var(--ink) 3%,transparent)}
 @media(max-width:820px){.proj{grid-template-columns:1fr;padding:24px;gap:24px}}
@@ -147,7 +158,7 @@ footer{padding:32px 0;color:var(--mute);font-size:.9rem;border-top:1px solid var
 </div></header>
 
 <section id="journey"><div class="wrap">
-<h2 class="rv">My design journey</h2><p class="lead rv">Scroll to follow the path. Select a stop to read what I learned there.</p>
+<h2 class="rv">My design journey</h2><p class="lead rv">How business strategy, user observation, and systems thinking evolved into end-to-end product design.</p>
 <div class="path" id="path"><div class="fill" id="fill"></div><div class="dot" id="pdot"></div></div>
 </div></section>
 
@@ -192,11 +203,46 @@ name:"Sunil Ohdar",email:"sunilohdar02@gmail.com",
 roles:["UI/UX designer","digital marketing strategist","product thinker","design systems builder"],
 bio:"BBA student at Sushant University combining digital marketing strategy with intuitive UI/UX design. I craft full-funnel web systems, watchOS glanceable interactions, and community products.",
 journey:[
-{y:"2023",t:"Foundations & Marketing Strategy",d:"Started my BBA at Sushant University studying conversion funnels, CAC, and consumer psychology. I learned that reducing cognitive friction is the sharpest lever for conversion."},
-{y:"2024",t:"Field Observation & Local SEO",d:"Optimized Google Search and Maps for a retail business. Updating core discovery information directly drove foot traffic and local trust."},
-{y:"2025",t:"Full-Funnel Web & Systems",d:"Redesigned Treebo Hotels' booking engine with WCAG AA tokens and an interactive split map. Upfront price disclosures cut task completion time by 40%."},
-{y:"2025–2026",t:"Glanceable Wrist UX",d:"Audited 10 quick-commerce consumers on Apple Watch. Replaced cluttered maps with a 2-second ETA progress bar and haptic wrist OTP."},
-{y:"Now",t:"Trust Architecture",d:"Surveyed 28 residents to build Borrow App. Designed gated society verification boundaries and trust scores to remove the awkwardness of neighbor lending."}],
+{
+  y:"2023 – 2024",
+  tag:"Academics",
+  t:"Academic Foundations & Conversion Strategy",
+  sub:"Bachelor of Business Administration (BBA) · Sushant University",
+  d:"Studied consumer psychology, digital acquisition funnels, and retention mechanics. Discovered that cognitive friction at key interaction points is the single greatest blocker to user conversion.",
+  pill:"Cognitive Friction & Funnels"
+},
+{
+  y:"2024",
+  tag:"Local SEO",
+  t:"Real-World Discovery & Search Optimization",
+  sub:"Google My Business (GMB) Optimization · Retail Client",
+  d:"Structured local discovery on Google Search and Maps for a retail business. Optimized business attributes, address clarity, and service details to turn online map queries into measurable in-store foot traffic.",
+  pill:"Local Search & Footfall Growth"
+},
+{
+  y:"2024 – 2025",
+  tag:"Design Systems",
+  t:"Full-Funnel Web Architecture & Hospitality UX",
+  sub:"Treebo Club Web Experience Redesign · Lead Designer",
+  d:"Audited booking abandonment caused by slow filter latency and hidden fee surprises. Architected an 8px grid token library, WCAG AA color accessibility, and a synchronized split-map flow, cutting task completion time by 40%.",
+  pill:"-40% Task Completion Time"
+},
+{
+  y:"2025",
+  tag:"Wearable UX",
+  t:"Glanceable Wrist Interactions & Micro-Haptics",
+  sub:"Blinkit on the Wrist · watchOS Case Study",
+  d:"Conducted empirical research with 10 quick-commerce consumers on Apple Watch ergonomics. Formulated 7 design decisions, replacing noisy street maps with a 2-second glanceable ETA bar and haptic wrist-tap OTP handoff.",
+  pill:"~2s Glanceable Handoff"
+},
+{
+  y:"2026 – Present",
+  tag:"Community Product",
+  t:"Trust Architecture & Hyperlocal Ecosystems",
+  sub:"Borrow App · Gated Society Item Lending",
+  d:"Surveyed 28 residents to address the social awkwardness of neighbor lending. Engineered gated society verification boundaries, item insurance guidelines, and transparent bilateral trust scores to make community sharing effortless.",
+  pill:"Verified Society Trust Loop"
+}],
 work:[
 {
   n:"Treebo Club: Web Experience Redesign",
@@ -314,10 +360,21 @@ setTimeout(tick,t)})()})();
 
 /* journey */
 const path=$("#path");
-D.journey.forEach((s,k)=>{const e=el("div","stop rv","<small>"+s.y+"</small><h3>"+s.t+"</h3><p>"+s.d+"</p><div class='hint'>Select to read more</div>");
-e.tabIndex=0;e.setAttribute("role","button");e.setAttribute("aria-expanded","false");
-const tog=()=>{const o=e.classList.toggle("open");e.setAttribute("aria-expanded",o);e.querySelector(".hint").textContent=o?"Select to close":"Select to read more"};
-e.onclick=tog;e.onkeydown=ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();tog()}};path.appendChild(e)});
+D.journey.forEach(s=>{
+  const e=el("div","stop rv",`
+    <div class="stop-header">
+      <div class="stop-meta">
+        <span class="stop-year">${s.y}</span>
+        <span class="stop-badge">${s.tag}</span>
+      </div>
+    </div>
+    <h3>${s.t}</h3>
+    <div class="stop-sub">${s.sub}</div>
+    <p>${s.d}</p>
+    <div class="stop-takeaway"><i></i><span>${s.pill}</span></div>
+  `);
+  path.appendChild(e);
+});
 
 /* work */
 D.work.forEach(w=>{
