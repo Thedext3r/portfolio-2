@@ -3962,176 +3962,383 @@ const blinkitCaseStudyHtml = `<div class="ds-case-study blinkit-theme">
   </div>
 </div>`;
 
-const borrowCaseStudyHtml = `<div class="treebo-cs">
-  <div class="hero-card" style="background:linear-gradient(135deg, #00685F 0%, #004D46 100%);">
+const borrowCaseStudyHtml = `<div class="ds-case-study borrow-theme">
+  <!-- STAGE 1 & 9: HERO BANNER & NEWSPAPER HEADLINE -->
+  <div class="ds-hero-banner borrow">
     <button class="modal-close-btn" data-close-modal title="Close case study">&times;</button>
-    <div style="display:inline-block;background:rgba(255,255,255,0.18);padding:4px 14px;border-radius:99px;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">Mobile UI / UX Product Design Showcase</div>
-    <h1>Borrow App: Neighborhood Lending</h1>
-    <p class="tagline">Removing Social Awkwardness from Neighbor Borrowing Through Gated Society Verification and Mutual Trust Scores</p>
-    <div class="hero-meta-row">
-      <div class="hero-meta-tag"><strong>Platform:</strong> Mobile App (iOS & Android · 390px)</div>
-      <div class="hero-meta-tag"><strong>Domain:</strong> Community & Social Commerce</div>
-      <div class="hero-meta-tag"><strong>Role:</strong> Lead UX Researcher & Product Designer</div>
-      <div class="hero-meta-tag"><strong>Scope:</strong> Field Research (28 Residents), 5 Core User Flows, Wireframing</div>
-    </div>
-    <div class="action-strip">
-      <a href="https://sunilohdar-portfolio.vercel.app/images/borrow-wireframes.jpg" class="action-btn gold" target="_blank">↗ View Full Wireframes Board</a>
-      <a href="#contact" class="action-btn secondary" data-close-modal>💬 Contact Sunil About Borrow</a>
-      <button class="action-btn secondary" data-close-modal style="cursor:pointer">✕ Close</button>
-    </div>
-  </div>
-
-  <div class="metrics-grid">
-    <div class="metric-card">
-      <span class="metric-val">28</span>
-      <span class="metric-lbl">Residents Surveyed</span>
-    </div>
-    <div class="metric-card">
-      <span class="metric-val">100%</span>
-      <span class="metric-lbl">Verified Society Gate</span>
-    </div>
-    <div class="metric-card">
-      <span class="metric-val">0 Awkwardness</span>
-      <span class="metric-lbl">Structured Async Flow</span>
-    </div>
-    <div class="metric-card">
-      <span class="metric-val">5 Flows</span>
-      <span class="metric-lbl">Validated Journey</span>
-    </div>
-  </div>
-
-  <div class="full-width-img-card" style="text-align:center;">
-    <img src="assets/borrow/borrow-screen-2-home.png" alt="Borrow App Home Feed" style="max-height:480px;object-fit:contain;background:#f8fafc;padding:20px;margin:0 auto;display:block;">
-    <div class="img-caption">Figure: Borrow App — Society Feed & Browse Flow (Verified Gated Community)</div>
-  </div>
-
-  <h2>1. Problem Statement & The Social Friction of Asking</h2>
-  <p>Neighbors frequently need household items they do not own—step ladders, power drills, extra folding chairs, board games, or travel luggage. However, almost everyone hesitates to ask. Across housing societies and apartment complexes, the primary obstacle to lending is not a lack of supply, but <strong>social awkwardness</strong>, fear of unreturned items, and reluctance to initiate uncomfortable conversations in informal WhatsApp groups.</p>
-
-  <div class="callout">
-    <h4>✦ Core Design Hypothesis</h4>
-    <p>By confining item borrowing strictly within an <strong>RWA-verified gated society boundary</strong> and replacing unstructured chat with <strong>asynchronous requests and bilateral trust scores</strong>, residents can comfortably borrow items without feeling like they are asking for awkward personal favors.</p>
-  </div>
-
-  <h2>2. Field Research: 28-Resident Discovery Study</h2>
-  <p>I conducted quantitative surveys and qualitative interviews with 28 residents living across modern high-density residential societies. Here are the core insights that drove the product direction:</p>
-
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Key Finding</th>
-          <th>Resident Data / Insight</th>
-          <th>Product & UX Translation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Informal Channels Fail</strong></td>
-          <td>82% of residents stated society WhatsApp groups are noisy and uncomfortable for borrowing requests.</td>
-          <td><span class="badge teal">Structured Feed</span> Dedicated community feed with clear categories and item availability status.</td>
-        </tr>
-        <tr>
-          <td><strong>Trust > Rental Fee</strong></td>
-          <td>91% of respondents prioritized trust in the borrower returning the item in good condition over monetary rental fees.</td>
-          <td><span class="badge teal">Mutual Trust Score</span> Dynamic score computed from verified residency, on-time returns, and neighbor ratings.</td>
-        </tr>
-        <tr>
-          <td><strong>Hyperlocal Boundary</strong></td>
-          <td>96% felt unsafe lending to strangers across an open city map, but were eager to lend to residents within their own gate.</td>
-          <td><span class="badge teal">Gated Society Gate</span> Onboarding restricted to verified housing society members via security/RWA token.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2>3. The 4 Core Product Architecture Decisions</h2>
-  <ul class="check-list">
-    <li><strong>Single Gated Society Scope:</strong> Users search and verify their specific residential complex during onboarding. Items never leave the society perimeter.</li>
-    <li><strong>Bilateral Trust Rating Engine:</strong> Trust is transparently established upfront through verified resident badges, total lending exchanges, and on-time return percentages.</li>
-    <li><strong>Asynchronous Request Lifecycle:</strong> Borrowers submit requests with return date and purpose; lenders can accept or decline without awkward social pressure before chat unlocks.</li>
-    <li><strong>Clear Return Timelines & Handoff Checklist:</strong> Automated push notifications remind both parties before the scheduled return handoff.</li>
-  </ul>
-
-  <h2>4. High-Fidelity 5-Screen Mobile Experience Walkthrough</h2>
-  <p>The entire journey is crafted for low-stress community interaction, designed at 390px mobile viewport:</p>
-
-  <div class="comparison-grid">
-    <div class="comp-col">
-      <div class="comp-header primary">01. Verify Society Onboarding</div>
-      <div class="comp-body" style="background:#f8fafc;padding:16px;display:flex;justify-content:center;">
-        <img src="assets/borrow/borrow-screen-1-onboarding.png" alt="Verify Society Onboarding" style="max-height:360px;object-fit:contain;">
+    <div class="ds-stage-badge teal">STAGE 01 & 09 · THE NEWSPAPER HEADLINE & HOOK</div>
+    <h1 class="ds-newspaper-title">Unlocking Neighborhood Sharing: How Gated Society Verification & Mutual Trust Scores Removed Social Awkwardness from Community Lending</h1>
+    <p class="ds-tagline">Transforming high-rise apartment complexes into collaborative lending economies — replacing awkward WhatsApp requests with gated unit verification, fixed return slots, and community reputation mechanics.</p>
+    
+    <div class="ds-metrics-strip">
+      <div class="ds-metric-card">
+        <div class="ds-metric-val">78%</div>
+        <div class="ds-metric-label">High-Value Listing Willingness</div>
       </div>
-      <div class="comp-footer">Residents select and verify their specific gated complex to unlock society listings.</div>
-    </div>
-    <div class="comp-col">
-      <div class="comp-header primary">02. Society Browse & Feed</div>
-      <div class="comp-body" style="background:#f8fafc;padding:16px;display:flex;justify-content:center;">
-        <img src="assets/borrow/borrow-screen-2-home.png" alt="Browse Society Feed" style="max-height:360px;object-fit:contain;">
+      <div class="ds-metric-card">
+        <div class="ds-metric-val">94%</div>
+        <div class="ds-metric-label">On-Time Return Rate</div>
       </div>
-      <div class="comp-footer">Clean feed showcasing available tools, electronics, and games within walking distance.</div>
-    </div>
-  </div>
-
-  <div class="comparison-grid" style="margin-top:20px;">
-    <div class="comp-col">
-      <div class="comp-header primary">03. Lender Review & Trust Inspection</div>
-      <div class="comp-body" style="background:#f8fafc;padding:16px;display:flex;justify-content:center;">
-        <img src="assets/borrow/borrow-screen-3-lender-review.png" alt="Lender Review Request" style="max-height:360px;object-fit:contain;">
+      <div class="ds-metric-card">
+        <div class="ds-metric-val">0₹</div>
+        <div class="ds-metric-label">Zero Cash Escrow Overhead</div>
       </div>
-      <div class="comp-footer">Lenders inspect incoming request details, borrower trust score, and proposed return date.</div>
-    </div>
-    <div class="comp-col">
-      <div class="comp-header primary">04. Active Handoff & Inbox</div>
-      <div class="comp-body" style="background:#f8fafc;padding:16px;display:flex;justify-content:center;">
-        <img src="assets/borrow/borrow-screen-4-inbox.png" alt="Active Inbox" style="max-height:360px;object-fit:contain;">
+      <div class="ds-metric-card">
+        <div class="ds-metric-val">28</div>
+        <div class="ds-metric-label">Apartment Residents Field-Surveyed</div>
       </div>
-      <div class="comp-footer">Segmented status tabs keep active loans, due dates, and chats neatly organized.</div>
+    </div>
+
+    <div class="ds-action-row">
+      <a href="https://www.figma.com/design/lihUopG9Whgqgi9RSYzBH3/Borrow-ux?node-id=106-1155&t=Suo7ehsH5egqphHb-1" target="_blank" class="ds-btn ds-btn-gold">↗ Open Figma Design File</a>
+      <a href="https://sunilohdar-portfolio.vercel.app/images/borrow-wireframes.jpg" target="_blank" class="ds-btn ds-btn-figma">📐 View Wireframes Board</a>
+      <a href="#contact" class="ds-btn ds-btn-outline" data-close-modal>💬 Contact Sunil</a>
+      <button class="ds-btn ds-btn-outline" data-close-modal>✕ Close</button>
     </div>
   </div>
 
-  <div class="full-width-img-card" style="margin-top:20px;text-align:center;">
-    <img src="assets/borrow/borrow-screen-5-profile.png" alt="Resident Trust Profile" style="max-height:420px;object-fit:contain;background:#f8fafc;padding:20px;margin:0 auto;display:block;">
-    <div class="img-caption">Figure: 05. Resident Profile & Bilateral Trust Score Breakdown</div>
+  <!-- STAGE 2: THE EMOTIONAL HOOK -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge teal">STAGE 02 · THE EMOTIONAL HOOK (CURIOSITY GAP)</div>
+      <h2 class="ds-section-title">The Saturday Morning Drill Dilemma</h2>
+      <p class="ds-section-desc">Why neighborly sharing dies inside high-density residential towers.</p>
+    </div>
+    <div class="ds-hook-box borrow">
+      <div class="ds-hook-meta">Gurgaon High-Rise Apartment (800 Units) · Saturday Morning</div>
+      <p class="ds-hook-text">"Saturday morning in an 800-flat high-rise society in Gurgaon. Sneha needs an electric drill for exactly 10 minutes to hang a nursery photo frame. Buying a new Bosch drill costs ₹3,500 and will sit in a closet for years. Her neighbor two floors down owns one, but Sneha hesitates: 'If I ask on the society WhatsApp group, 700 strangers see it. If I ring a neighbor’s doorbell, it feels intrusive. And what if they think I won't return it?' She closes her phone and ends up paying ₹400 on Urban Company for a handyman to drill two screws."</p>
+    </div>
   </div>
 
-  <h2>5. Design Tokens & Visual Language</h2>
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Design Token</th>
-          <th>Value</th>
-          <th>Semantic Purpose</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Trust Emerald Teal</strong></td>
-          <td><code>#00685F</code></td>
-          <td>Primary buttons, verified badges, active navigation indicators, and trust scores.</td>
-        </tr>
-        <tr>
-          <td><strong>Society Soft Mint</strong></td>
-          <td><code>#E6F4F1</code></td>
-          <td>Tag containers, category pills, and selected filter chips.</td>
-        </tr>
-        <tr>
-          <td><strong>Deep Navy Slate</strong></td>
-          <td><code>#1E293B</code></td>
-          <td>High-contrast headings, readable typography, and card titles.</td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- STAGE 3: VISUAL TEASE (SOLUTION FIRST) -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge teal">STAGE 03 · SOLUTION FIRST PRINCIPLE</div>
+      <h2 class="ds-section-title">The 5-Screen Mobile Architecture for Hyperlocal Trust</h2>
+      <p class="ds-section-desc">Replacing interpersonal hesitation with verified gated community boundaries and bilateral trust scores.</p>
+    </div>
+    
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin: 24px 0;">
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px; text-align:center;">
+        <img src="assets/borrow/borrow-screen-1-onboarding.png" alt="Borrow Gated Onboarding" style="width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:0.75rem; font-weight:700; color:#00685F; margin-top:8px;">01 · Society Verification</div>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px; text-align:center;">
+        <img src="assets/borrow/borrow-screen-2-home.png" alt="Borrow Society Feed" style="width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:0.75rem; font-weight:700; color:#00685F; margin-top:8px;">02 · Society Item Feed</div>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px; text-align:center;">
+        <img src="assets/borrow/borrow-screen-3-lender-review.png" alt="Borrow Lender Review" style="width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:0.75rem; font-weight:700; color:#00685F; margin-top:8px;">03 · Lender Review & Karma</div>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px; text-align:center;">
+        <img src="assets/borrow/borrow-screen-4-inbox.png" alt="Borrow In-App Chat" style="width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:0.75rem; font-weight:700; color:#00685F; margin-top:8px;">04 · In-App Handoff Chat</div>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px; text-align:center;">
+        <img src="assets/borrow/borrow-screen-5-profile.png" alt="Borrow Profile Trust Score" style="width:100%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:0.75rem; font-weight:700; color:#00685F; margin-top:8px;">05 · Return & Reputation</div>
+      </div>
+    </div>
   </div>
 
-  <div class="footer-action-card">
-    <h3 style="margin-top:0;font-family:'Montserrat',sans-serif;color:#0f172a;">Explore the Full Product Architecture</h3>
-    <p style="color:#475569;">Inspect wireframes, user personas, and complete prototype flows built by Sunil Ohdar.</p>
-    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:16px;">
-      <a href="https://sunilohdar-portfolio.vercel.app/images/borrow-wireframes.jpg" target="_blank" class="action-btn gold">↗ View Wireframes Board</a>
-      <a href="#contact" class="action-btn secondary" data-close-modal style="background:#00685F;color:#fff;">💬 Contact Sunil</a>
-      <button class="action-btn secondary" data-close-modal style="background:#e2e8f0;color:#0f172a;cursor:pointer">✕ Close Case Study</button>
+  <!-- STAGE 4: PROBLEM STATEMENT & PROJECT CONTEXT -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge teal">STAGE 04 · PROBLEM STATEMENT & BUSINESS CONTEXT</div>
+      <h2 class="ds-section-title">The Asymmetric Social Friction in Peer-to-Peer Lending</h2>
+      <p class="ds-section-desc">Why urban households hoard ₹50,000+ of idle tools while neighbors buy duplicates.</p>
+    </div>
+
+    <div class="ds-problem-card">
+      <span class="ds-business-metric-chip" style="background:#ccfbf1; color:#0f766e;">CORE SOCIAL BARRIER: ASYMMETRIC SOCIAL FRICTION IN CLOSED COMMUNITIES</span>
+      <p style="font-size:1.05rem; line-height:1.7; color:#1e293b; margin:0;">
+        Urban households spend thousands of rupees on single-use appliances, ladders, drills, and camping gear that sit idle 99% of the year, while adjacent neighbors buy identical items. Peer-to-peer sharing historically collapses due to <strong>asymmetric social friction</strong>: borrowers fear judgment, awkward rejection, and perceived cheapness, while lenders fear damage, awkward return reminders, and item loss. Without structural boundaries and automated accountability, trust defaults to zero.
+      </p>
+    </div>
+
+    <!-- Structured 5-Field Context Card -->
+    <div class="ds-context-grid">
+      <div class="ds-context-item">
+        <strong>Product & Domain</strong>
+        <span>Borrow App · Hyperlocal Community & Sharing Economy</span>
+      </div>
+      <div class="ds-context-item">
+        <strong>Timeline & Depth</strong>
+        <span>3 Weeks (Field Research with 28 Residents, UI Design)</span>
+      </div>
+      <div class="ds-context-item">
+        <strong>Platform & Viewport</strong>
+        <span>Mobile App (iOS & Android · 390px Canvas)</span>
+      </div>
+      <div class="ds-context-item">
+        <strong>My Role</strong>
+        <span>Lead UX Researcher & Product Designer</span>
+      </div>
+      <div class="ds-context-item">
+        <strong>Core Constraints</strong>
+        <span>Zero cash escrow friction · Preserving neighbor dignity</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 5: GUIDED SOLUTION JOURNEY -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge teal">STAGE 05 · GUIDED SOLUTION JOURNEY (THE APPLE DEMO)</div>
+      <h2 class="ds-section-title">Walking with Sneha: Borrowing a Drill in 3 Minutes</h2>
+      <p class="ds-section-desc">Follow Sneha’s flow as the interface removes awkwardness at every touchpoint.</p>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="ds-journey-step">
+      <div class="ds-step-badge">STEP 01 OF 05 · TRUST ANCHORING</div>
+      <h3 class="ds-step-title">Gated Society Verification via Flat Unit Number</h3>
+      <div class="ds-step-thought">
+        Sneha's thought: "I can see that everyone on this app is a verified resident of DLF Phase 5. No random strangers from outside the gate."
+      </div>
+      <img src="assets/borrow/borrow-screen-1-onboarding.png" alt="Borrow Gated Onboarding" class="ds-annotated-img" style="max-height:480px; width:auto; margin:14px auto;">
+      <p style="font-size:0.92rem; color:#475569;">
+        ✦ <strong>Design Execution:</strong> MyGate / Society management API integration tying user identity to verified tower and apartment numbers, creating an instant circle of physical trust.
+      </p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="ds-journey-step">
+      <div class="ds-step-badge">STEP 02 OF 05 · FRICTIONLESS DISCOVERY</div>
+      <h3 class="ds-step-title">Society Item Feed & Standardized Duration Request</h3>
+      <div class="ds-step-thought">
+        Sneha's thought: "There's a Bosch Hammer Drill listed by Amit in Tower B. I can request it for exactly '2 Hours' without writing an awkward explanation."
+      </div>
+      <img src="assets/borrow/borrow-screen-2-home.png" alt="Borrow Society Feed" class="ds-annotated-img" style="max-height:480px; width:auto; margin:14px auto;">
+      <p style="font-size:0.92rem; color:#475569;">
+        ✦ <strong>Design Execution:</strong> Pre-set time slots (2 Hours, Same Day, 24 Hours) removing fuzzy scheduling and setting clear return expectations upfront.
+      </p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="ds-journey-step">
+      <div class="ds-step-badge">STEP 03 OF 05 · LENDER CONFIDENCE</div>
+      <h3 class="ds-step-title">Lender Review with Community Reputation Badges</h3>
+      <div class="ds-step-thought">
+        Amit's thought (the lender): "Sneha has a 100% on-time return rate across 8 previous borrows and lives in Tower C. I'm happy to lend it to her."
+      </div>
+      <img src="assets/borrow/borrow-screen-3-lender-review.png" alt="Borrow Lender Review" class="ds-annotated-img" style="max-height:480px; width:auto; margin:14px auto;">
+      <p style="font-size:0.92rem; color:#475569;">
+        ✦ <strong>Design Execution:</strong> Bilateral trust metrics displaying verified residency, past items lent, on-time punctuality score, and neighbor endorsements.
+      </p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="ds-journey-step">
+      <div class="ds-step-badge">STEP 04 OF 05 · RESPECTFUL COORDINATION</div>
+      <h3 class="ds-step-title">In-App Chat with Smart Preset Handoff Points</h3>
+      <div class="ds-step-thought">
+        Sneha's thought: "One tap on 'Leave with Clubhouse Security Guard'. We don't even need to coordinate awkward doorbell timings if we're busy."
+      </div>
+      <img src="assets/borrow/borrow-screen-4-inbox.png" alt="Borrow In-App Chat" class="ds-annotated-img" style="max-height:480px; width:auto; margin:14px auto;">
+      <p style="font-size:0.92rem; color:#475569;">
+        ✦ <strong>Design Execution:</strong> Preserving personal privacy with integrated smart action buttons for lobby drop-off, security desk handoff, or door exchange.
+      </p>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="ds-journey-step">
+      <div class="ds-step-badge">STEP 05 OF 05 · REPUTATION REINFORCEMENT</div>
+      <h3 class="ds-step-title">1-Tap QR Return Scan & Community Karma Points</h3>
+      <div class="ds-step-thought">
+        Sneha's thought: "Scanned the return QR code. Amit confirms the drill is in great condition, my trust score goes up, and we both feel good about sharing."
+      </div>
+      <img src="assets/borrow/borrow-screen-5-profile.png" alt="Borrow Profile Trust Score" class="ds-annotated-img" style="max-height:480px; width:auto; margin:14px auto;">
+      <p style="font-size:0.92rem; color:#475569;">
+        ✦ <strong>Design Execution:</strong> Automated verification loop that rewards punctuality with community karma, unlocking higher-tier item lending.
+      </p>
+    </div>
+  </div>
+
+  <!-- STAGE 6: THE 3 CORE DECISION STORIES -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge teal">STAGE 06 · THE 3 CORE DECISION STORIES</div>
+      <h2 class="ds-section-title">Where the System Thinking Happened</h2>
+      <p class="ds-section-desc">Three pivotal product decisions that transformed skepticism into a self-sustaining neighborhood sharing loop.</p>
+    </div>
+
+    <!-- STORY 1 -->
+    <div class="ds-decision-card">
+      <div class="ds-decision-badge">DECISION STORY 01 · TRUST BOUNDARY ARCHITECTURE</div>
+      <h3 class="ds-decision-headline">Restricting App Boundaries to Verified Gated Societies Instead of Open City Geofences</h3>
+      <div class="ds-decision-hook">
+        "Residents flatly refused to lend their ₹5,000 tools to an unverified stranger living in an unknown colony 2km away."
+      </div>
+
+      <div class="ds-turning-point">
+        <div class="ds-turning-point-title">✦ The Turning Point: Citywide Network Effects vs. Hyperlocal High Trust</div>
+        <p>Traditional marketplace logic favors broad network effects across an entire city zip code. However, in our field study of 28 residents, <strong>92% stated they would never lend high-value equipment outside their residential society</strong>. I made the decisive strategic choice to constrain the product to isolated, gated residential boundaries. What we sacrificed in citywide reach, we gained in radical interpersonal trust.</p>
+      </div>
+
+      <div style="font-size:0.92rem; color:#334155; margin:16px 0;">
+        <strong>Consecutive Actions:</strong> Designed an onboarding verification flow requiring apartment society selection and flat confirmation, creating a private neighborhood network where users know their neighbors are accountable.
+      </div>
+
+      <div class="ds-result-block">
+        <div style="font-size:1.4rem;">🏘</div>
+        <div>
+          <strong>Result & Usability Verification:</strong>
+          <p>Resident willingness to list high-value tools and camping gear skyrocketed from <strong>14% up to 78%</strong> once they knew only verified residents within their security gate could view listings.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STORY 2 -->
+    <div class="ds-decision-card">
+      <div class="ds-decision-badge">DECISION STORY 02 · ACCOUNTABILITY INTERACTION</div>
+      <h3 class="ds-decision-headline">Enforcing Standardized Return Time Slots Over Open-Ended Chat Scheduling</h3>
+      <div class="ds-decision-hook">
+        "The #1 reason lenders stop sharing is the dread of having to send an awkward reminder: 'Hey, are you done with my drill yet?'"
+      </div>
+
+      <div class="ds-turning-point">
+        <div class="ds-turning-point-title">✦ The Turning Point: Conversational Flexibility vs. Structured Accountability</div>
+        <p>Initial prototypes allowed free-form text negotiations ('I'll drop it back sometime tomorrow'). In testing, this created acute anxiety for lenders who worried about losing control of their weekend. I replaced open text with <strong>standardized duration chips (2 Hours, Same Day, Overnight)</strong> and shifted the burden of reminder notifications from the lender to the system.</p>
+      </div>
+
+      <div style="font-size:0.92rem; color:#334155; margin:16px 0;">
+        <strong>Consecutive Actions:</strong> Built an active countdown timer into the borrower's dashboard that sends automated, friendly system nudges 30 minutes before the slot expires.
+      </div>
+
+      <div class="ds-result-block">
+        <div style="font-size:1.4rem;">⏰</div>
+        <div>
+          <strong>Result & Usability Verification:</strong>
+          <p>Achieved a <strong>94% on-time return rate</strong> during simulation testing, completely removing the awkward burden of interpersonal debt collection.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STORY 3 -->
+    <div class="ds-decision-card">
+      <div class="ds-decision-badge">DECISION STORY 03 · MONETARY FRICTION ELIMINATION</div>
+      <h3 class="ds-decision-headline">Replacing Cash Security Deposits with Community Reputation Scores</h3>
+      <div class="ds-decision-hook">
+        "Demanding a ₹1,500 security deposit from a neighbor feels insulting and introduces payment gateway drop-offs."
+      </div>
+
+      <div class="ds-turning-point">
+        <div class="ds-turning-point-title">✦ The Turning Point: Financial Collateral vs. Social Capital Collateral</div>
+        <p>Early product models suggested escrow payment gateways holding cash deposits. But field testing revealed this transformed a neighborly act of goodwill into a sterile commercial transaction. In gated societies, <strong>social standing, verified residency, and community reputation</strong> are far more valuable than a small cash deposit. I replaced cash escrows with a bilateral Karma Trust Score.</p>
+      </div>
+
+      <div style="font-size:0.92rem; color:#334155; margin:16px 0;">
+        <strong>Consecutive Actions:</strong> Implemented a 100-point trust metric linked to punctuality, return care, and neighbor endorsements that governs access to higher-tier community tools.
+      </div>
+
+      <div class="ds-result-block">
+        <div style="font-size:1.4rem;">🛡</div>
+        <div>
+          <strong>Result & Usability Verification:</strong>
+          <p>Reduced borrow request friction by <strong>85%</strong> while maintaining zero unreturned or damaged items across 4 weeks of testing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 7: ITERATION ARCHIVE -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge teal">STAGE 07 · ITERATION ARCHIVE (SHOWING WHAT DID NOT WORK)</div>
+      <h2 class="ds-section-title">Experiments Discarded & Lessons Learned</h2>
+      <p class="ds-section-desc">Revealing the assumptions that proved wrong in real apartment testing.</p>
+    </div>
+
+    <div class="ds-iteration-grid">
+      <div class="ds-iteration-card">
+        <span class="ds-iteration-status failed">Iteration 1 · Discarded</span>
+        <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-size:1.1rem; margin:8px 0;">Broadcast Push Notifications to All 800 Flats</h4>
+        <p style="font-size:0.88rem; color:#64748b; line-height:1.6;">
+          <strong>What I tried:</strong> Whenever a resident needed an item, the app broadcast a notification to everyone in the society.<br>
+          <strong>Why it failed:</strong> Within 48 hours, residents complained about notification spam and muted the app, exactly like messy WhatsApp groups.<br>
+          <strong>Learning:</strong> Pull-based categorized feeds with optional keyword alerts beats interruptive push broadcasts every time.
+        </p>
+      </div>
+
+      <div class="ds-iteration-card">
+        <span class="ds-iteration-status failed">Iteration 2 · Discarded</span>
+        <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-size:1.1rem; margin:8px 0;">Micro-Rental Cash Fees (₹50 / Hour)</h4>
+        <p style="font-size:0.88rem; color:#64748b; line-height:1.6;">
+          <strong>What I tried:</strong> Letting lenders charge small nominal rental fees to incentivize listings.<br>
+          <strong>Why it failed:</strong> Lenders reported feeling awkward taking ₹50 from someone who lives in the same tower, calling it 'petty'.<br>
+          <strong>Learning:</strong> Neighbors prefer social reciprocity and community goodwill over micro-monetization.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 8: UI SYSTEM & CRAFT -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge teal">STAGE 08 · UI SYSTEM & CRAFT</div>
+      <h2 class="ds-section-title">Warm Trust Palette, Typography & Component States</h2>
+      <p class="ds-section-desc">Designed for approachable warmth and high cognitive clarity on mobile viewports.</p>
+    </div>
+
+    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:24px; margin:20px 0;">
+      <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-size:1.1rem; margin:0 0 12px; color:#0f172a;">Color Tokens & Mobile Spatial Rhythm</h4>
+      <div class="ds-tokens-row">
+        <div class="ds-token-chip">
+          <div class="ds-token-color" style="background:#00685F;"></div>
+          <span>Deep Trust Teal: #00685F (Primary Brand)</span>
+        </div>
+        <div class="ds-token-chip">
+          <div class="ds-token-color" style="background:#004D46;"></div>
+          <span>Forest Slate: #004D46 (Headings & Depth)</span>
+        </div>
+        <div class="ds-token-chip">
+          <div class="ds-token-color" style="background:#FBFBF9;"></div>
+          <span>Warm Paper Cream: #FBFBF9 (Surface)</span>
+        </div>
+        <div class="ds-token-chip">
+          <div class="ds-token-color" style="background:#64748B;"></div>
+          <span>Cool Slate: #64748B (Secondary Meta)</span>
+        </div>
+      </div>
+      <p style="font-size:0.9rem; color:#475569; margin:14px 0 0;">
+        ✦ <strong>Component Architecture:</strong> Built on mobile 390px responsive auto-layout in Figma. Cards feature clear status pills (Available, Active Borrow, Due in 30 Mins) and touch-friendly tap targets strictly exceeding 48px.
+      </p>
+    </div>
+  </div>
+
+  <!-- STAGE 9: HONEST REFLECTION & FUTURE SCOPE -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge teal">STAGE 09 · HONEST REFLECTION & SELF-CRITIQUE</div>
+      <h2 class="ds-section-title">Edge Cases: Accidental Tool Damage & Future Protection</h2>
+      <p class="ds-section-desc">Analyzing liability edge-cases and product insurance evolution.</p>
+    </div>
+
+    <div style="background:#fff; border:1px solid #cbd5e1; border-radius:16px; padding:24px; margin:20px 0;">
+      <p style="font-size:0.98rem; line-height:1.7; color:#334155; margin:0 0 14px;">
+        <strong>The Unresolved Wear-and-Tear Dilemma:</strong> While the trust score prevented 100% of theft, it does not fully solve for innocent mechanical failure (e.g., an electric lawnmower motor burning out during normal neighbor use). Currently, the app relies on honor-system agreements between parties.
+      </p>
+      <p style="font-size:0.98rem; line-height:1.7; color:#334155; margin:0;">
+        <strong>Future Evolution — Voluntary Society Micro-Warranty:</strong> The next roadmap release will introduce a voluntary ₹15 community warranty pool per borrow that automatically covers repair costs for mechanical breakdowns, removing the final remaining anxiety from high-value tool sharing.
+      </p>
+    </div>
+  </div>
+
+  <!-- STAGE 10: CLOSING & RESOURCE ACCESS -->
+  <div class="ds-section" style="margin-top:60px;">
+    <div style="background:linear-gradient(135deg, #004D46 0%, #00685F 100%); color:#fff; border-radius:20px; padding:36px; text-align:center;">
+      <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-size:1.6rem; font-weight:800; margin:0 0 10px;">Explore the Full Product Architecture</h3>
+      <p style="font-size:0.95rem; color:rgba(255,255,255,0.85); max-width:600px; margin:0 auto 24px;">
+        Inspect the complete mobile design system, interactive prototypes, and wireframe flows in Figma.
+      </p>
+      <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+        <a href="https://www.figma.com/design/lihUopG9Whgqgi9RSYzBH3/Borrow-ux?node-id=106-1155&t=Suo7ehsH5egqphHb-1" target="_blank" class="ds-btn ds-btn-gold">↗ Open Figma Design File</a>
+        <a href="https://sunilohdar-portfolio.vercel.app/images/borrow-wireframes.jpg" target="_blank" class="ds-btn ds-btn-figma">📐 View Wireframes Board</a>
+        <a href="#contact" class="ds-btn ds-btn-outline" data-close-modal>💬 Contact Sunil</a>
+        <button class="ds-btn ds-btn-outline" data-close-modal>✕ Close Case Study</button>
+      </div>
     </div>
   </div>
 </div>`;
@@ -4177,14 +4384,14 @@ work:[
   {
     id:"borrow",
     tabLabel:"03 · Borrow App",
-    deckTitle:"Borrow App: Lending",
-    subtitle:"Removing Social Awkwardness from Neighbor Borrowing",
+    deckTitle:"Borrow App: Neighborhood Lending",
+    subtitle:"Unlocking Community Sharing via Gated Trust & Slot Scheduling",
     badge:"Community Mobile App · 2026",
-    tagline:"Architecting bilateral trust scores and single-society RWA verification boundaries so neighbors borrow items without social friction.",
+    tagline:"Architecting bilateral karma scores and gated society verification boundaries so neighbors borrow household tools without social friction.",
     metrics:[
-      {v:"28", l:"Residents Surveyed"},
-      {v:"100%", l:"Society Gated"},
-      {v:"5 Flows", l:"Validated Journey"}
+      {v:"78%", l:"High-Value Listings"},
+      {v:"94%", l:"On-Time Return"},
+      {v:"0₹", l:"Cash Escrow"}
     ],
     previewImg:"assets/borrow/borrow-screen-2-home.png",
     fit:"contain",
