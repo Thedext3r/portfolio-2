@@ -3,7 +3,7 @@
 **Date:** October 21, 2026  
 **Author:** Sunil Ohdar (UI/UX Product Designer) & Antigravity  
 **Target Repository:** `/Users/apple/Documents/new portfolio sunil`  
-**Target Files:** `index.html` (Portfolio Showcase, Modal Decks, and Deep-Dive Case Study Repositories), `treebo.html` (Standalone Case Study Page)
+**Target File:** `index.html` (Single consolidated portfolio housing all interactive case studies, modal decks, and deep-dive repositories; separate standalone pages like `treebo.html` eliminated)
 
 ---
 
@@ -264,8 +264,9 @@ Urban households accumulate ₹50,000+ of idle tools, ladders, and camping gear,
    - Update `borrowCaseStudyHtml` string with the complete 10-stage HTML markup.
    - Update CSS styles for Decision Story blocks, before/after comparison grids, callout badges, and iteration cards.
    - Update `D.work` array preview metadata (headlines, metrics, badges) to reflect the new newspaper headlines and framing.
+   - Remove all outbound links to `treebo.html` so that clicking Treebo opens the rich in-page modal case study directly.
 2. `treebo.html`:
-   - Full update to match the complete 10-stage standalone page with all images, videos, and interactive components.
+   - Safely remove or deprecate this file so there is no detached secondary page.
 
 ### 5.2 Verification Checklist
 - [ ] Scan Audit: Verify in browser that scrolling for 30 seconds immediately reveals newspaper titles, problem statements with metrics, and high-contrast before/after visuals.
