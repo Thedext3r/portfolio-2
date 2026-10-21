@@ -111,25 +111,379 @@ h1{font-size:clamp(2.8rem,9vw,6.5rem);font-weight:800}
 #cur.hovering svg{transform:scale(1.22)}
 #cur.hovering span{transform:translate(2px, 2px)}
 #cur.clicking svg{transform:scale(0.85)}
-/* work */
-.proj{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:32px;margin-bottom:36px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;box-shadow:0 4px 20px color-mix(in srgb,var(--ink) 3%,transparent)}
-@media(max-width:820px){.proj{grid-template-columns:1fr;padding:24px;gap:24px}}
+/* work - clean thumbnail showcase cards */
+.proj{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:30px 32px;
+  margin-bottom:32px;
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:36px;
+  align-items:center;
+  box-shadow:0 4px 20px color-mix(in srgb,var(--ink) 3%,transparent);
+  cursor:pointer;
+  transition:all .25s cubic-bezier(.16,1,.3,1);
+  position:relative;
+}
+.proj:hover{
+  border-color:var(--accent);
+  transform:translateY(-3px);
+  box-shadow:0 12px 32px color-mix(in srgb,var(--accent) 14%,transparent);
+}
+.proj-info h3{
+  font-size:clamp(1.35rem,2.5vw,1.75rem);
+  margin-bottom:6px;
+  transition:color .2s;
+}
+.proj:hover .proj-info h3{
+  color:var(--accent);
+}
+.proj-role{
+  color:var(--mute);
+  font-size:.92rem;
+  font-weight:500;
+  margin-bottom:12px;
+}
+.proj-hook{
+  color:color-mix(in srgb,var(--ink) 82%,transparent);
+  font-size:.95rem;
+  line-height:1.6;
+  margin:0 0 16px;
+}
+.proj-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:color-mix(in srgb,var(--accent) 12%,transparent);
+  color:var(--accent);
+  padding:4px 12px;
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.proj-pill i{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--accent);
+  display:inline-block;
+}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chips span{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:3px 12px;color:var(--mute);font-weight:500}
+.proj-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.92rem;
+  font-weight:700;
+  color:var(--accent);
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+  transition:gap .2s;
+}
+.proj:hover .proj-cta{
+  gap:12px;
+}
+/* Thumbnail mockup */
+.mock{
+  aspect-ratio:16/11;
+  background:color-mix(in srgb,var(--surface) 40%,var(--bg));
+  border-radius:18px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.mock-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+  transition:transform .4s ease;
+  display:block;
+}
+.mock.contain-fit .mock-img{
+  object-fit:contain;
+  padding:16px;
+}
+.proj:hover .mock-img{
+  transform:scale(1.04);
+}
+.mock-hover-hint{
+  position:absolute;
+  inset:0;
+  background:color-mix(in srgb,var(--ink) 40%,transparent);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  color:#fff;
+  font-weight:700;
+  font-size:.92rem;
+  opacity:0;
+  transition:opacity .25s ease;
+}
+.proj:hover .mock-hover-hint{
+  opacity:1;
+}
+.mock-badge{
+  position:absolute;
+  bottom:12px;
+  left:14px;
+  background:color-mix(in srgb,var(--surface) 92%,transparent);
+  color:var(--ink);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:.74rem;
+  font-weight:700;
+  border:1px solid var(--line);
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+@media(max-width:820px){
+  .proj{grid-template-columns:1fr;padding:22px;gap:20px}
+}
+
+/* CASE STUDY POP-UP MODAL */
+dialog#case-modal{
+  border:none;
+  padding:0;
+  background:transparent;
+  max-width:none;
+  max-height:none;
+  width:100%;
+  height:100%;
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+dialog#case-modal:not([open]){
+  display:none;
+}
+dialog#case-modal::backdrop{
+  background:rgba(10, 14, 30, 0.78);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  animation:fadeBackdrop .25s ease;
+}
+@keyframes fadeBackdrop{
+  from{opacity:0}
+  to{opacity:1}
+}
+.modal-box{
+  width:min(960px,94vw);
+  max-height:90vh;
+  background:var(--surface);
+  color:var(--ink);
+  border:1px solid var(--line);
+  border-radius:24px;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  box-shadow:0 24px 60px -12px rgba(0,0,0,.5);
+  position:relative;
+  animation:modalPop .3s cubic-bezier(.16,1,.3,1);
+}
+@keyframes modalPop{
+  from{opacity:0;transform:scale(.96) translateY(12px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+.modal-head{
+  position:sticky;
+  top:0;
+  z-index:10;
+  padding:18px 28px;
+  background:color-mix(in srgb,var(--surface) 92%,transparent);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.modal-head-info{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.modal-head-tag{
+  font-size:.76rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--accent);
+}
+.modal-head-title{
+  font-size:1.25rem;
+  font-weight:700;
+  margin:0;
+  line-height:1.2;
+}
+.modal-close-btn{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--bg);
+  color:var(--ink);
+  font-size:1.25rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:all .2s;
+  flex-shrink:0;
+  line-height:1;
+}
+.modal-close-btn:hover{
+  background:var(--accent);
+  color:var(--on);
+  border-color:var(--accent);
+  transform:scale(1.06);
+}
+.modal-body{
+  padding:32px 36px 48px;
+}
+@media(max-width:640px){
+  .modal-head{padding:14px 20px}
+  .modal-body{padding:24px 20px 36px}
+}
+.modal-hero-metrics{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+  margin-bottom:28px;
+}
+.metric-tile{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px 14px;
+  text-align:center;
+}
+.metric-val{
+  font-family:"Bricolage Grotesque",sans-serif;
+  font-size:1.9rem;
+  font-weight:800;
+  color:var(--accent);
+  line-height:1;
+  display:block;
+  margin-bottom:4px;
+}
+.metric-lbl{
+  font-size:.78rem;
+  color:var(--mute);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.modal-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
+  padding-bottom:22px;
+  border-bottom:1px solid var(--line);
+}
+.modal-sec-title{
+  font-size:1.35rem;
+  margin:28px 0 12px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.modal-desc{
+  font-size:.98rem;
+  color:color-mix(in srgb,var(--ink) 85%,transparent);
+  line-height:1.7;
+  margin-bottom:20px;
+}
+.modal-screens-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+  margin:20px 0 28px;
+}
+.modal-screen-card{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  transition:transform .2s,border-color .2s;
+}
+.modal-screen-card:hover{
+  transform:translateY(-2px);
+  border-color:var(--accent);
+}
+.modal-screen-card img{
+  width:100%;
+  height:auto;
+  max-height:260px;
+  object-fit:cover;
+  object-position:top;
+  display:block;
+}
+.modal-screen-card.contain img{
+  object-fit:contain;
+  padding:14px;
+  max-height:220px;
+}
+.modal-screen-info{
+  padding:12px 14px;
+}
+.modal-screen-info h4{
+  margin:0 0 4px;
+  font-size:.9rem;
+  font-weight:700;
+}
+.modal-screen-info p{
+  margin:0;
+  font-size:.82rem;
+  color:var(--mute);
+  line-height:1.45;
+}
+.modal-video-wrap{
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  margin:18px 0 28px;
+  background:#000;
+}
+.modal-video-wrap video{
+  width:100%;
+  display:block;
+  max-height:480px;
+}
+.modal-list{
+  margin:0 0 24px 20px;
+  padding:0;
+}
+.modal-list li{
+  margin-bottom:10px;
+  color:color-mix(in srgb,var(--ink) 85%,transparent);
+  line-height:1.6;
+  font-size:.95rem;
+}
+.modal-list strong{
+  color:var(--ink);
+}
 .tabs{display:inline-flex;background:var(--bg);border-radius:999px;padding:4px;margin:16px 0}
 .tabs button{font:600 .85rem "DM Sans",sans-serif;border:0;background:transparent;color:var(--mute);padding:7px 16px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
 .tabs button[aria-pressed=true]{background:var(--accent);color:var(--on)}
-.cap{color:var(--mute);min-height:3.6em;margin:0;line-height:1.6;font-size:.95rem}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.chips span{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:3px 12px;color:var(--mute);font-weight:500}
-.proj-links{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--line)}
-.proj-link{font-size:.88rem;font-weight:600;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:4px;border-bottom:1.5px solid transparent;padding-bottom:1px;transition:border-color .2s}
-.proj-link:hover{border-color:var(--accent)}
-/* Mockup Frame */
-.mock{aspect-ratio:16/11;background:color-mix(in srgb,var(--surface) 30%,var(--bg));border-radius:16px;position:relative;overflow:hidden;border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
-.mock-img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .4s ease,opacity .3s ease;display:block}
-.mock.contain-fit .mock-img{object-fit:contain;padding:14px}
-.mock:hover .mock-img{transform:scale(1.025)}
 .mock-overlay{position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:.78rem;font-weight:600}
-.mock-badge{background:var(--accent);color:var(--on);padding:2px 8px;border-radius:999px;font-size:.72rem}
 /* skills */
 .fl{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
 .fl button{font:500 .92rem "DM Sans",sans-serif;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 18px;border-radius:999px;cursor:pointer;transition:all .2s}
@@ -187,7 +541,7 @@ footer{padding:32px 0;color:var(--mute);font-size:.9rem;border-top:1px solid var
 </div></header>
 
 <section id="work"><div class="wrap">
-<h2 class="rv">Selected work</h2><p class="lead rv">Every project has three stages. Switch between them to see how it changed.</p>
+<h2 class="rv">Selected work</h2><p class="lead rv">Featured UI/UX product case studies. Select any project thumbnail to explore the full interactive case study.</p>
 <div id="proj"></div>
 </div></section>
 
@@ -220,6 +574,10 @@ footer{padding:32px 0;color:var(--mute);font-size:.9rem;border-top:1px solid var
 </div></section>
 <footer><div class="wrap" id="foot"></div></footer>
 
+<dialog id="case-modal" aria-label="Case Study Modal">
+  <div class="modal-box" id="modal-box"></div>
+</dialog>
+
 <script>
 /* ===== SUNIL OHDAR PORTFOLIO DATA ===== */
 const D={
@@ -228,15 +586,36 @@ roles:["UI/UX designer","digital marketing strategist","product thinker","design
 bio:"BBA student at Sushant University combining digital marketing strategy with intuitive UI/UX design. I craft full-funnel web systems, watchOS glanceable interactions, and community products.",
 work:[
 {
+  id:"treebo",
   n:"Treebo Club: Web Experience Redesign",
   r:"Full-Funnel Web App · Design Systems · Hospitality",
   fit:"cover",
-  c:[
-    "Stage 1 (Research): Audited legacy booking flow and found cluttered cards, slow filter responses, and sudden fee disclosures at checkout caused steep drop-offs.",
-    "Stage 2 (Architecture): Mapped an 8px grid token library, WCAG AA color tokens, and synchronized hotel cards with an interactive split map.",
-    "Stage 3 (Final Solution): Delivered a streamlined booking journey with zero-click amenity badges and upfront pricing, cutting task completion time by 40%."
+  thumbnail:"assets/new_ui/new_home_full.png",
+  badge:"Hospitality Web App",
+  pill:"-40% Task Completion Time",
+  hook:"High-fidelity booking engine overhaul with unified 8px tokens, WCAG AA contrast, and an interactive split map.",
+  overview:"Treebo Hotels is one of India's leading budget and boutique hospitality franchisors. The legacy booking engine suffered from cluttered cards, slow filter responses, and sudden fee disclosures at checkout causing steep drop-offs. By introducing an intuitive multi-facet filter side panel, an interactive split map with synchronized price pins, and upfront pricing disclosures, the redesign cuts task completion time by ~40% and boosts completed bookings by +24%.",
+  metrics:[
+    {v:"-40%", l:"Task Time"},
+    {v:"+24%", l:"Est. Bookings"},
+    {v:"100%", l:"Price Transparency"},
+    {v:"WCAG AA", l:"Accessible Tokens"}
   ],
-  tags:["Figma","Design Systems","Split Map","WCAG AA","Full-Funnel"],
+  video:"treebo demo video.mp4",
+  poster:"assets/treebo_video_poster.jpg",
+  decisions:[
+    {title:"Transparency First", desc:"100% upfront pricing disclosure eliminating surprise fees at checkout."},
+    {title:"Seamless Spatial Discovery", desc:"Interactive split map pairing live listing cards with dynamic price pins."},
+    {title:"Low Cognitive Load", desc:"Zero-click inline amenity tags surfacing AC, Free Wi-Fi, and Breakfast directly on room cards."},
+    {title:"In-Context Authentication", desc:"Non-intrusive modal dialog (60% scrim) preserving user search context with 1-tap Google OAuth."},
+    {title:"Elevated Loyalty Value", desc:"Prominent Treebo Club tier branding and instant discount savings across all touchpoints."}
+  ],
+  gallery:[
+    {img:"assets/new_ui/new_home_full.png", title:"Home Page Discovery", desc:"Elevated floating search pill & dark teal loyalty banner."},
+    {img:"assets/new_ui/new_discovery_search_results.png", title:"Search Results & Filters", desc:"490px listing cards, dynamic price slider, and amenity badges."},
+    {img:"assets/new_ui/new_map_view.png", title:"Interactive Split Map", desc:"Live hotel cards synchronized with map price pins."},
+    {img:"assets/new_ui/new_hotel_details_full.png", title:"Hotel Details Page", desc:"Categorized photo gallery, amenity modal, and upfront pricing room cards."}
+  ],
   screens:[
     "assets/treebo_video_poster.jpg",
     "assets/new_ui/new_map_view.png",
@@ -247,21 +626,47 @@ work:[
     "Stage 2: Interactive Split-Map Architecture & Tokens",
     "Stage 3: High-Fidelity 1440px Booking Interface"
   ],
+  c:[
+    "Stage 1 (Research): Audited legacy booking flow and found cluttered cards, slow filter responses, and sudden fee disclosures at checkout caused steep drop-offs.",
+    "Stage 2 (Architecture): Mapped an 8px grid token library, WCAG AA color tokens, and synchronized hotel cards with an interactive split map.",
+    "Stage 3 (Final Solution): Delivered a streamlined booking journey with zero-click amenity badges and upfront pricing, cutting task completion time by 40%."
+  ],
+  tags:["Figma","Design Systems","Split Map","WCAG AA","Full-Funnel"],
   links:[
-    {label:"View Full Page ↗",url:"treebo.html"},
-    {label:"Download PDF Report (10MB)",url:"assets/Treebo_Club_UI_UX_Case_Study.pdf"}
+    {label:"View Full Page ↗", url:"treebo.html", primary:true},
+    {label:"Download PDF Report (10MB)", url:"assets/Treebo_Club_UI_UX_Case_Study.pdf"}
   ]
 },
 {
+  id:"blinkit",
   n:"Blinkit on the Wrist: watchOS Quick Commerce",
   r:"Apple Watch App · Glance Ergonomics · Micro-Interactions",
   fit:"contain",
-  c:[
-    "Stage 1 (Research): Surveyed 10 quick-commerce consumers (ages 18–24); 7/10 miss rider doorstep calls and GPS street maps are unreadable on a 44mm wrist display.",
-    "Stage 2 (Decisions): Formulated 7 design decisions: 1-tap reordering ('Your usuals'), glanceable green ETA countdown bar, and radical elimination of map clutter.",
-    "Stage 3 (Final Solution): Prototyped a 5-screen watchOS journey with haptic wrist-tap OTP delivery and 1-tap canned replies ('Coming down')."
+  thumbnail:"assets/blinkit/hero_screens_banner.png",
+  badge:"Apple Watch (watchOS)",
+  pill:"~2s Glanceable Handoff",
+  hook:"Rethinking 10-minute grocery delivery for Apple Watch — eliminating map confusion with a 2-second glanceable ETA and haptic wrist OTP.",
+  overview:"Blinkit promises 10-minute grocery delivery. But none of India's leading quick-commerce players offered a dedicated Apple Watch app, leaving the wrist completely unclaimed. In my user research with 10 quick-commerce consumers aged 18–24, 6/10 looked only for ETA while tracking, GPS maps were rated most confusing on a 44mm display, and 7/10 routinely missed doorstep delivery calls. I formulated 7 design decisions to create a distraction-free, 2-second wrist interaction flow.",
+  metrics:[
+    {v:"~2 Sec", l:"Glance Time"},
+    {v:"6 of 9", l:"Repeat Buyers"},
+    {v:"7 of 10", l:"Doorstep Pain Solved"},
+    {v:"0 Maps", l:"Zero Map Clutter"}
   ],
-  tags:["watchOS","Apple Watch","JTBD","Haptic OTP","Figma"],
+  decisions:[
+    {title:"01. Replace Maps with Hero ETA", desc:"7/10 found maps unreadable on wrist; replaced with a massive green countdown number & progress bar."},
+    {title:"02. Haptic Wrist-Tap OTP", desc:"7/10 miss phone rider calls; large four-digit OTP display with vibration alert and 1-tap canned reply ('Coming down')."},
+    {title:"03. Repeat Staples ('Your Usuals')", desc:"Dynamic list generated from purchase history enabling 1-tap repeat reorders without search friction."},
+    {title:"04. Dedicated Confirmation Step", desc:"Line-item breakdown with bold order total to eliminate accidental taps on a small touch target."},
+    {title:"05. Clear Delivered State", desc:"Celebration badge with delivery completion time and instant reorder shortcut."}
+  ],
+  gallery:[
+    {img:"assets/blinkit/screen_1_home_usuals.png", title:"01. Home · Your Usuals", desc:"Repeat staples with large touch targets and 10 MIN status pill."},
+    {img:"assets/blinkit/screen_2_confirm_order.png", title:"02. Confirm Order", desc:"Line-item breakdown with bold ₹100 total to prevent mis-taps."},
+    {img:"assets/blinkit/screen_3_arriving_eta.png", title:"03. Arriving · ETA", desc:"Hero green '3 MIN' display + Store-to-User progress bar."},
+    {img:"assets/blinkit/screen_4_rider_door_otp.png", title:"04. Rider at Door · OTP", desc:"Haptic alert + four bold OTP digits + 'Coming down' reply."},
+    {img:"assets/blinkit/screen_5_delivered.png", title:"05. Delivered Celebration", desc:"'Delivered in 9m 12s' celebration + rate delivery shortcut."}
+  ],
   screens:[
     "assets/blinkit/hero_screens_banner.png",
     "assets/blinkit/screen_1_home_usuals.png",
@@ -272,21 +677,46 @@ work:[
     "Stage 2: 7 Design Decisions for Apple Watch",
     "Stage 3: Doorstep Handoff & Haptic OTP Flow"
   ],
+  c:[
+    "Stage 1 (Research): Surveyed 10 quick-commerce consumers (ages 18–24); 7/10 miss rider doorstep calls and GPS street maps are unreadable on a 44mm wrist display.",
+    "Stage 2 (Decisions): Formulated 7 design decisions: 1-tap reordering ('Your usuals'), glanceable green ETA countdown bar, and radical elimination of map clutter.",
+    "Stage 3 (Final Solution): Prototyped a 5-screen watchOS journey with haptic wrist-tap OTP delivery and 1-tap canned replies ('Coming down')."
+  ],
+  tags:["watchOS","Apple Watch","JTBD","Haptic OTP","Figma"],
   links:[
-    {label:"Open Figma Board ↗",url:"https://www.figma.com/board/GImQLbnu9jVSV6nMia8fjo/Blinkit-watchos-research?node-id=0-1"},
-    {label:"Download Case Study Doc",url:"assets/Blinkit_on_the_Wrist_Case_Study.docx"}
+    {label:"Open Figma Board ↗", url:"https://www.figma.com/board/GImQLbnu9jVSV6nMia8fjo/Blinkit-watchos-research?node-id=0-1", primary:true},
+    {label:"Download Case Study Doc", url:"assets/Blinkit_on_the_Wrist_Case_Study.docx"}
   ]
 },
 {
+  id:"borrow",
   n:"Borrow App: Neighborhood Lending",
   r:"Community Mobile App · Trust Architecture · User Research",
   fit:"contain",
-  c:[
-    "Stage 1 (Research): Surveyed 28 residents across housing societies. Social awkwardness and fear of unreturned items—not lack of supply—is the primary borrowing barrier.",
-    "Stage 2 (Architecture): Scoped user onboarding to single verified societies via RWA verification and introduced a dynamic multi-factor Trust Score.",
-    "Stage 3 (Final Solution): Designed a clean 5-screen mobile experience with structured async requests, lender inspections, and an organized handoff inbox."
+  thumbnail:"assets/borrow/borrow-screen-2-home.png",
+  badge:"Community Mobile App",
+  pill:"Verified Society Trust Loop",
+  hook:"Removing social awkwardness from neighbor borrowing through gated society verification and mutual trust scores.",
+  overview:"Neighbors regularly need items they don't own—ladders, drills, board games, luggage—but hesitate to ask. In my survey of 28 residents across housing societies, social awkwardness and fear of unreturned items was the primary barrier. I architected Borrow App around single-society RWA verification boundaries, structured asynchronous request flows, and transparent bilateral trust ratings to eliminate social discomfort.",
+  metrics:[
+    {v:"28", l:"Residents Surveyed"},
+    {v:"100%", l:"RWA Verified Scope"},
+    {v:"Solo", l:"UI/UX Lead"},
+    {v:"5", l:"Core App Flows"}
   ],
-  tags:["User Research","Trust Architecture","Mobile UI","RWA Verification"],
+  decisions:[
+    {title:"Scope to Single Gated Society", desc:"RWA-verified single-society boundaries ensure trust at the front gate—no interactions with strangers."},
+    {title:"Lead with Mutual Trust Score", desc:"Calculated from identity verification, on-time return rate, and peer endorsements."},
+    {title:"Structured Async Requests", desc:"Requests are accepted or declined before chat unlocks, removing social confrontation."},
+    {title:"Lender Inspection & Reminders", desc:"Lenders inspect borrower profile before handoff, with automated return reminders."}
+  ],
+  gallery:[
+    {img:"assets/borrow/borrow-screen-1-onboarding.png", title:"01. Verify Society Onboarding", desc:"Residents search for and confirm their specific gated community."},
+    {img:"assets/borrow/borrow-screen-2-home.png", title:"02. Browse & Item Request", desc:"Clean feed of popular items available inside the resident's society."},
+    {img:"assets/borrow/borrow-screen-3-lender-review.png", title:"03. Lender Reviews Request", desc:"Lenders inspect requests with borrower's verified profile details."},
+    {img:"assets/borrow/borrow-screen-4-inbox.png", title:"04. Track in Inbox & Reminders", desc:"Segmented tabs keep active borrows and return dates organized."},
+    {img:"assets/borrow/borrow-screen-5-profile.png", title:"05. Mutual Trust Score & History", desc:"Profile showcasing overall Trust Score and exchange history."}
+  ],
   screens:[
     "assets/borrow/borrow-screen-2-home.png",
     "assets/borrow/borrow-screen-1-onboarding.png",
@@ -297,8 +727,14 @@ work:[
     "Stage 2: Gated Society RWA Verification Flow",
     "Stage 3: Clean Society Feed & Lending Interface"
   ],
+  c:[
+    "Stage 1 (Research): Surveyed 28 residents across housing societies. Social awkwardness and fear of unreturned items—not lack of supply—is the primary borrowing barrier.",
+    "Stage 2 (Architecture): Scoped user onboarding to single verified societies via RWA verification and introduced a dynamic multi-factor Trust Score.",
+    "Stage 3 (Final Solution): Designed a clean 5-screen mobile experience with structured async requests, lender inspections, and an organized handoff inbox."
+  ],
+  tags:["User Research","Trust Architecture","Mobile UI","RWA Verification"],
   links:[
-    {label:"Ask About Borrow App",url:"#contact"}
+    {label:"Contact Sunil About Borrow App", url:"#contact", primary:true}
   ]
 }],
 skills:[
@@ -341,48 +777,174 @@ r.innerHTML="I’m a <span>"+w.slice(0,j)+"</span><i class='caret'></i>";
 let t=del?35:70;if(!del&&j===w.length){del=true;t=1400}else if(del&&j===0){del=false;i=(i+1)%D.roles.length;t=300}
 setTimeout(tick,t)})()})();
 
-/* work */
+/* case study modal management */
+const modal=$("#case-modal"),mbox=$("#modal-box");
+function closeCaseModal(){
+  const vid=mbox.querySelector("video");
+  if(vid) vid.pause();
+  modal.close();
+  document.body.style.overflow="";
+}
+modal.addEventListener("cancel",closeCaseModal);
+modal.onclick=e=>{if(e.target===modal) closeCaseModal()};
+
+function generateModalHtml(w){
+  const linksHtml=w.links?w.links.map(l=>{
+    const isAnchor=l.url.startsWith('#');
+    const target=isAnchor?'':'target="_blank" rel="noopener noreferrer"';
+    const cl=l.primary?'btn':'btn o';
+    return `<a href="${l.url}" ${target} class="${cl}" ${isAnchor?'data-close':''}>${l.label}</a>`;
+  }).join(""):"";
+
+  const metricsHtml=w.metrics?`
+    <div class="modal-hero-metrics">
+      ${w.metrics.map(m=>`
+        <div class="metric-tile">
+          <span class="metric-val">${m.v}</span>
+          <span class="metric-lbl">${m.l}</span>
+        </div>
+      `).join("")}
+    </div>
+  `:"";
+
+  const videoHtml=w.video?`
+    <h3 class="modal-sec-title">Interactive Prototype Reel</h3>
+    <div class="modal-video-wrap">
+      <video controls playsinline preload="metadata" poster="${w.poster||''}">
+        <source src="${w.video}" type="video/mp4">
+        Your browser does not support video.
+      </video>
+    </div>
+  `:"";
+
+  const stageFitClass=w.fit==="contain"?"mock contain-fit":"mock";
+  const stageSwitcherHtml=`
+    <h3 class="modal-sec-title">Three-Stage Iteration Breakdown</h3>
+    <div style="background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:24px;margin-bottom:28px">
+      <div class="tabs modal-stage-tabs" role="group" aria-label="Stage selector">
+        ${["1. Research","2. Architecture","3. Final"].map((n,i)=>`<button aria-pressed="${i===2}" data-i="${i}">${n}</button>`).join("")}
+      </div>
+      <p class="cap modal-stage-cap" style="min-height:auto;margin:10px 0 16px;color:color-mix(in srgb,var(--ink) 85%,transparent);line-height:1.6">${w.c[2]}</p>
+      <div class="${stageFitClass}" style="max-height:440px">
+        <img class="mock-img modal-stage-img" src="${w.screens[2]}" alt="${w.n} Screen">
+        <div class="mock-overlay">
+          <span class="mock-cap modal-stage-overlay">${w.captions[2]}</span>
+          <span class="mock-badge modal-stage-badge">Stage 3</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const decisionsHtml=w.decisions?`
+    <h3 class="modal-sec-title">Core Design Decisions & Findings</h3>
+    <ul class="modal-list">
+      ${w.decisions.map(d=>`<li><strong>${d.title}:</strong> ${d.desc}</li>`).join("")}
+    </ul>
+  `:"";
+
+  const screensGalleryHtml=w.gallery?`
+    <h3 class="modal-sec-title">High-Fidelity Interface Screens</h3>
+    <div class="modal-screens-grid">
+      ${w.gallery.map(g=>`
+        <div class="modal-screen-card ${w.fit==='contain'?'contain':''}">
+          <img src="${g.img}" alt="${g.title}" loading="lazy">
+          <div class="modal-screen-info">
+            <h4>${g.title}</h4>
+            <p>${g.desc}</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `:"";
+
+  return `
+    <div class="modal-head">
+      <div class="modal-head-info">
+        <span class="modal-head-tag">${w.badge}</span>
+        <h2 class="modal-head-title">${w.n}</h2>
+      </div>
+      <button class="modal-close-btn" data-close aria-label="Close dialog">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-actions">
+        ${linksHtml}
+        <button class="btn o" data-close>✕ Close Modal</button>
+      </div>
+      ${metricsHtml}
+      <h3 class="modal-sec-title">Overview & Challenge</h3>
+      <p class="modal-desc">${w.overview}</p>
+      ${videoHtml}
+      ${stageSwitcherHtml}
+      ${decisionsHtml}
+      ${screensGalleryHtml}
+      <div style="margin-top:36px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div style="font-size:.9rem;color:var(--mute)">Designed by Sunil Ohdar · UI/UX Product Design</div>
+        <button class="btn o" data-close>✕ Close Case Study</button>
+      </div>
+    </div>
+  `;
+}
+
+function openCaseModal(w){
+  mbox.innerHTML=generateModalHtml(w);
+  modal.showModal();
+  document.body.style.overflow="hidden";
+  mbox.scrollTop=0;
+  mbox.querySelectorAll("[data-close]").forEach(b=>b.onclick=closeCaseModal);
+
+  const cap=mbox.querySelector(".modal-stage-cap");
+  const stageImg=mbox.querySelector(".modal-stage-img");
+  const stageOverlay=mbox.querySelector(".modal-stage-overlay");
+  const stageBadge=mbox.querySelector(".modal-stage-badge");
+  mbox.querySelectorAll(".modal-stage-tabs button").forEach(b=>b.onclick=()=>{
+    const idx=parseInt(b.dataset.i,10);
+    mbox.querySelectorAll(".modal-stage-tabs button").forEach(x=>x.setAttribute("aria-pressed",x===b));
+    if(cap) cap.textContent=w.c[idx];
+    if(stageImg){
+      stageImg.style.opacity="0.3";
+      setTimeout(()=>{
+        stageImg.src=w.screens[idx];
+        stageImg.onload=()=>stageImg.style.opacity="1";
+        setTimeout(()=>stageImg.style.opacity="1",60);
+      },100);
+    }
+    if(stageOverlay) stageOverlay.textContent=w.captions[idx];
+    if(stageBadge) stageBadge.textContent="Stage "+(idx+1);
+  });
+}
+
+/* work - thumbnail showcase cards */
 D.work.forEach(w=>{
   const e=el("div","proj rv");
-  const linksHtml=w.links?`<div class='proj-links'>${w.links.map(l=>{
-    const target=l.url.startsWith('#')?'':'target="_blank" rel="noopener noreferrer"';
-    return `<a href='${l.url}' ${target} class='proj-link'>${l.label}</a>`;
-  }).join("")}</div>`:"";
-
+  e.setAttribute("role","button");
+  e.setAttribute("tabindex","0");
+  e.setAttribute("aria-label","View case study: "+w.n);
   const fitClass=w.fit==="contain"?"mock contain-fit":"mock";
   e.innerHTML=`
-    <div>
+    <div class="proj-info">
+      <div class="proj-pill"><i></i><span>${w.pill}</span></div>
       <h3>${w.n}</h3>
-      <div style='color:var(--mute);margin-top:6px;font-size:.95rem'>${w.r}</div>
-      <div class='tabs' role='group' aria-label='Project stage'>
-        ${["1. Research","2. Architecture","3. Final"].map((n,i)=>`<button aria-pressed='${i===2}' data-i='${i}'>${n}</button>`).join("")}
-      </div>
-      <p class='cap'></p>
-      <div class='chips'>${w.tags.map(t=>`<span>${t}</span>`).join("")}</div>
-      ${linksHtml}
+      <div class="proj-role">${w.r}</div>
+      <p class="proj-hook">${w.hook}</p>
+      <div class="chips">${w.tags.map(t=>`<span>${t}</span>`).join("")}</div>
+      <div class="proj-cta"><span>Explore Case Study</span> <span>→</span></div>
     </div>
-    <div class='${fitClass}'>
-      <img class='mock-img' src='${w.screens[2]}' alt='${w.n} UI Screen'>
-      <div class='mock-overlay'>
-        <span class='mock-cap'>${w.captions[2]}</span>
-        <span class='mock-badge'>Stage 3</span>
+    <div class="${fitClass}">
+      <img class="mock-img" src="${w.thumbnail}" alt="${w.n} Preview" loading="lazy">
+      <div class="mock-badge">${w.badge}</div>
+      <div class="mock-hover-hint">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        <span>View Case Study</span>
       </div>
-    </div>`;
-  const cap=e.querySelector(".cap"),img=e.querySelector(".mock-img"),overlayCap=e.querySelector(".mock-cap"),badge=e.querySelector(".mock-badge");
-  cap.textContent=w.c[2];
-  e.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
-    const idx=parseInt(b.dataset.i,10);
-    e.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-pressed",x===b));
-    cap.textContent=w.c[idx];
-    img.style.opacity="0.3";
-    setTimeout(()=>{
-      img.src=w.screens[idx];
-      img.onload=()=>{img.style.opacity="1"};
-      setTimeout(()=>{img.style.opacity="1"},60);
-    },100);
-    overlayCap.textContent=w.captions[idx];
-    badge.textContent="Stage "+(idx+1);
-  });
+    </div>
+  `;
+  e.onclick=()=>openCaseModal(w);
+  e.onkeydown=ev=>{
+    if(ev.key==="Enter"||ev.key===" "){
+      ev.preventDefault();
+      openCaseModal(w);
+    }
+  };
   $("#proj").appendChild(e);
 });
 
