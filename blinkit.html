@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Blinkit on the Wrist: Glanceable watchOS · Sunil Ohdar Case Study</title>
+  <meta name="description" content="Designing quick-commerce for Apple Watch — eliminating smartphone unlock friction with 1-tap habit reordering, radial ETA rings, and wrist haptic OTP verification.">
+  <meta property="og:title" content="Blinkit on the Wrist: Glanceable watchOS · Sunil Ohdar">
+  <meta property="og:description" content="Designing quick-commerce for Apple Watch — eliminating smartphone unlock friction with 1-tap habit reordering, radial ETA rings, and wrist haptic OTP verification.">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <!-- STICKY TOP NAVIGATION -->
+  <header class="cs-nav">
+    <div class="cs-nav-wrap">
+      <div class="cs-nav-left">
+        <a href="index.html#work" class="cs-back-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>All Work</span>
+        </a>
+        <a href="index.html" class="cs-brand-meta">
+          <span>Sunil Ohdar</span>
+          <span class="cs-brand-tag">watchOS Quick Commerce</span>
+        </a>
+      </div>
+      <div class="cs-nav-right">
+        <a href="https://www.figma.com/design/Xk8xGmsvQ16t68zaF6VtEh/Blinkit-watchos?node-id=0-1&t=EHGGxoJnJ8fiQfmX-1" target="_blank" rel="noopener noreferrer" class="cs-nav-cta outline">
+          <span>Figma File</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+        <a href="index.html#contact" class="cs-nav-cta primary">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CASE STUDY -->
+  <main class="cs-main">
+    <div class="ds-case-study blinkit-theme">
+  <!-- STAGE 1 & 9: HERO BANNER & NEWSPAPER HEADLINE -->
+  <div class="ds-hero-banner blinkit">
+    
+    <div class="ds-stage-badge yellow">STAGE 01 & 09 · THE NEWSPAPER HEADLINE & HOOK</div>
+    <h1 class="ds-newspaper-title">Glanceable 10-Minute Commerce: How Blinkit on Apple Watch Cut Repeat Ordering and Doorstep Delivery Friction to 2 Seconds</h1>
+    <p class="ds-tagline">Designing for the wrist in high-pressure everyday moments — eliminating smartphone unlock friction with predictive habit reordering, high-contrast radial ETA rings, and hands-free wrist haptic doorstep OTP verification.</p>
+    
+    <div class="ds-metrics-strip">
+      <div class="ds-metric-card">
+        <div class="ds-metric-val">~2.4s</div>
+        <div class="ds-metric-label">Wrist Reorder Time</div>
+      </div>
+      <div class="ds-metric-card">
+        <div class="ds-metric-val">6 of 9</div>
+        <div class="ds-metric-label">Habitual Repeat Buyers</div>
+      </div>
+      <div class="ds-metric-card">
+        <div class="ds-metric-val">7 of 10</div>
+        <div class="ds-metric-label">Doorstep Friction Solved</div>
+      </div>
+      <div class="ds-metric-card">
+        <div class="ds-metric-val">0 Typo</div>
+        <div class="ds-metric-label">Zero On-Screen Keyboard Friction</div>
+      </div>
+    </div>
+
+    <div class="ds-action-row">
+      <a href="https://www.figma.com/design/Xk8xGmsvQ16t68zaF6VtEh/Blinkit-watchos?node-id=0-1&t=EHGGxoJnJ8fiQfmX-1" target="_blank" class="ds-btn ds-btn-gold">↗ Open Figma Design File</a>
+      <a href="https://www.figma.com/board/GImQLbnu9jVSV6nMia8fjo/Blinkit-watchos-research?node-id=0-1&t=QU0xOlLFxXG1GjAD-1" target="_blank" class="ds-btn ds-btn-figma">📊 View FigJam Research Board</a>
+      <a href="Blinkit on the Wrist Case Study.docx" target="_blank" class="ds-btn ds-btn-outline">📝 Download Word Doc</a>
+      <button class="ds-btn ds-btn-outline">✕ Close</button>
+    </div>
+  </div>
+
+  <!-- STAGE 2: THE EMOTIONAL HOOK -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge yellow">STAGE 02 · THE EMOTIONAL HOOK (CURIOSITY GAP)</div>
+      <h2 class="ds-section-title">The 7:45 AM Kitchen Rush</h2>
+      <p class="ds-section-desc">When a 30-second smartphone routine breaks a 10-minute delivery promise.</p>
+    </div>
+    <div class="ds-hook-box blinkit">
+      <div class="ds-hook-meta">Indirapuram Kitchen · 7:45 AM Morning Routine</div>
+      <p class="ds-hook-text">"7:45 AM in an Indirapuram kitchen. Rohan is furiously stirring boiling chai on the stove with one hand while packing his daughter’s school lunch with the other. He reaches into the vegetable crate—no ginger. He pulls his phone from his pocket with wet hands, tries FaceID (fails due to kitchen steam), types his 6-digit passcode, navigates past three promotional discount popups in Blinkit, and by the time he taps 'Order', the milk has boiled over and charred the stovetop. A 10-minute delivery promise failed by a 35-second phone barrier."</p>
+    </div>
+  </div>
+
+  <!-- STAGE 3: VISUAL TEASE (SOLUTION FIRST) -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge yellow">STAGE 03 · SOLUTION FIRST PRINCIPLE</div>
+      <h2 class="ds-section-title">The 5-Screen watchOS Experience Architecture</h2>
+      <p class="ds-section-desc">Designed strictly within Apple Watch’s 2-second glance budget — from habit reorder to delivered handoff.</p>
+    </div>
+    
+    <div style="margin: 20px 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0;">
+      <img src="assets/blinkit/hero_screens_banner.png" alt="Blinkit Apple Watch 5-Screen Hero Flow" style="width:100%;display:block;">
+    </div>
+  </div>
+
+  <!-- STAGE 4: PROBLEM STATEMENT & PROJECT CONTEXT -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge yellow">STAGE 04 · PROBLEM STATEMENT & BUSINESS CONTEXT</div>
+      <h2 class="ds-section-title">The 30-Second Phone Barrier in 10-Minute Commerce</h2>
+      <p class="ds-section-desc">Quick commerce solved warehouse logistics, but left the doorstep and kitchen interaction model broken.</p>
+    </div>
+
+    <div class="ds-problem-card">
+      <span class="ds-business-metric-chip" style="background:#fef3c7; color:#92400e;">BEHAVIORAL FRICTION: 32-SECOND AVERAGE SMARTPHONE REORDER ROUTINE</span>
+      <p style="font-size:1.05rem; line-height:1.7; color:#1e293b; margin:0;">
+        Quick-commerce platforms promise delivery in 10 minutes, yet the digital interface demands a <strong>32-second, multi-step smartphone workflow</strong>. Field research with 10 frequent users revealed that <strong>68% of quick-commerce orders are repeat staples</strong> (milk, eggs, bread) ordered during chaotic, hands-busy moments (cooking, getting ready, answering doorbells) where reaching for a phone has severe physical friction. Squeezing a full phone app with 15,000 SKUs onto a tiny wrist screen is an anti-pattern; the wrist requires a glanceable 2-second micro-interaction.
+      </p>
+    </div>
+
+    <!-- Structured 5-Field Context Card -->
+    <div class="ds-context-grid">
+      <div class="ds-context-item">
+        <strong>Hardware Platform</strong>
+        <span>Apple Watch (watchOS · 208×248 pt canvas)</span>
+      </div>
+      <div class="ds-context-item">
+        <strong>Project Timeline</strong>
+        <span>3 Weeks (Survey, watchOS HIG, High-Fi Prototyping)</span>
+      </div>
+      <div class="ds-context-item">
+        <strong>Scope of Work</strong>
+        <span>Usuals Reorder, Live ETA Ring, Haptic Doorstep OTP</span>
+      </div>
+      <div class="ds-context-item">
+        <strong>My Role</strong>
+        <span>Solo Product Designer & UX Researcher</span>
+      </div>
+      <div class="ds-context-item">
+        <strong>Core Constraints</strong>
+        <span>2-second glance budget · Zero on-screen typing</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 5: GUIDED SOLUTION JOURNEY -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge yellow">STAGE 05 · GUIDED SOLUTION JOURNEY (THE APPLE DEMO)</div>
+      <h2 class="ds-section-title">Walking with Riya: 5-Screen Wrist Walkthrough</h2>
+      <p class="ds-section-desc">Step-by-step glanceable progression through Riya's morning reorder routine.</p>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="ds-journey-step">
+      <div class="ds-step-badge">SCREEN 01 OF 05 · THE 1-TAP USUALS CARD</div>
+      <h3 class="ds-step-title">Predictive Morning Habit Deck</h3>
+      <div class="ds-step-thought">
+        Riya's thought: "I just need Amul Taaza milk and brown bread. Don't show me party snacks or beauty discounts right now."
+      </div>
+      <div style="text-align:center; padding:12px 0; margin:14px 0;">
+        <img src="assets/blinkit/screen_1_home_usuals.png" alt="Blinkit Watch Usuals Reorder Screen" style="max-height:360px; border-radius:10px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+      </div>
+      <p style="font-size:0.92rem; color:#475569;">
+        ✦ <strong>Design Execution:</strong> Curated 2-item habit bundle dynamically loaded based on morning ordering history. Pre-cached saved address with single-tap primary CTA.
+      </p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="ds-journey-step">
+      <div class="ds-step-badge">SCREEN 02 OF 05 · ZERO-FRICTION ORDER CONFIRMATION</div>
+      <h3 class="ds-step-title">Optimistic Payment & 5-Second Circular Undo Timer</h3>
+      <div class="ds-step-thought">
+        Riya's thought: "Order placed in 1 second! And if I made a mistake, I have 5 seconds to tap cancel directly on my wrist."
+      </div>
+      <div style="text-align:center; padding:12px 0; margin:14px 0;">
+        <img src="assets/blinkit/screen_2_confirm_order.png" alt="Blinkit Watch Confirmation Screen" style="max-height:360px; border-radius:10px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+      </div>
+      <p style="font-size:0.92rem; color:#475569;">
+        ✦ <strong>Design Execution:</strong> Apple Pay / 1-Tap UPI instant dispatch with animated circular countdown ring. Zero modal popups interrupting the flow.
+      </p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="ds-journey-step">
+      <div class="ds-step-badge">SCREEN 03 OF 05 · AT-A-GLANCE STATUS</div>
+      <h3 class="ds-step-title">High-Contrast Radial Countdown ETA Ring</h3>
+      <div class="ds-step-thought">
+        Riya's thought: "Quick glance at my wrist while blow-drying my hair: 6 minutes remaining. Perfect, plenty of time."
+      </div>
+      <div style="text-align:center; padding:12px 0; margin:14px 0;">
+        <img src="assets/blinkit/screen_3_arriving_eta.png" alt="Blinkit Watch ETA Countdown Screen" style="max-height:360px; border-radius:10px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+      </div>
+      <p style="font-size:0.92rem; color:#475569;">
+        ✦ <strong>Design Execution:</strong> 52pt bold numerals with color-coded status arc. Zero micro-map lag; legibility verified in bright outdoor ambient conditions.
+      </p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="ds-journey-step">
+      <div class="ds-step-badge">SCREEN 04 OF 05 · DOORSTEP ARRIVAL</div>
+      <h3 class="ds-step-title">Wrist Haptic Alert & 48pt Doorstep OTP</h3>
+      <div class="ds-step-thought">
+        Riya's thought: "The doorbell rings while I'm holding a frying pan. My wrist vibrates with two taps and shows OTP '4 8 2 1'. I read it out loud without touching anything!"
+      </div>
+      <div style="text-align:center; padding:12px 0; margin:14px 0;">
+        <img src="assets/blinkit/screen_4_rider_door_otp.png" alt="Blinkit Watch Haptic Doorstep OTP Screen" style="max-height:360px; border-radius:10px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+      </div>
+      <p style="font-size:0.92rem; color:#475569;">
+        ✦ <strong>Design Execution:</strong> Proximity trigger when rider is within 100 meters initiates a distinctive double-tap haptic pattern and displays OTP in 48pt bold numerals until rider marks handoff.
+      </p>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="ds-journey-step">
+      <div class="ds-step-badge">SCREEN 05 OF 05 · HANDOFF COMPLETION</div>
+      <h3 class="ds-step-title">1-Tap Experience Feedback & Ambient Dismissal</h3>
+      <div class="ds-step-thought">
+        Riya's thought: "Delivered in 9 minutes. One tap on the smiley face and the watch face automatically returns to my morning calendar."
+      </div>
+      <div style="text-align:center; padding:12px 0; margin:14px 0;">
+        <img src="assets/blinkit/screen_5_delivered.png" alt="Blinkit Watch Order Delivered Screen" style="max-height:360px; border-radius:10px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+      </div>
+      <p style="font-size:0.92rem; color:#475569;">
+        ✦ <strong>Design Execution:</strong> Clean, thumb-friendly delivery confirmation with single-tap rating and 3-second auto-timeout.
+      </p>
+    </div>
+  </div>
+
+  <!-- STAGE 6: THE 4 CORE DECISION STORIES -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge yellow">STAGE 06 · THE 4 CORE DECISION STORIES</div>
+      <h2 class="ds-section-title">Where the Trade-offs Were Weighed</h2>
+      <p class="ds-section-desc">Four crucial hardware constraint decisions that separated glanceable utility from miniaturized app bloat.</p>
+    </div>
+
+    <!-- STORY 1 -->
+    <div class="ds-decision-card">
+      <div class="ds-decision-badge">DECISION STORY 01 · INTERACTION ARCHITECTURE</div>
+      <h3 class="ds-decision-headline">Cutting the Search Bar and Full Catalog in Favor of a 3-Item Habit Deck</h3>
+      <div class="ds-decision-hook">
+        "Typing or dictating search queries for 'coriander leaves' on a 1.9-inch watch face while walking is ergonomically painful."
+      </div>
+
+      <div class="ds-turning-point">
+        <div class="ds-turning-point-title">✦ The Turning Point: Catalog Completeness vs. 2-Second Glance Budget</div>
+        <p>My initial instinct was to build a miniature search bar with voice dictation and category browsing. But watchOS Human Interface Guidelines mandate that interactions must conclude in <strong>under 2 to 3 seconds</strong>. Browsing 15,000 SKUs on wrist is an anti-pattern. I made the hard strategic choice to <strong>completely eliminate open catalog search</strong>, dedicating the watch app entirely to high-frequency habitual repeat orders.</p>
+      </div>
+
+      <div style="font-size:0.92rem; color:#334155; margin:16px 0;">
+        <strong>Consecutive Actions:</strong> Designed a dynamic morning/evening habit deck showing the top 3 most frequently ordered items with pre-calculated totals and 1-tap reordering.
+      </div>
+
+      <div class="ds-result-block">
+        <div style="font-size:1.4rem;">⚡</div>
+        <div>
+          <strong>Result & Usability Verification:</strong>
+          <p>Reorder task completion dropped from 32 seconds on phone down to <strong>2.4 seconds on wrist</strong>. 6 out of 9 surveyed repeat buyers confirmed they order the exact same 3 breakfast items every single morning.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STORY 2 -->
+    <div class="ds-decision-card">
+      <div class="ds-decision-badge">DECISION STORY 02 · HARDWARE CONSTRAINTS</div>
+      <h3 class="ds-decision-headline">Eliminating Moving Street Maps for a High-Contrast Radial ETA Ring</h3>
+      <div class="ds-decision-hook">
+        "Tiny GPS street dots on a watch screen drain battery rapidly and are impossible to parse at an arm's length."
+      </div>
+
+      <div class="ds-turning-point">
+        <div class="ds-turning-point-title">✦ The Turning Point: Visual Realism vs. Cognitive Legibility</div>
+        <p>I initially rendered a live street map with a moving bike icon, mirroring the phone experience. In outdoor sunlight testing, the map was unreadable. More critically, watch users don't care which alleyway the delivery partner is turning down; they only care about one single question: <em>"When will the doorbell ring?"</em> I replaced the map with a high-contrast radial countdown timer.</p>
+      </div>
+
+      <div style="font-size:0.92rem; color:#334155; margin:16px 0;">
+        <strong>Consecutive Actions:</strong> Utilized a 52pt bold countdown numeral surrounded by a yellow progress arc that transitions to green as arrival nears, reducing cognitive parse time to under 300ms.
+      </div>
+
+      <div class="ds-result-block">
+        <div style="font-size:1.4rem;">🔋</div>
+        <div>
+          <strong>Result & Usability Verification:</strong>
+          <p>Zero watch battery drain from map vector rendering; 100% legibility in bright sunlight from arm's distance.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STORY 3 -->
+    <div class="ds-decision-card">
+      <div class="ds-decision-badge">DECISION STORY 03 · DOORSTEP PHYSICALITY</div>
+      <h3 class="ds-decision-headline">Introducing a Dual-Stage Wrist Haptic OTP Alert at Doorstep Arrival</h3>
+      <div class="ds-decision-hook">
+        "Holding grocery bags with both hands while digging for a ringing smartphone to read an SMS OTP is the #1 friction point of quick commerce."
+      </div>
+
+      <div class="ds-turning-point">
+        <div class="ds-turning-point-title">✦ The Turning Point: Standard Push Notifications vs. Ambient Proximity Haptics</div>
+        <p>Standard watch notifications vibrate once and disappear into the notification tray, forcing the user to swipe and unlock. I designed an automated proximity trigger: when the delivery partner crosses the 100-meter geofence, the watch delivers a distinctive double-tap haptic buzz and immediately locks the screen onto the bold 4-digit OTP until the delivery is marked complete.</p>
+      </div>
+
+      <div style="font-size:0.92rem; color:#334155; margin:16px 0;">
+        <strong>Consecutive Actions:</strong> Designed 48pt bold numerals with maximum contrast against the OLED black screen, enabling hands-free verbal OTP verification across the doorway.
+      </div>
+
+      <div class="ds-result-block">
+        <div style="font-size:1.4rem;">🚪</div>
+        <div>
+          <strong>Result & Usability Verification:</strong>
+          <p>Solved the doorstep handoff bottleneck for <strong>7 out of 10 users</strong> surveyed in the field research audit.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STORY 4 -->
+    <div class="ds-decision-card">
+      <div class="ds-decision-badge">DECISION STORY 04 · INTERACTION SAFETY</div>
+      <h3 class="ds-decision-headline">Replacing Blocking Confirmation Modals with an Optimistic 5-Second Circular Undo Timer</h3>
+      <div class="ds-decision-hook">
+        "Asking 'Are you sure you want to order?' destroys the speed promise of wearable technology."
+      </div>
+
+      <div class="ds-turning-point">
+        <div class="ds-turning-point-title">✦ The Turning Point: Accidental Tap Safety vs. Instant Execution Speed</div>
+        <p>A multi-step checkout dialog creates cognitive friction on a watch. However, completely removing confirmation risks accidental pocket taps. I implemented an <strong>optimistic execution model</strong>: tapping 'Reorder' immediately initiates the order while displaying an animated 5-second circular 'Cancel' button with synchronized ticking haptic feedback.</p>
+      </div>
+
+      <div style="font-size:0.92rem; color:#334155; margin:16px 0;">
+        <strong>Consecutive Actions:</strong> Built a 5-second countdown timer that allows single-tap cancellation without penalty before dispatching the order payload to the warehouse API.
+      </div>
+
+      <div class="ds-result-block">
+        <div style="font-size:1.4rem;">⏱</div>
+        <div>
+          <strong>Result & Usability Verification:</strong>
+          <p>Delivered 1-tap instant gratification with zero accidental order penalties reported across prototype testing sessions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 7: ITERATION ARCHIVE -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge yellow">STAGE 07 · ITERATION ARCHIVE (SHOWING WHAT DID NOT WORK)</div>
+      <h2 class="ds-section-title">Iterations Thrown Away & Design Dead Ends</h2>
+      <p class="ds-section-desc">Documenting the wearable experiments that failed usability testing.</p>
+    </div>
+
+    <div class="ds-iteration-grid">
+      <div class="ds-iteration-card">
+        <span class="ds-iteration-status failed">Iteration 1 · Discarded</span>
+        <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-size:1.1rem; margin:8px 0;">4-Quadrant Category Browse Grid</h4>
+        <p style="font-size:0.88rem; color:#64748b; line-height:1.6;">
+          <strong>What I tried:</strong> A 4-icon grid (Fruits, Dairy, Snacks, Drinks) allowing users to drill down into categories on the watch.<br>
+          <strong>Why it failed:</strong> Resulted in a 35% miss-tap error rate during walking trials. Sub-category lists required excessive digital crown scrolling.<br>
+          <strong>Learning:</strong> Wearables are engines for repeat intent, not catalog discovery.
+        </p>
+      </div>
+
+      <div class="ds-iteration-card">
+        <span class="ds-iteration-status failed">Iteration 2 · Discarded</span>
+        <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-size:1.1rem; margin:8px 0;">Live GPS Rider Route Map</h4>
+        <p style="font-size:0.88rem; color:#64748b; line-height:1.6;">
+          <strong>What I tried:</strong> Embedding a live vector MapKit tile showing rider streets in real time.<br>
+          <strong>Why it failed:</strong> Cellular watch models suffered from 2–3 second tile loading delays, and users squinted trying to read street names.<br>
+          <strong>Learning:</strong> Replace literal spatial data with abstract temporal data on micro-screens.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 8: UI SYSTEM & CRAFT -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge yellow">STAGE 08 · UI SYSTEM & CRAFT</div>
+      <h2 class="ds-section-title">watchOS Dark OLED Palette, Typography & Ergonomics</h2>
+      <p class="ds-section-desc">Built strictly following Apple Human Interface Guidelines for watchOS.</p>
+    </div>
+
+    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:20px; margin:20px 0; color:#0f172a;">
+      <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-size:1.1rem; margin:0 0 12px; color:#0f172a;">watchOS Hardware Color Tokens</h4>
+      <div class="ds-tokens-row">
+        <div class="ds-token-chip" style="background:#ffffff; border:1px solid #e2e8f0; color:#0f172a;">
+          <div class="ds-token-color" style="background:#000000;"></div>
+          <span>Pure OLED Black: #000000 (0% Pixel Power)</span>
+        </div>
+        <div class="ds-token-chip" style="background:#ffffff; border:1px solid #e2e8f0; color:#0f172a;">
+          <div class="ds-token-color" style="background:#F8CB46;"></div>
+          <span>Blinkit Yellow: #F8CB46 (Primary Actions)</span>
+        </div>
+        <div class="ds-token-chip" style="background:#ffffff; border:1px solid #e2e8f0; color:#0f172a;">
+          <div class="ds-token-color" style="background:#0C831F;"></div>
+          <span>Signal Green: #0C831F (Success & Arrival)</span>
+        </div>
+        <div class="ds-token-chip" style="background:#ffffff; border:1px solid #e2e8f0; color:#0f172a;">
+          <div class="ds-token-color" style="background:#FFFFFF;"></div>
+          <span>Pure White: #FFFFFF (48pt OTP Numerals)</span>
+        </div>
+      </div>
+      <p style="font-size:0.9rem; color:#64748b; margin:14px 0 0;">
+        ✦ <strong>Touch Ergonomics:</strong> All interactive button elements strictly measure <strong>≥ 44×44 pt</strong> to prevent edge-of-screen touch failures. Typography utilizes <em>SF Pro Rounded</em> for optical warmth and instant glance legibility.
+      </p>
+    </div>
+  </div>
+
+  <!-- STAGE 9: HONEST REFLECTION & FUTURE SCOPE -->
+  <div class="ds-section">
+    <div class="ds-section-header">
+      <div class="ds-stage-badge yellow">STAGE 09 · HONEST REFLECTION & SELF-CRITIQUE</div>
+      <h2 class="ds-section-title">Edge-Case Realities: The Out-of-Stock Fallback</h2>
+      <p class="ds-section-desc">Where wearable design ends and smartphone handoff begins.</p>
+    </div>
+
+    <div style="background:#fff; border:1px solid #cbd5e1; border-radius:16px; padding:24px; margin:20px 0;">
+      <p style="font-size:0.98rem; line-height:1.7; color:#334155; margin:0 0 14px;">
+        <strong>The Limitations of Out-of-Stock Substitutions:</strong> If a habit staple (e.g. Amul Taaza 500ml) is out of stock at the dark store, attempting to display 4 alternate milk brands on the watch creates severe cognitive overload. In my architecture, out-of-stock events intentionally fall back to an actionable iOS push notification with 1-tap phone substitution rather than cluttering the watch interface.
+      </p>
+      <p style="font-size:0.98rem; line-height:1.7; color:#334155; margin:0;">
+        <strong>Future Scope — watchOS 10 Smart Stack:</strong> The next evolution is building glanceable Smart Stack widgets for the watch face, allowing users to monitor ETA countdown rings without even needing to launch the Blinkit watch app.
+      </p>
+    </div>
+  </div>
+
+  <!-- STAGE 10: CLOSING & RESOURCE ACCESS -->
+  <div class="ds-section" style="margin-top:60px;">
+    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:14px; padding:32px 24px; text-align:center; color:#0f172a;">
+      <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-size:1.6rem; font-weight:800; margin:0 0 10px;">Explore the watchOS Design & Research Files</h3>
+      <p style="font-size:0.95rem; color:#64748b; max-width:600px; margin:0 auto 24px;">
+        Inspect the full watchOS component library, interactive Figma prototype, survey findings, and high-resolution screens.
+      </p>
+      <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+        <a href="https://www.figma.com/design/Xk8xGmsvQ16t68zaF6VtEh/Blinkit-watchos?node-id=0-1&t=EHGGxoJnJ8fiQfmX-1" target="_blank" class="ds-btn ds-btn-gold">↗ Open Figma Design File</a>
+        <a href="https://www.figma.com/board/GImQLbnu9jVSV6nMia8fjo/Blinkit-watchos-research?node-id=0-1&t=QU0xOlLFxXG1GjAD-1" target="_blank" class="ds-btn ds-btn-figma">📊 View FigJam Research Board</a>
+        <a href="Blinkit on the Wrist Case Study.docx" target="_blank" class="ds-btn ds-btn-outline">📝 Download Word Document</a>
+        <a href="index.html#work" class="ds-btn ds-btn-outline">← Back to Portfolio</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- PAGER / NEXT PROJECTS -->
+    <nav class="cs-pager" aria-label="More Case Studies">
+      <div class="cs-pager-title">Explore Other Case Studies</div>
+      <div class="cs-pager-grid">
+        
+        <a href="treebo.html" class="cs-pager-card">
+          <div>
+            <div class="cs-pager-label">Previous Case Study · 01</div>
+            <div class="cs-pager-heading">← Treebo Club: Transparent Booking</div>
+            <div class="cs-pager-desc">Eliminating checkout drop-offs with upfront pricing and spatial split-map discovery.</div>
+          </div>
+        </a>
+        <a href="borrow.html" class="cs-pager-card">
+          <div>
+            <div class="cs-pager-label">Next Case Study · 03</div>
+            <div class="cs-pager-heading">Borrow App: Neighborhood Lending →</div>
+            <div class="cs-pager-desc">Unlocking community sharing via gated society verification and bilateral trust scores.</div>
+          </div>
+        </a>
+
+      </div>
+    </nav>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="cs-footer">
+    <p>© 2026 Sunil Ohdar · Crafted with care. <a href="index.html">Return to Portfolio Overview</a> · <a href="#progress-bar">Back to Top ↑</a></p>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    window.addEventListener("scroll", () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const bar = document.getElementById("progress-bar");
+      if (bar) bar.style.width = scrolled + "%";
+    });
+  </script>
+</body>
+</html>
